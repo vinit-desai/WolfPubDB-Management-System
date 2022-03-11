@@ -97,7 +97,7 @@ public class WolfPubDB {
 		/* ------------------------------------------------------------------ */
 		String SQL =
 			"CREATE TABLE Publication ("  + "\n" + 
-			"PublicationID 	INT 		NOT NULL,"  + "\n" + 
+			"	PublicationID 	INT 		NOT NULL,"  + "\n" + 
 			"	Type 		VARCHAR(16) 	NOT NULL,"  + "\n" + 
 			"	PublishDate 	DATE 		NOT NULL,"  + "\n" + 
 			"	Topic 		VARCHAR(128) 	NOT NULL,"  + "\n" + 
@@ -111,7 +111,7 @@ public class WolfPubDB {
 		/* Book */
 		/* ------------------------------------------------------------------ */
 		SQL = 
-			"CREATE TABLE Book(" + "\n" + "\t" +
+			"CREATE TABLE Book(" + "\n" +
 			"	PublicationID 	INT 		NOT NULL," + "\n" + 
 			"	ISBN 		CHAR(10) 	NOT NULL," + "\n" + 
 			"	Title 		VARCHAR(128) 	NOT NULL," + "\n" + 
@@ -133,7 +133,7 @@ public class WolfPubDB {
 		/* Periodicity */
 		/* ------------------------------------------------------------------ */
 		SQL = 
-			"CREATE TABLE Periodicity (" + "\n" + "\t" +
+			"CREATE TABLE Periodicity (" + "\n" + 
 			"	Type 		VARCHAR(16)	NOT NULL," + "\n" +
 			"	Periodicity 	VARCHAR(16) 	NOT NULL," + "\n" +
 			"	PRIMARY KEY (Type)" + "\n" +
@@ -147,7 +147,7 @@ public class WolfPubDB {
 		/* Periodical */
 		/* ------------------------------------------------------------------ */
 		SQL = 
-			"CREATE TABLE Periodical (" + "\n" + "\t" +
+			"CREATE TABLE Periodical (" + "\n" + 
 			"	PublicationID 	INT 		NOT NULL," + "\n" +
 			"	Type 		VARCHAR(16) 	NOT NULL," + "\n" + 
 			"	Title 		VARCHAR(128) 	NOT NULL," + "\n" + 
@@ -171,7 +171,7 @@ public class WolfPubDB {
 		/* Chapter */
 		/* ------------------------------------------------------------------ */
 		SQL = 
-			"CREATE TABLE Chapter (" + "\n" + "\t" +
+			"CREATE TABLE Chapter (" + "\n" + 
 			"	PublicationID	INT 		NOT NULL," + "\n" + 
 			"	ChapterNumber 	INT 		NOT NULL," + "\n" + 
 			"	Title 		VARCHAR(128) 	NOT NULL," + "\n" + 
@@ -191,7 +191,7 @@ public class WolfPubDB {
 		/* Article */
 		/* ------------------------------------------------------------------ */
 		SQL = 
-			"CREATE TABLE Article (" + "\n" + "\t" +
+			"CREATE TABLE Article (" + "\n" +
 			"	PublicationID 	INT 		NOT NULL," + "\n" + 
 			"	SequenceNumber INT 		NOT NULL," + "\n" + 
 			"	Title 		VARCHAR(128) 	NOT NULL," + "\n" +
@@ -228,7 +228,7 @@ public class WolfPubDB {
 		/* Edits */
 		/* ------------------------------------------------------------------ */
 		SQL = 
-			"CREATE TABLE Edits (" + "\n" + "\t" +
+			"CREATE TABLE Edits (" + "\n" + 
 			"	PublicationID	INT	NOT NULL," + "\n" +
 			"	ContributorID 	INT 	NOT NULL," + "\n" + 
 			"	PRIMARY KEY (PublicationID, ContributorID)," + "\n" +
@@ -326,7 +326,7 @@ public class WolfPubDB {
 		/* Orders */
 		/* ------------------------------------------------------------------ */
 		SQL = 
-			"CREATE TABLE Orders (" + "\n" + "\t" +
+			"CREATE TABLE Orders (" + "\n" + 
 			"	OrderID 	INT 		NOT NULL," + "\n" + 
 			"	DistributorID 	INT 		NOT NULL," + "\n" + 
 			"	PublicationID 	INT 		NOT NULL," + "\n" +
@@ -679,7 +679,7 @@ public class WolfPubDB {
 			"INSERT INTO Wages VALUES "  + "\n" + "\t" +
 				"(3, 1,  'Book Authorship', '2022-01-03')," + "\n" + "\t" +
 				"(4, 7, 'Editorial Work', '2022-01-05'),"  + "\n" + "\t" +
-				"(5, 1, 'Article Authorship', '2022-01-05'),"  + "\n" +
+				"(5, 1, 'Article Authorship', '2022-01-05'),"  + "\n" + "\t" +
 				"(9, 1, 'Article Authorship', NULL)"  + "\n" +
 			";" + "\n" + "\n"
 		;

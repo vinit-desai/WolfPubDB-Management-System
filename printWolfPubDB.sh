@@ -42,7 +42,6 @@ do
 	fi
 	echo 
 	echo "${query}"
-	echo
 	mysql -u $username -p$password -h $db_url $database -e "${query}"
 	echo
 done
