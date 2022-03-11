@@ -96,11 +96,11 @@ public class WolfPubDB {
         /* Publication */
         /* ------------------------------------------------------------------ */
         String SQL =
-            "CREATE TABLE Publication ("  + "\n" +
-                "PublicationID INT NOT NULL,"  + "\n" +
-                "Type VARCHAR(32) NOT NULL,"  + "\n" +
-                "Date DATE NOT NULL,"  + "\n" +
-                "Topic VARCHAR(128) NOT NULL,"  + "\n" +
+            "CREATE TABLE Publication ("  + "\n" + "\t" +
+                "PublicationID INT NOT NULL,"  + "\n" + "\t" +
+                "Type VARCHAR(32) NOT NULL,"  + "\n" + "\t" +
+                "Date DATE NOT NULL,"  + "\n" + "\t" +
+                "Topic VARCHAR(128) NOT NULL,"  + "\n" + "\t" +
                 "PRIMARY KEY (PublicationID)"  + "\n" +
             ");" + "\n" 
         ;
@@ -111,12 +111,12 @@ public class WolfPubDB {
         /* Book */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Book(" + "\n" +
-                "PublicationID INT NOT NULL," + "\n" +
-                "ISBN CHAR(10) NOT NULL," + "\n" +
-                "Title VARCHAR(128) NOT NULL," + "\n" +
-                "Edition INT NOT NULL," + "\n" +
-                "CreationDate DATE NOT NULL," + "\n" +
+            "CREATE TABLE Book(" + "\n" + "\t" +
+                "PublicationID INT NOT NULL," + "\n" + "\t" +
+                "ISBN CHAR(10) NOT NULL," + "\n" + "\t" +
+                "Title VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "Edition INT NOT NULL," + "\n" + "\t" +
+                "CreationDate DATE NOT NULL," + "\n" + "\t" +
                 "PRIMARY KEY (PublicationID)" + "\n" +
             ");" + "\n" 
         ;
@@ -128,9 +128,9 @@ public class WolfPubDB {
         /* Periodicity */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Periodicity (" + "\n" +
-                "Type VARCHAR(32) NOT NULL," + "\n" +
-                "Periodicity VARCHAR(32) NOT NULL," + "\n" +
+            "CREATE TABLE Periodicity (" + "\n" + "\t" +
+                "Type VARCHAR(32) NOT NULL," + "\n" + "\t" +
+                "Periodicity VARCHAR(32) NOT NULL," + "\n" + "\t" +
                 "PRIMARY KEY (Type)" + "\n" +
             ");" + "\n" 
         ;
@@ -142,14 +142,14 @@ public class WolfPubDB {
         /* Periodical */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Periodical (" + "\n" +
-                "PublicationID INT NOT NULL," + "\n" +
-                "Type VARCHAR(32) NOT NULL," + "\n" +
-                "Title VARCHAR(128) NOT NULL," + "\n" +
-                "Issue INT NOT NULL," + "\n" +
-                "IssueDate DATE NOT NULL," + "\n" +
-                "PRIMARY KEY (PublicationID)," + "\n" +
-                "FOREIGN KEY (PublicationID) REFERENCES Publication (PublicationID) ON UPDATE CASCADE," + "\n" +
+            "CREATE TABLE Periodical (" + "\n" + "\t" +
+                "PublicationID INT NOT NULL," + "\n" + "\t" +
+                "Type VARCHAR(32) NOT NULL," + "\n" + "\t" +
+                "Title VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "Issue INT NOT NULL," + "\n" + "\t" +
+                "IssueDate DATE NOT NULL," + "\n" + "\t" +
+                "PRIMARY KEY (PublicationID)," + "\n" + "\t" +
+                "FOREIGN KEY (PublicationID) REFERENCES Publication (PublicationID) ON UPDATE CASCADE," + "\n" + "\t" +
                 "FOREIGN KEY (Type) REFERENCES Periodicity (Type) ON UPDATE CASCADE" + "\n" +
             ");" + "\n" 
         ;
@@ -161,11 +161,11 @@ public class WolfPubDB {
         /* Chapter */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Chapter (" + "\n" +
-                "PublicationID INT NOT NULL," + "\n" +
-                "ChapterNumber INT NOT NULL," + "\n" +
-                "Title VARCHAR(128) NOT NULL," + "\n" +
-                "PRIMARY KEY (PublicationID, ChapterNumber)," + "\n" +
+            "CREATE TABLE Chapter (" + "\n" + "\t" +
+                "PublicationID INT NOT NULL," + "\n" + "\t" +
+                "ChapterNumber INT NOT NULL," + "\n" + "\t" +
+                "Title VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "PRIMARY KEY (PublicationID, ChapterNumber)," + "\n" + "\t" +
                 "FOREIGN KEY (PublicationID) REFERENCES Publication (PublicationID) ON UPDATE CASCADE" + "\n" +
             ");" + "\n" 
         ;
@@ -177,12 +177,12 @@ public class WolfPubDB {
         /* Article */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Article (" + "\n" +
-                "PublicationID INT NOT NULL," + "\n" +
-                "SequenceNumber INT NOT NULL," + "\n" +
-                "Title VARCHAR(128) NOT NULL," + "\n" +
-                "CreationDate DATE NOT NULL," + "\n" +
-                "PRIMARY KEY (PublicationID, SequenceNumber)," + "\n" +
+            "CREATE TABLE Article (" + "\n" + "\t" +
+                "PublicationID INT NOT NULL," + "\n" + "\t" +
+                "SequenceNumber INT NOT NULL," + "\n" + "\t" +
+                "Title VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "CreationDate DATE NOT NULL," + "\n" + "\t" +
+                "PRIMARY KEY (PublicationID, SequenceNumber)," + "\n" + "\t" +
                 "FOREIGN KEY (PublicationID) REFERENCES Publication (PublicationID) ON UPDATE CASCADE" + "\n" +
             ");" + "\n" 
         ;
@@ -194,11 +194,11 @@ public class WolfPubDB {
         /* Contributor */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Contributor (" + "\n" +
-                "ContributorID INT NOT NULL," + "\n" +
-                "Name VARCHAR(128) NOT NULL," + "\n" +
-                "Position VARCHAR(128) NOT NULL," + "\n" +
-                "Type VARCHAR(128) NOT NULL," + "\n" +
+            "CREATE TABLE Contributor (" + "\n" + "\t" +
+                "ContributorID INT NOT NULL," + "\n" + "\t" +
+                "Name VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "Position VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "Type VARCHAR(128) NOT NULL," + "\n" + "\t" +
                 "PRIMARY KEY (ContributorID)" + "\n" +
             ");" + "\n" 
         ;
@@ -210,11 +210,11 @@ public class WolfPubDB {
         /* Edits */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Edits (" + "\n" +
-                "PublicationID INT NOT NULL," + "\n" +
-                "ContributorID INT NOT NULL," + "\n" +
-                "PRIMARY KEY (PublicationID, ContributorID)," + "\n" +
-                "FOREIGN KEY (PublicationID) REFERENCES Publication (PublicationID) ON UPDATE CASCADE," + "\n" +
+            "CREATE TABLE Edits (" + "\n" + "\t" +
+                "PublicationID INT NOT NULL," + "\n" + "\t" +
+                "ContributorID INT NOT NULL," + "\n" + "\t" +
+                "PRIMARY KEY (PublicationID, ContributorID)," + "\n" + "\t" +
+                "FOREIGN KEY (PublicationID) REFERENCES Publication (PublicationID) ON UPDATE CASCADE," + "\n" + "\t" +
                 "FOREIGN KEY (ContributorID) REFERENCES Contributor (ContributorID) ON UPDATE CASCADE" + "\n" +
             ");" + "\n"
         ;
@@ -225,12 +225,12 @@ public class WolfPubDB {
         /* AuthorsArticle */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE AuthorsArticle (" + "\n" +
-                "PublicationID INT NOT NULL," + "\n" +
-                "SequenceNumber INT NOT NULL," + "\n" +
-                "ContributorID INT NOT NULL," + "\n" +
-                "PRIMARY KEY (PublicationID, SequenceNumber, ContributorID)," + "\n" +
-                "FOREIGN KEY (PublicationID, SequenceNumber) REFERENCES Article (PublicationID, SequenceNumber) ON UPDATE CASCADE," + "\n" +
+            "CREATE TABLE AuthorsArticle (" + "\n" + "\t" +
+                "PublicationID INT NOT NULL," + "\n" + "\t" +
+                "SequenceNumber INT NOT NULL," + "\n" + "\t" +
+                "ContributorID INT NOT NULL," + "\n" + "\t" +
+                "PRIMARY KEY (PublicationID, SequenceNumber, ContributorID)," + "\n" + "\t" +
+                "FOREIGN KEY (PublicationID, SequenceNumber) REFERENCES Article (PublicationID, SequenceNumber) ON UPDATE CASCADE," + "\n" + "\t" +
                 "FOREIGN KEY (ContributorID) REFERENCES Contributor (ContributorID) ON UPDATE CASCADE" + "\n" +
             ");" + "\n"
         ;
@@ -241,11 +241,11 @@ public class WolfPubDB {
         /* AuthorsBook */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE AuthorsBook (" + "\n" +
-                "PublicationID INT NOT NULL," + "\n" +
-                "ContributorID INT NOT NULL," + "\n" +
-                "PRIMARY KEY (PublicationID, ContributorID)," + "\n" +
-                "FOREIGN KEY (PublicationID) REFERENCES Book (PublicationID) ON UPDATE CASCADE," + "\n" +
+            "CREATE TABLE AuthorsBook (" + "\n" + "\t" +
+                "PublicationID INT NOT NULL," + "\n" + "\t" +
+                "ContributorID INT NOT NULL," + "\n" + "\t" +
+                "PRIMARY KEY (PublicationID, ContributorID)," + "\n" + "\t" +
+                "FOREIGN KEY (PublicationID) REFERENCES Book (PublicationID) ON UPDATE CASCADE," + "\n" + "\t" +
                 "FOREIGN KEY (ContributorID) REFERENCES Contributor (ContributorID) ON UPDATE CASCADE" + "\n" +
             ");" + "\n" 
         ;
@@ -256,9 +256,9 @@ public class WolfPubDB {
         /* Address */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Address (" + "\n" +
-                "StreetAddress VARCHAR(128) NOT NULL," + "\n" +
-                "City VARCHAR(128) NOT NULL," + "\n" +
+            "CREATE TABLE Address (" + "\n" + "\t" +
+                "StreetAddress VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "City VARCHAR(128) NOT NULL," + "\n" + "\t" +
                 "PRIMARY KEY (StreetAddress)" + "\n" +
             ");" + "\n" 
         ;
@@ -269,15 +269,15 @@ public class WolfPubDB {
         /* Distributor */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Distributor (" + "\n" +
-                "DistributorID INT NOT NULL," + "\n" +
-                "Name VARCHAR(128) NOT NULL," + "\n" +
-                "Balance INT NOT NULL," + "\n" +
-                "PhoneNumber CHAR(10) NOT NULL," + "\n" +
-                "StreetAddress VARCHAR(128) NOT NULL," + "\n" +
-                "ContactPerson VARCHAR(128) NOT NULL," + "\n" +
-                "Type VARCHAR(64) NOT NULL," + "\n" +
-                "PRIMARY KEY (DistributorID)," + "\n" +
+            "CREATE TABLE Distributor (" + "\n" + "\t" +
+                "DistributorID INT NOT NULL," + "\n" + "\t" +
+                "Name VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "Balance INT NOT NULL," + "\n" + "\t" +
+                "PhoneNumber CHAR(10) NOT NULL," + "\n" + "\t" +
+                "StreetAddress VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "ContactPerson VARCHAR(128) NOT NULL," + "\n" + "\t" +
+                "Type VARCHAR(64) NOT NULL," + "\n" + "\t" +
+                "PRIMARY KEY (DistributorID)," + "\n" + "\t" +
                 "FOREIGN KEY (StreetAddress) REFERENCES Address (StreetAddress) ON UPDATE CASCADE" + "\n" +
             ");" + "\n" 
         ;
@@ -288,17 +288,17 @@ public class WolfPubDB {
         /* Orders */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Orders (" + "\n" +
-                "OrderID INT NOT NULL," + "\n" +
-                "DistributorID INT NOT NULL," + "\n" +
-                "PublicationID INT NOT NULL," + "\n" +
-                "Units INT NOT NULL," + "\n" +
-                "PricePerUnit INT NOT NULL," + "\n" +
-                "OrderDate DATE NOT NULL," + "\n" +
-                "ShippingCost INT NOT NULL," + "\n" +
-                "Status VARCHAR(64) NOT NULL," + "\n" +
-                "PRIMARY KEY (OrderID)," + "\n" +
-                "FOREIGN KEY (DistributorID) REFERENCES Distributor (DistributorID) ON UPDATE CASCADE," + "\n" +
+            "CREATE TABLE Orders (" + "\n" + "\t" +
+                "OrderID INT NOT NULL," + "\n" + "\t" +
+                "DistributorID INT NOT NULL," + "\n" + "\t" +
+                "PublicationID INT NOT NULL," + "\n" + "\t" +
+                "Units INT NOT NULL," + "\n" + "\t" +
+                "PricePerUnit INT NOT NULL," + "\n" + "\t" +
+                "OrderDate DATE NOT NULL," + "\n" + "\t" +
+                "ShippingCost INT NOT NULL," + "\n" + "\t" +
+                "Status VARCHAR(64) NOT NULL," + "\n" + "\t" +
+                "PRIMARY KEY (OrderID)," + "\n" + "\t" +
+                "FOREIGN KEY (DistributorID) REFERENCES Distributor (DistributorID) ON UPDATE CASCADE," + "\n" + "\t" +
                 "FOREIGN KEY (PublicationID) REFERENCES Publication (PublicationID) ON UPDATE CASCADE" + "\n" +
             ");" + "\n" 
         ;
@@ -310,10 +310,10 @@ public class WolfPubDB {
         /* Transaction */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Transaction (" + "\n" + 
-                "TransactionID INT NOT NULL," + "\n" +
-                "Amount INT NOT NULL," + "\n" +
-                "IssueDate DATE NOT NULL," + "\n" +
+            "CREATE TABLE Transaction (" + "\n" +  "\t" +
+                "TransactionID INT NOT NULL," + "\n" + "\t" +
+                "Amount INT NOT NULL," + "\n" + "\t" +
+                "IssueDate DATE NOT NULL," + "\n" + "\t" +
                 "PRIMARY KEY (TransactionID)" + "\n" +
             ");" + "\n" 
         ;
@@ -324,13 +324,13 @@ public class WolfPubDB {
         /* Bills */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Bills (" + "\n" +
-                "TransactionID INT NOT NULL," + "\n" +
-                "DistributorID INT NOT NULL," + "\n" +
-                "Paid VARCHAR(32) NOT NULL," + "\n" +
-                "PaymentDate DATE," + "\n" +
-                "PRIMARY KEY (TransactionID)," + "\n" +
-                "FOREIGN KEY (TransactionID) REFERENCES Transaction (TransactionID) ON UPDATE CASCADE," + "\n" +
+            "CREATE TABLE Bills (" + "\n" + "\t" +
+                "TransactionID INT NOT NULL," + "\n" + "\t" +
+                "DistributorID INT NOT NULL," + "\n" + "\t" +
+                "Paid VARCHAR(32) NOT NULL," + "\n" + "\t" +
+                "PaymentDate DATE," + "\n" + "\t" +
+                "PRIMARY KEY (TransactionID)," + "\n" + "\t" +
+                "FOREIGN KEY (TransactionID) REFERENCES Transaction (TransactionID) ON UPDATE CASCADE," + "\n" + "\t" +
                 "FOREIGN KEY (DistributorID ) REFERENCES Distributor (DistributorID ) ON UPDATE CASCADE" + "\n" +
             ");" + "\n" 
         ;
@@ -341,13 +341,13 @@ public class WolfPubDB {
         /* Wages */
         /* ------------------------------------------------------------------ */
         SQL = 
-            "CREATE TABLE Wages (" + "\n" +
-                "TransactionID INT NOT NULL," + "\n" +
-                "ContributorID INT NOT NULL," + "\n" +
-                "Type VARCHAR(32) NOT NULL," + "\n" +
-                "ClaimDate DATE," + "\n" +
-                "PRIMARY KEY (TransactionID)," + "\n" +
-                "FOREIGN KEY (TransactionID) REFERENCES Transaction (TransactionID) ON UPDATE CASCADE," + "\n" +
+            "CREATE TABLE Wages (" + "\n" + "\t" +
+                "TransactionID INT NOT NULL," + "\n" + "\t" +
+                "ContributorID INT NOT NULL," + "\n" + "\t" +
+                "Type VARCHAR(32) NOT NULL," + "\n" + "\t" +
+                "ClaimDate DATE," + "\n" + "\t" +
+                "PRIMARY KEY (TransactionID)," + "\n" + "\t" +
+                "FOREIGN KEY (TransactionID) REFERENCES Transaction (TransactionID) ON UPDATE CASCADE," + "\n" + "\t" +
                 "FOREIGN KEY (ContributorID) REFERENCES Contributor (ContributorID) ON UPDATE CASCADE" + "\n" +
             ");" + "\n"
         ;
@@ -689,6 +689,19 @@ public class WolfPubDB {
 // INSERT INTO Wages VALUES (4, 2, 'Salary', NULL);
 
         /* ------------------------------------------------------------------ */
+
+    }
+    
+
+/* ################################################################################################################################################################# */
+    /* ********************************************************************** */
+    /* **************************** Print Tables **************************** */
+    /* ********************************************************************** */
+/* ################################################################################################################################################################# */
+
+
+
+    private static void printTables() {
 
     }
 
