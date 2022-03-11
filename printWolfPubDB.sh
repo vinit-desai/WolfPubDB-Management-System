@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # database credentials
-username="mgyoung"
-password="200009434"
+username="vdesai5"
+password="200368285"
 db_url="classdb2.csc.ncsu.edu"
-database="mgyoung"
+database="vdesai5"
 
 # declare an array of table names
 declare -a tables=(

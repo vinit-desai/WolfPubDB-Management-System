@@ -10,7 +10,7 @@
 import java.sql.*;
 
 public class WolfPubDB {
-	static final String jdbcURL = "jdbc:mariadb://classdb2.csc.ncsu.edu:3306/mgyoung";
+	static final String jdbcURL = "jdbc:mariadb://classdb2.csc.ncsu.edu:3306/vdesai5";
 	// Put your oracle ID and password here
 
 	private static Connection connection = null;
@@ -66,8 +66,8 @@ public class WolfPubDB {
 	private static void connectToDatabase() throws ClassNotFoundException, SQLException {
 		Class.forName("org.mariadb.jdbc.Driver");
 
-		String user = "mgyoung";
-		String password = "200009434";
+		String user = "vdesai5";
+		String password = "200368285";
 
 		connection = DriverManager.getConnection(jdbcURL, user, password);
 		statement = connection.createStatement();
@@ -649,11 +649,13 @@ public class WolfPubDB {
 				"(5, 600.00, '2022-03-09'),"  + "\n" + "\t" +
 				"(6, 3200.00, '2022-03-03'),"  + "\n" +"\t" +
 				"(7, 300.00, '2022-03-05'),"  + "\n" +"\t" +
-				"(8, 1300.00, '2022-03-06')"  + "\n" +
+				"(8, 1300.00, '2022-03-06'),"  + "\n" +"\t" +
+				"(9, 300.00, '2022-03-10')"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
 		statement.executeUpdate(SQL);
+
 		/* ------------------------------------------------------------------ */
 
 		/* Bills */
@@ -677,7 +679,8 @@ public class WolfPubDB {
 			"INSERT INTO Wages VALUES "  + "\n" + "\t" +
 				"(3, 1,  'Book Authorship', '2022-01-03')," + "\n" + "\t" +
 				"(4, 7, 'Editorial Work', '2022-01-05'),"  + "\n" + "\t" +
-				"(5, 1, 'Article Authorship', NULL)"  + "\n" +
+				"(5, 1, 'Article Authorship', '2022-01-05'),"  + "\n" +
+				"(9, 1, 'Article Authorship', NULL)"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
