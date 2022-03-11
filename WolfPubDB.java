@@ -308,7 +308,7 @@ public class WolfPubDB {
 			"CREATE TABLE Distributor (" + "\n" + 
 			"	DistributorID	INT 		NOT NULL," + "\n" + 
 			"	Name 		VARCHAR(128) 	NOT NULL," + "\n" +
-			"	Balance 	INT 		NOT NULL," + "\n" +
+			"	Balance 	DECIMAL(14,2)	NOT NULL," + "\n" +
 			"	PhoneNumber 	CHAR(10) 	NOT NULL," + "\n" + 
 			"	StreetAddress 	VARCHAR(128) 	NOT NULL," + "\n" + 
 			"	ContactPerson 	VARCHAR(128) 	NOT NULL," + "\n" + 
@@ -596,7 +596,9 @@ public class WolfPubDB {
 		SQL = 
 			"INSERT INTO Address VALUES "  + "\n" + "\t" +
 				"('1615 S Wilmington St', 'Raleigh')," + "\n" + "\t" +
-				"('230 East Cameron Ave', 'Chapel Hill')"  + "\n" +
+				"('230 East Cameron Ave', 'Chapel Hill'),"  + "\n" + "\t" +
+				"( '3000 Cowboy Street', 'Greensboro')," + "\n" + "\t" +
+				"('250 West Main Street', 'Apex')" + "\n" + 
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -607,8 +609,10 @@ public class WolfPubDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Distributor VALUES "  + "\n" + "\t" +
-				"(1, 'Whole Order', 0, '5647891452', '1615 S Wilmington St', 'Mark Austin', 'Wholesale Distributor')," + "\n" + "\t" +
-				"(2, 'Davis Library', 0, '7645801443', '230 East Cameron Ave', 'Christina Higgins', 'Library')"  + "\n" +
+				"(1, 'Whole Order', 243.56, '5647891452', '1615 S Wilmington St', 'Mark Austin', 'Wholesale Distributor')," + "\n" + "\t" +
+				"(2, 'Davis Library', 2542.43, '7645801443', '230 East Cameron Ave', 'Christina Higgins', 'Library'),"  + "\n" + "\t" +
+				"(3, 'Bobs Used Books', 126.98, '2537891452', '3000 Cowboy Street', 'Bob Bobertson', 'Book Store')," + "\n" + "\t" +
+				"(4, 'Barnes & Noble of Apex', 48987.05, '7645864443', '250 West Main Street', 'Jerry Seinfeld', 'Book Store')" + "\n" + 
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -622,7 +626,11 @@ public class WolfPubDB {
 				"(1, 1, 1, 30, 15.95, '2022-03-21', 20.35, 'Order Received')," + "\n" + "\t" +
 				"(2, 2, 3, 20, 10.99, '2022-03-09', 15.99, 'Delivered')," + "\n" + "\t" +
 				"(3, 2, 5, 15, 20.98, '2022-03-15', 12.47, 'Shipped')," + "\n" + "\t" +
-				"(4, 1, 7, 25, 30.49, '2022-03-29', 18.89, 'Order Received')"  + "\n" +
+				"(4, 1, 7, 25, 30.49, '2022-03-29', 18.89, 'Order Received'),"  + "\n" + "\t" +
+				"(5, 3, 1, 15, 15.95, '2022-03-15', 12.47, 'Delivered')," + "\n" + "\t" +
+				"(6, 4, 5, 10, 20.98, '2022-03-29', 11.99, 'Delivered')," + "\n" + "\t" +
+				"(7, 3, 3, 15, 21.99, '2022-03-15', 8.47, 'Order Received')," + "\n" + "\t" +
+				"(8, 4, 5, 5, 22.98, '2022-03-29', 5.95,'Shipped')" + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -638,7 +646,10 @@ public class WolfPubDB {
 				"(2, 200.00, '2020-03-09')," + "\n" + "\t" +
 				"(3, 2500.00, '2022-01-01')," + "\n" + "\t" +
 				"(4, 3000.00, '2022-01-01'),"  + "\n" +"\t" +
-				"(5, 600.00, '2022-03-09')"  + "\n" +
+				"(5, 600.00, '2022-03-09'),"  + "\n" + "\t" +
+				"(6, 3200.00, '2022-03-03'),"  + "\n" +"\t" +
+				"(7, 300.00, '2022-03-05'),"  + "\n" +"\t" +
+				"(8, 1300.00, '2022-03-06')"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -649,8 +660,11 @@ public class WolfPubDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Bills VALUES "  + "\n" + "\t" +
-				"(1, 1, False, NULL)," + "\n" + "\t" +
-				"(2, 1, False, NULL)"  + "\n" +
+				"(1, 1, True, '2020-03-28')," + "\n" + "\t" +
+				"(2, 1, True,  '2020-03-16'),"  + "\n" +"\t" +
+				"(6, 4, True,  '2022-03-05')," + "\n" + "\t" +
+				"(7, 3, False, NULL)," + "\n" + "\t" +
+				"(8, 4, True,  '2022-03-10')" + "\n" + 
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
