@@ -9,7 +9,7 @@
 
 import java.sql.*;
 
-public class initDB {
+public class InitDB {
 	static final String jdbcURL = "jdbc:mariadb://classdb2.csc.ncsu.edu:3306/vdesai5";
 	// Put your oracle ID and password here
 
