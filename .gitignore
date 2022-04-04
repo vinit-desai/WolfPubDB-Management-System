@@ -1,2 +1,5 @@
 # all java class files
 *.class
+
+# bin directory for java files
+bin/
