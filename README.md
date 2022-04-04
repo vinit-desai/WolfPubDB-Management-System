@@ -17,11 +17,11 @@ place the binaries into the "WolfPubDB/bin/" directory.
 ## Populate Database
 
 After compiling all the java source code, as described above, the WolfPubDB can
-be initialized with test data by running the "initDB" executable in the bin
-folder. Below is an example of this command:
+be initialized with test data by running the "initDB" executable from the bin
+directory. Below is an example of this command:
 
 ```bash
-java ./WolfPubDB/bin/initDB
+cd ./WolfPubDB/bin ; java ./WolfPubDB/bin/initDB
 ```
 
 Note that this command will remove any pre-existing WolfPubDB database and all
