@@ -21,7 +21,7 @@ be initialized with test data by running the "initDB" executable from the bin
 directory. Below is an example of this command:
 
 ```bash
-cd ./WolfPubDB/bin ; java ./WolfPubDB/bin/initDB
+cd ./WolfPubDB/bin ; java ./WolfPubDB/bin/InitDB
 ```
 
 Note that this command will remove any pre-existing WolfPubDB database and all
