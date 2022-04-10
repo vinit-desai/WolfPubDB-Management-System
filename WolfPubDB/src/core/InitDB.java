@@ -412,7 +412,10 @@ public class InitDB {
 				"(7, 'Periodical', '2021-10-01', 'Music'),"  + "\n" + "\t" +
 				"(8, 'Periodical', '2021-11-01', 'Sports'),"  + "\n" + "\t" +
 				"(9, 'Periodical', '2021-12-15', 'History'),"  + "\n" + "\t" +
-				"(10, 'Book', '2021-04-02', 'Self Help')"  + "\n" +
+				"(10, 'Book', '2021-04-02', 'Self Help'),"  + "\n" + "\t" +
+				"(1001, 'Book', '2018-10-10', 'Technology'),"  + "\n" + "\t" +
+				"(1002, 'Periodical', '2020-02-24', 'Health'),"  + "\n" + "\t" +
+				"(1003, 'Periodical', '2020-03-01', 'Science')"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -426,7 +429,8 @@ public class InitDB {
 				"(4, '0000000001', 'Harry Potter', 1, '1998-03-02')," + "\n" + "\t" +
 				"(1, '0000000002', 'What Made Maddy Run', 1, '2000-12-10'),"  + "\n" + "\t" +
 				"(5, '0000000003', 'Churchill: A life', 2, '2012-08-05'),"  + "\n" + "\t" +
-				"(10, '0000000004', 'Atomic Habits', 1, '2006-06-09')"  + "\n" +
+				"(10, '0000000004', 'Atomic Habits', 1, '2006-06-09'),"  + "\n" + "\t" +
+				"(1001, '0000012345', 'Introduction to Database', 2, '2017-03-17')"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -455,7 +459,9 @@ public class InitDB {
 				"(6,  'Journal', 'ESPN', 1, '2022-01-14')," + "\n" + "\t" +
 				"(7,  'Magazine', 'Revolver', 2, '2021-09-01')," + "\n" + "\t" +
 				"(8,  'Magazine', 'Hoop', 1, '2021-10-01')," + "\n" + "\t" +
-				"(9,  'Journal', 'Ancient', 3, '2021-12-21')"  + "\n" +
+				"(9,  'Journal', 'Ancient', 3, '2021-12-21'),"  + "\n" + "\t" +
+				"(1002,  'Magazine', 'Healthy Diet', 1, '2020-02-24'),"  + "\n" + "\t" +
+				"(1003,  'Journal', 'Animal Science', 5, '2020-03-01')"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -467,14 +473,18 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Chapter VALUES "  + "\n" + "\t" +
-				"(4,  1, 'The Boy Who Lived','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.')," + "\n" + "\t" +
-				"(4,  2, 'The Vanishing Glass','It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')," + "\n" + "\t" +
-				"(4,  3, 'The Letters From No One','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.')," + "\n" + "\t" +
-				"(4,  4, 'The Keeper Of Keys', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')," + "\n" + "\t" +
-				"(1,  1, 'Vacuum', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.')," + "\n" + "\t" +
-				"(1,  2, 'Run Maddy Run', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')," + "\n" + "\t" +
-				"(5,  1, 'England', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.')," + "\n" + "\t" +
-				"(10,  1, 'Focus', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')"  + "\n" +
+				"(4,  1, 'The Boy Who Lived','Lorem Ipsum is simply dummy text...')," + "\n" + "\t" +
+				"(4,  2, 'The Vanishing Glass','It was popularised in the 1960s...')," + "\n" + "\t" +
+				"(4,  3, 'The Letters From No One','Lorem Ipsum is simply dummy text of the printing...')," + "\n" + "\t" +
+				"(4,  4, 'The Keeper Of Keys', 'It was popularised in the 1960s with the release of Letraset...')," + "\n" + "\t" +
+				"(1,  1, 'Vacuum', 'Lorem Ipsum is simply dummy text of the...')," + "\n" + "\t" +
+				"(1,  2, 'Run Maddy Run', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum...')," + "\n" + "\t" +
+				"(5,  1, 'England', 'Lorem Ipsum is simply dummy text of...')," + "\n" + "\t" +
+				"(10,  1, 'Focus', 'It was popularised in the 1960s with the release of...'),"  + "\n" + "\t" +
+				"(1001,  1, 'Why Data?', 'Since the dawn of time, man has strived to store his data, whether it be on cave walls, papyrus sheets, or bits on a magnetic strip...'),"  + "\n" + "\t" +
+				"(1001,  2, 'Relational Schemas', 'Tables, tables, tables.... Did I mention tables? That's how we store data in a relational DB...'),"  + "\n" + "\t" +
+				"(1001,  3, 'SQL Basics', 'SQL is the language of databases. Though limited in its functionality, these limitations allow for efficiency during execution...'),"  + "\n" + "\t" +
+				"(1001,  4, 'Transactions', 'Transactions allows mutliple queries and updates to run simultaneously on a DB while ensuring that the data always stays in a consistent state...')"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -486,14 +496,16 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Article VALUES "  + "\n" + "\t" +
-				"(2,  1, 'Nuclear Bomb', '2020-11-11', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.')," + "\n" + "\t" +
-				"(2,  2, 'Magnetism', '2020-11-15', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')," + "\n" + "\t" +
-				"(3,  1, 'Gossip Column', '2018-10-17', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.')," + "\n" + "\t" +
-				"(6,  1, 'Manchester Derby', '2021-12-28', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')," + "\n" + "\t" +
-				"(7,  1, 'Top 10 Country Songs', '2021-08-24', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.')," + "\n" + "\t" +
-				"(8,  1, 'The Last Dance', '2021-09-25', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')," + "\n" + "\t" +
-				"(9,  1, 'Pyramids Of Giza', '2021-12-12', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.')," + "\n" + "\t" +
-				"(9,  2, 'The 8th Wonder', '2021-12-19', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')"  + "\n" +
+				"(2,  1, 'Nuclear Bomb', '2020-11-11', 'Lorem Ipsum is simply dummy text...')," + "\n" + "\t" +
+				"(2,  2, 'Magnetism', '2020-11-15', 'It was popularised in the 1960s with the release of Letraset...')," + "\n" + "\t" +
+				"(3,  1, 'Gossip Column', '2018-10-17', 'Lorem Ipsum is simply dummy text of the printing...')," + "\n" + "\t" +
+				"(6,  1, 'Manchester Derby', '2021-12-28', 'It was popularised in the 1960s with the release of Letraset sheets...')," + "\n" + "\t" +
+				"(7,  1, 'Top 10 Country Songs', '2021-08-24', 'Lorem Ipsum is simply dummy tex...')," + "\n" + "\t" +
+				"(8,  1, 'The Last Dance', '2021-09-25', 'It was popularised in the 1960s...')," + "\n" + "\t" +
+				"(9,  1, 'Pyramids Of Giza', '2021-12-12', 'Lorem Ipsum is simply dummy text of the printing...')," + "\n" + "\t" +
+				"(9,  2, 'The 8th Wonder', '2021-12-19', 'It was popularised in the 1960s with the release of...'),"  + "\n" + "\t" +
+				"(1002,  1, 'Eat More Chicken', '2020-02-24', 'ABC'),"  + "\n" + "\t" +
+				"(1003,  1, 'Why Cats are Evil', '2020-03-01', 'AAA')"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -514,7 +526,10 @@ public class InitDB {
 				"(7,  'Anna Wintour', 'Editor', 'Staff')," + "\n" + "\t" +
 				"(8,  'Dasha Gold', 'Editor', 'Invited')," + "\n" + "\t" +
 				"(9,  'Emmanuelle', 'Editor', 'Staff')," + "\n" + "\t" +
-				"(10,  'Carine Roitfeld', 'Editor', 'Invited')"  + "\n" +
+				"(10,  'Carine Roitfeld', 'Editor', 'Invited'),"  + "\n" + "\t" +
+				"(3001,  'John', 'Editor', 'Staff'),"  + "\n" + "\t" +
+				"(3002,  'Ethen', 'Editor', 'Staff'),"  + "\n" + "\t" +
+				"(3003,  'Cathy', 'Author', 'Invited')"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -529,7 +544,9 @@ public class InitDB {
 				"(1, 7)," + "\n" + "\t" +
 				"(2, 8)," + "\n" + "\t" +
 				"(3, 9)," + "\n" + "\t" +
-				"(4, 10)"  + "\n" +
+				"(4, 10),"  + "\n" + "\t" +
+				"(1001, 3001),"  + "\n" + "\t" +
+				"(1002, 3002)"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -548,7 +565,9 @@ public class InitDB {
 				"(7, 1, 1)," + "\n" + "\t" +
 				"(8, 1, 5)," + "\n" + "\t" +
 				"(9, 1, 6)," + "\n" + "\t" +
-				"(9, 2, 6)"  + "\n" +
+				"(9, 2, 6),"  + "\n" + "\t" +
+				"(1002, 1, 3003),"  + "\n" + "\t" +
+				"(1003, 1, 3003)"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -563,7 +582,8 @@ public class InitDB {
 				"(1, 2)," + "\n" + "\t" +
 				"(4, 1)," + "\n" + "\t" +
 				"(5, 3)," + "\n" + "\t" +
-				"(10, 4)"  + "\n" +
+				"(10, 4),"  + "\n" + "\t" +
+				"(1001, 3003)"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -578,7 +598,9 @@ public class InitDB {
 				"('1615 S Wilmington St', 'Raleigh')," + "\n" + "\t" +
 				"('230 East Cameron Ave', 'Chapel Hill'),"  + "\n" + "\t" +
 				"( '3000 Cowboy Street', 'Greensboro')," + "\n" + "\t" +
-				"('250 West Main Street', 'Apex')" + "\n" + 
+				"('250 West Main Street', 'Apex')," + "\n" + "\t" +
+				"('2200, A Street, NC', 'Charlotte')," + "\n" + "\t" +
+				"('2200, B Street, NC', 'Raleigh')" + "\n" + "\t" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -592,7 +614,9 @@ public class InitDB {
 				"(1, 'Whole Order', 243.56, '5647891452', '1615 S Wilmington St', 'Mark Austin', 'Wholesale Distributor')," + "\n" + "\t" +
 				"(2, 'Davis Library', 2542.43, '7645801443', '230 East Cameron Ave', 'Christina Higgins', 'Library'),"  + "\n" + "\t" +
 				"(3, 'Bobs Used Books', 126.98, '2537891452', '3000 Cowboy Street', 'Bob Bobertson', 'Book Store')," + "\n" + "\t" +
-				"(4, 'Barnes & Noble of Apex', 48987.05, '7645864443', '250 West Main Street', 'Jerry Seinfeld', 'Book Store')" + "\n" + 
+				"(4, 'Barnes & Noble of Apex', 48987.05, '7645864443', '250 West Main Street', 'Jerry Seinfeld', 'Book Store')," + "\n" + "\t" +
+				"(2001, 'BookSell', 215.00, '9191234567', '2200, A Street, NC', 'Jason', 'Book Store')," + "\n" + "\t" +
+				"(2002, 'BookDist', 0.00, '9291234568', '2200, B Street, NC', 'Alex', 'Wholesale Distributor')" + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -610,7 +634,10 @@ public class InitDB {
 				"(5, 3, 1, 15, 15.95, '2022-03-15', 12.47, 'Delivered')," + "\n" + "\t" +
 				"(6, 4, 5, 10, 20.98, '2022-03-29', 11.99, 'Delivered')," + "\n" + "\t" +
 				"(7, 3, 3, 15, 21.99, '2022-03-15', 8.47, 'Order Received')," + "\n" + "\t" +
-				"(8, 4, 5, 5, 22.98, '2022-03-29', 5.95,'Shipped')" + "\n" +
+				"(8, 4, 5, 5, 22.98, '2022-03-29', 5.95,'Shipped')," + "\n" + "\t" +
+				"(4001, 2001, 1001, 30, 20.00, '2020-01-02', 30.00, 'Delivered')," + "\n" + "\t" +
+				"(4002, 2001, 1001, 10, 20.00, '2020-02-05', 15.00, 'Delivered')," + "\n" + "\t" +
+				"(4003, 2002, 1003, 10, 10.00, '2020-02-10', 15.00, 'Delivered')" + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -630,7 +657,10 @@ public class InitDB {
 				"(6, 3200.00, '2022-03-03'),"  + "\n" +"\t" +
 				"(7, 300.00, '2022-03-05'),"  + "\n" +"\t" +
 				"(8, 1300.00, '2022-03-06'),"  + "\n" +"\t" +
-				"(9, 300.00, '2022-03-10')"  + "\n" +
+				"(9, 300.00, '2022-03-10'),"  + "\n" + "\t" +
+				"(10, 630.00, '2020-01-02'),"  + "\n" + "\t" +
+				"(11, 215.00, '2020-02-05'),"  + "\n" + "\t" +
+				"(12, 115.00, '2020-02-10')"  + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
@@ -646,7 +676,10 @@ public class InitDB {
 				"(2, 1, True,  '2020-03-16'),"  + "\n" +"\t" +
 				"(6, 4, True,  '2022-03-05')," + "\n" + "\t" +
 				"(7, 3, False, NULL)," + "\n" + "\t" +
-				"(8, 4, True,  '2022-03-10')" + "\n" + 
+				"(8, 4, True,  '2022-03-10')," + "\n" + "\t" +
+				"(10, 2001, True,  '2020-01-15')," + "\n" + "\t" +
+				"(11, 2001, False,  NULL)," + "\n" + "\t" +
+				"(12, 2002, True,  '2020-02-25')" + "\n" +
 			";" + "\n" + "\n"
 		;
 		System.out.println(SQL);
