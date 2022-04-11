@@ -1,3 +1,6 @@
+/**
+ * Class used for executing the LocationRevenueReport API operation.
+ */
 public class LocationRevenueReport {
 
 	public static ExecResult execute() {

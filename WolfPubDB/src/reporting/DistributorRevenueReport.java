@@ -1,3 +1,6 @@
+/**
+ * Class used for executing the DistributorRevenueReport API operation.
+ */
 public class DistributorRevenueReport {
 
 	public static ExecResult execute() {

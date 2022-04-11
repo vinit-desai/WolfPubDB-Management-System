@@ -1,3 +1,6 @@
+/**
+ * Class used for executing the CityRevenueReport API operation.
+ */
 public class CityRevenueReport {
 
 	public static ExecResult execute() {

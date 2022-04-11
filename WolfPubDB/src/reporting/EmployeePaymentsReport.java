@@ -1,3 +1,6 @@
+/**
+ * Class used for executing the EmployeePaymentsReport API operation.
+ */
 public class EmployeePaymentsReport {
 
 	public static ExecResult execute(String startDate, String endDate) {

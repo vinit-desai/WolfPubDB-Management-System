@@ -1,18 +1,19 @@
 /**
- * This script builds constructs the WolfPubDB for our project. Note that it
+ * This script constructs the WolfPubDB for our project. Note that it
  * drops the existing database and its tables should it exist already. I.e.,
  * this script will remove the existing DB and rebuild it from scratch.
  *
- * - IMPORTANT NOTE - Relpace all $USER$ with your unity id and $PASSWORD$ 
- *	with your 9 digit student id or updated password (if changed).
+ * The database is contructed using the following 3 steps in order:
+ *	1) Drop all existing tables
+ *	2) Create tables using schema definitions (with types, constrains, keys, etc.)
+ *	3) Insert example data into tables (including DEMO data)
  */
 
 import java.sql.*;
 
-// import WolfPubDB;
-
 public class InitDB {
 
+	/* All the table/schema names included in our WolfPubDB implementation */
 	private static String[] tables = {
 		"Wages",
 		"Bills",
@@ -32,6 +33,11 @@ public class InitDB {
 		"Publication",
 	};
 
+
+	/**
+	 * Main - entry point that drops the existing tables, defines the new ones,
+	 * and populates them with the demo data.
+	 */
 	public static void main(String[] args) {
 		dropTables();
 		createTables();
@@ -47,7 +53,9 @@ public class InitDB {
 /* ################################################################################################################################################################# */
 
 
-
+	/**
+	 * Function used to drop all the tables associated with the databse listed above.
+	 */
 	private static void dropTables() {
 		for (String table : tables) 
 		{   
@@ -66,7 +74,12 @@ public class InitDB {
 /* ################################################################################################################################################################# */
 
 	
-
+	/**
+	 * Function that runs the sequence of SQL statements that define the shemas
+	 * for all the tables in our WolfPubDB implementation. This includes all
+	 * the key assignments and constraint checks associated with these tables
+	 * and their fields.
+	 */
 	private static void createTables() {
 
 		String SQL;
@@ -418,6 +431,11 @@ public class InitDB {
 /* ################################################################################################################################################################# */
 
 
+	/**
+	 * Function that runs a sequence of SQL statements which populate our newly
+	 * created databse schemas with demo data. Note that it is set up to leave
+	 * the database in a consistent state (else it would fail).
+	 */
 	private static void populateTables() {
 
 		String SQL;

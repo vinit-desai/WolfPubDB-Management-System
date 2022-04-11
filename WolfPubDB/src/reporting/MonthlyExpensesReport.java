@@ -1,3 +1,6 @@
+/**
+ * Class used for executing the MonthlyExpensesReport API operation.
+ */
 public class MonthlyExpensesReport {
 
 	public static ExecResult execute() {

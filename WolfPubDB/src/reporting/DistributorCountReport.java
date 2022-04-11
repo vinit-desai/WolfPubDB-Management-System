@@ -1,3 +1,6 @@
+/**
+ * Class used for executing the DistributorCountReport API operation.
+ */
 public class DistributorCountReport {
 
 	public static ExecResult execute() {
