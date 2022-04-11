@@ -1,6 +1,6 @@
 public class MonthlyExpensesReport {
 
-	public static void execute() {
+	public static ExecResult execute() {
 		String sql = 
 			"SELECT  Year, Month," + "\n" +
 			"		SUM(TotalWages) AS TotalWages, " + "\n" +
@@ -22,14 +22,21 @@ public class MonthlyExpensesReport {
 			"GROUP BY 1,2" + "\n" +
 			"ORDER BY 1,2;" + "\n"
 		;
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {
 		System.out.println("\n");
 		System.out.println("Unit Test for MonthlyExpensesReport");
 		System.out.println("===================================");
-		execute();
+		ExecResult execResults = execute();
+		if (execResults.success) {
+			System.out.println("MonthlyExpensesReport: Success");
+		} else {
+			System.out.println("MonthlyExpensesReport: Failure");
+			System.out.println("\tError: " + execResults.errorMessage);
+		}
+		System.out.println("\n");
 	}
 
 }

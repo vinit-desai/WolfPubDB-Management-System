@@ -33,13 +33,16 @@ article_query="SELECT PublicationID, SequenceNumber, Title, CreationDate, CONCAT
 ## now loop through the above array
 for table in "${tables[@]}"
 do
-	if [ "$table" = "Chapter" ]; then
-		query="$chapter_query"
-	elif [ "$table" = "Article" ]; then
-		query="$article_query"
-	else
-		query="SELECT * FROM ${table};"
-	fi
+	# if [ "$table" = "Chapter" ]; then
+	# 	query="$chapter_query"
+	# elif [ "$table" = "Article" ]; then
+	# 	query="$article_query"
+	# else
+	# 	query="SELECT * FROM ${table};"
+	# fi
+
+	query="SELECT * FROM ${table};"
+
 	echo 
 	echo "${query}"
 	mysql -u $username -p$password -h $db_url $database -e "${query}"

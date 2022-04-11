@@ -52,7 +52,7 @@ public class InitDB {
 		for (String table : tables) 
 		{   
 			String sql = "DROP TABLE IF EXISTS " + table + ";";
-			System.out.println(sql);
+			// System.out.println(sql);
 			WolfPubDB.executeUpdate(sql);
 		}
 	}
@@ -75,14 +75,15 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL =
 			"CREATE TABLE Publication ("  + "\n" + 
-			"	PublicationID 	INT 		NOT NULL,"  + "\n" + 
-			"	Type 		VARCHAR(16) 	NOT NULL,"  + "\n" + 
-			"	PublishDate 	DATE 		NOT NULL,"  + "\n" + 
-			"	Topic 		VARCHAR(128) 	NOT NULL,"  + "\n" + 
+			"	PublicationID 	INT UNSIGNED	NOT NULL,"  + "\n" + 
+			"	Type 			VARCHAR(16) 	NOT NULL"  + "\n" + 
+			"		CHECK (Type IN('Book','Periodical')),"  + "\n" + 
+			"	PublishDate 	DATE 			NOT NULL,"  + "\n" + 
+			"	Topic 			VARCHAR(128) 	NOT NULL,"  + "\n" + 
 			"	PRIMARY KEY (PublicationID)"  + "\n" +
 			");" + "\n"  + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 		
@@ -90,10 +91,10 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Book(" + "\n" +
-			"	PublicationID 	INT 			NOT NULL," + "\n" + 
+			"	PublicationID 	INT UNSIGNED	NOT NULL," + "\n" + 
 			"	ISBN 			CHAR(10) 		NOT NULL," + "\n" + 
 			"	Title 			VARCHAR(128) 	NOT NULL," + "\n" + 
-			"	Edition 		INT 			NOT NULL," + "\n" + 
+			"	Edition 		INT UNSIGNED	NOT NULL," + "\n" + 
 			"	CreationDate 	DATE 			NOT NULL," + "\n" + 
 			"	UNIQUE(ISBN)," 	+ "\n" + 
 			"	PRIMARY KEY (PublicationID)," + "\n" + 
@@ -103,7 +104,7 @@ public class InitDB {
 			"		ON UPDATE CASCADE" + "\n" +
 			");" + "\n" + "\n" 
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -117,7 +118,7 @@ public class InitDB {
 			"	PRIMARY KEY (Type)" + "\n" +
 			");" + "\n" + "\n" 
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -126,10 +127,10 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Periodical (" + "\n" + 
-			"	PublicationID 	INT 			NOT NULL," + "\n" +
+			"	PublicationID 	INT UNSIGNED	NOT NULL," + "\n" +
 			"	Type 			VARCHAR(16) 	NOT NULL," + "\n" + 
 			"	Title 			VARCHAR(128) 	NOT NULL," + "\n" + 
-			"	Issue 			INT 			NOT NULL," + "\n" + 
+			"	Issue 			INT UNSIGNED	NOT NULL," + "\n" + 
 			"	IssueDate 		DATE			NOT NULL," + "\n" + 
 			"	PRIMARY KEY (PublicationID)," + "\n" + 
 			"	FOREIGN KEY (PublicationID)" + "\n" + 
@@ -141,7 +142,7 @@ public class InitDB {
 			"		ON UPDATE CASCADE" + "\n" +
 			");" + "\n" + "\n" 
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -150,8 +151,8 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Chapter (" + "\n" + 
-			"	PublicationID	INT 			NOT NULL," + "\n" + 
-			"	ChapterNumber 	INT 			NOT NULL," + "\n" + 
+			"	PublicationID	INT UNSIGNED	NOT NULL," + "\n" + 
+			"	ChapterNumber 	INT UNSIGNED	NOT NULL," + "\n" + 
 			"	Title 			VARCHAR(128) 	NOT NULL," + "\n" + 
 			"	Text 			LONGTEXT 		NOT NULL," + "\n" + 
 			"	PRIMARY KEY (PublicationID, ChapterNumber)," + "\n" +
@@ -161,7 +162,7 @@ public class InitDB {
 			"		ON UPDATE CASCADE" + "\n" +
 			");" + "\n" + "\n" 
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -170,8 +171,8 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Article (" + "\n" +
-			"	PublicationID 		INT 			NOT NULL," + "\n" + 
-			"	SequenceNumber 		INT 			NOT NULL," + "\n" + 
+			"	PublicationID 		INT UNSIGNED	NOT NULL," + "\n" + 
+			"	SequenceNumber 		INT UNSIGNED	NOT NULL," + "\n" + 
 			"	Title 				VARCHAR(128) 	NOT NULL," + "\n" +
 			"	CreationDate 		DATE 			NOT NULL," + "\n" + 
 			"	Text 				MEDIUMTEXT 		NOT NULL," + "\n" +
@@ -182,7 +183,7 @@ public class InitDB {
 			"		ON UPDATE CASCADE" + "\n" +
 			");" + "\n" + "\n" 
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -191,19 +192,22 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Contributor (" + "\n" + 
-			"	ContributorID	INT 			NOT NULL," + "\n" + 
+			"	ContributorID	INT UNSIGNED	NOT NULL," + "\n" + 
 			"	Name 			VARCHAR(128) 	NOT NULL," + "\n" +
-			"	Position 		VARCHAR(16) 	NOT NULL," + "\n" + 
-			"	Type 			VARCHAR(16) 	NOT NULL," + "\n" + 
-			"	Age 			INT 			NOT NULL," + "\n" + 
-			"	Gender 			CHAR(1) 		NOT NULL," + "\n" + 
+			"	Position 		VARCHAR(16) 	NOT NULL" + "\n" + 
+			"		CHECK ( Position IN ('Editor', 'Author') )," + "\n" + 
+			"	Type 			VARCHAR(16) 	NOT NULL" + "\n" + 
+			"		CHECK ( Type IN ('Staff', 'Invited') )," + "\n" + 
+			"	Age 			INT UNSIGNED	NOT NULL," + "\n" + 
+			"	Gender 			CHAR(1) 		NOT NULL" + "\n" + 
+			"		CHECK ( Gender IN ('M', 'F') )," + "\n" + 
 			"	Phone 			CHAR(10) 		NOT NULL," + "\n" + 
 			"	Email 			VARCHAR(128) 	NOT NULL," + "\n" + 
 			"	Address			VARCHAR(128) 	NOT NULL," + "\n" + 
 			"	PRIMARY KEY (ContributorID)" + "\n" +
 			");" + "\n" + "\n" 
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -212,8 +216,8 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Edits (" + "\n" + 
-			"	PublicationID	INT		NOT NULL," + "\n" +
-			"	ContributorID 	INT 	NOT NULL," + "\n" + 
+			"	PublicationID	INT UNSIGNED	NOT NULL," + "\n" +
+			"	ContributorID 	INT UNSIGNED 	NOT NULL," + "\n" + 
 			"	PRIMARY KEY (PublicationID, ContributorID)," + "\n" +
 			"	FOREIGN KEY (PublicationID)" + "\n" + 
 			"		REFERENCES Publication (PublicationID)" + "\n" + 
@@ -225,7 +229,7 @@ public class InitDB {
 			"		ON UPDATE CASCADE" + "\n" +
 			");" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -233,9 +237,9 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE AuthorsArticle (" + "\n" + 
-			"	PublicationID		INT 	NOT NULL," + "\n" + 
-			"	SequenceNumber		INT		NOT NULL," + "\n" + 
-			"	ContributorID 		INT 	NOT NULL," + "\n" + 
+			"	PublicationID		INT UNSIGNED 	NOT NULL," + "\n" + 
+			"	SequenceNumber		INT UNSIGNED	NOT NULL," + "\n" + 
+			"	ContributorID 		INT UNSIGNED 	NOT NULL," + "\n" + 
 			"	PRIMARY KEY (PublicationID, SequenceNumber, ContributorID)," + "\n" +
 			"	FOREIGN KEY (PublicationID, SequenceNumber)"+ "\n" +
 			"		REFERENCES Article (PublicationID, SequenceNumber)"+ "\n" +
@@ -247,7 +251,7 @@ public class InitDB {
 			"		ON UPDATE CASCADE" + "\n" +
 			");" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -255,8 +259,8 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE AuthorsBook (" + "\n" +
-			"	PublicationID 	INT 	NOT NULL," + "\n" + 
-			"	ContributorID 	INT 	NOT NULL," + "\n" + 
+			"	PublicationID 	INT UNSIGNED 	NOT NULL," + "\n" + 
+			"	ContributorID 	INT UNSIGNED 	NOT NULL," + "\n" + 
 			"	PRIMARY KEY (PublicationID, ContributorID)," + "\n" + 
 			"	FOREIGN KEY (PublicationID)"+ "\n" +
 			"		REFERENCES Book (PublicationID)"+ "\n" +
@@ -268,7 +272,7 @@ public class InitDB {
 			"		ON UPDATE CASCADE" + "\n" +
 			");" + "\n"  + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -281,7 +285,7 @@ public class InitDB {
 			"	PRIMARY KEY (StreetAddress)" + "\n" +
 			");" + "\n"  + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -289,20 +293,21 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Distributor (" + "\n" + 
-			"	DistributorID	INT 			NOT NULL," + "\n" + 
+			"	DistributorID	INT UNSIGNED	NOT NULL," + "\n" + 
 			"	Name 			VARCHAR(128) 	NOT NULL," + "\n" +
 			"	Balance 		DECIMAL(14,2)	NOT NULL," + "\n" +
 			"	PhoneNumber 	CHAR(10) 		NOT NULL," + "\n" + 
 			"	StreetAddress 	VARCHAR(128) 	NOT NULL," + "\n" + 
 			"	ContactPerson 	VARCHAR(128) 	NOT NULL," + "\n" + 
-			"	Type 			VARCHAR(32) 	NOT NULL," + "\n" + 
+			"	Type 			VARCHAR(32) 	NOT NULL" + "\n" + 
+			"		CHECK ( Type IN ('Book Store', 'Library', 'Wholesale Distributor') )," + "\n" + 
 			"	PRIMARY KEY (DistributorID)," + "\n" + 
 			"	FOREIGN KEY (StreetAddress)" + "\n" + 
 			"		REFERENCES Address (StreetAddress)" + "\n" + 
 			"		ON UPDATE CASCADE" + "\n" +
 			");" + "\n"  + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -310,14 +315,17 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Orders (" + "\n" + 
-			"	OrderID 		INT 			NOT NULL," + "\n" + 
-			"	DistributorID 	INT 			NOT NULL," + "\n" + 
-			"	PublicationID 	INT 			NOT NULL," + "\n" +
-			"	Units 			INT 			NOT NULL," + "\n" +
-			"	PricePerUnit 	DECIMAL(7,2)	NOT NULL," + "\n" + 
+			"	OrderID 		INT UNSIGNED 	NOT NULL," + "\n" + 
+			"	DistributorID 	INT UNSIGNED 	NOT NULL," + "\n" + 
+			"	PublicationID 	INT UNSIGNED 	NOT NULL," + "\n" +
+			"	Units 			INT UNSIGNED 	NOT NULL," + "\n" +
+			"	PricePerUnit 	DECIMAL(7,2)	NOT NULL" + "\n" + 
+			"		CHECK ( PricePerUnit >= 0 )," + "\n" + 
 			"	OrderDate 		DATE 			NOT NULL," + "\n" +
-			"	ShippingCost 	DECIMAL(9,2)	NOT NULL," + "\n" + 
-			"	Status 			VARCHAR(16) 	NOT NULL," + "\n" + 
+			"	ShippingCost 	DECIMAL(9,2)	NOT NULL" + "\n" + 
+			"		CHECK ( ShippingCost >= 0 )," + "\n" + 
+			"	Status 			VARCHAR(16) 	NOT NULL" + "\n" + 
+			"		CHECK ( Status IN ('Order Received', 'Shipped', 'Delivered') )," + "\n" + 
 			"	PRIMARY KEY (OrderID)," + "\n" +
 			"	FOREIGN KEY (DistributorID)"+ "\n" +
 			"		REFERENCES Distributor (DistributorID)"+ "\n" +
@@ -327,7 +335,7 @@ public class InitDB {
 			"		ON UPDATE CASCADE" + "\n" +
 			");" + "\n"  + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -336,13 +344,13 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Transaction (" + "\n" +  
-			"	TransactionID	INT 			NOT NULL," + "\n" + 
+			"	TransactionID	INT UNSIGNED	NOT NULL," + "\n" + 
 			"	Amount 			DECIMAL(14,2) 	NOT NULL," + "\n" +
 			"	IssueDate 		DATE 			NOT NULL," + "\n" + 
 			"	PRIMARY KEY (TransactionID)" + "\n" +
 			");" + "\n" 
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -350,9 +358,9 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Bills (" + "\n" + "\t" +
-			"	TransactionID	INT			NOT NULL," + "\n" + 
-			"	DistributorID 	INT 		NOT NULL," + "\n" + 
-			"	Paid 			BOOL 		NOT NULL," + "\n" +
+			"	TransactionID	INT UNSIGNED	NOT NULL," + "\n" + 
+			"	DistributorID 	INT UNSIGNED 	NOT NULL," + "\n" + 
+			"	Paid 			BOOL 			NOT NULL," + "\n" +
 			"	PaymentDate 	DATE," + "\n" +
 			"	PRIMARY KEY (TransactionID)," + "\n" +
 			"	FOREIGN KEY (TransactionID)" + "\n" +
@@ -361,10 +369,15 @@ public class InitDB {
 			"		ON UPDATE CASCADE," + "\n" + 
 			"	FOREIGN KEY (DistributorID )" + "\n" + 
 			"		REFERENCES Distributor (DistributorID )" + "\n" + 
-			"		ON UPDATE CASCADE" + "\n" +
+			"		ON UPDATE CASCADE," + "\n" +
+			"	CHECK (PaymentDate IS NULL || PaymentDate >= ANY(" + "\n" +
+			"		SELECT Transaction.IssueDate" + "\n" +
+			"		FROM Transaction" + "\n" +
+			"		WHERE Transacton.TransactionID = TransactionID" + "\n" +
+			"	))" + "\n" +
 			");" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -372,8 +385,8 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"CREATE TABLE Wages (" + "\n" +
-			"	TransactionID	INT 			NOT NULL," + "\n" +
-			"	ContributorID 	INT 			NOT NULL," + "\n" + 
+			"	TransactionID	INT UNSIGNED 	NOT NULL," + "\n" +
+			"	ContributorID 	INT UNSIGNED 	NOT NULL," + "\n" + 
 			"	Type 			VARCHAR(32) 	NOT NULL," + "\n" + 
 			"	ClaimDate 		DATE," + "\n" + 
 			"	PRIMARY KEY (TransactionID)," + "\n" + 
@@ -383,10 +396,15 @@ public class InitDB {
 			"		ON UPDATE CASCADE," + "\n" + 
 			"	FOREIGN KEY (ContributorID )" + "\n" + 
 			"		REFERENCES Contributor (ContributorID )" + "\n" + 
-			"		ON UPDATE CASCADE" + "\n" +
+			"		ON UPDATE CASCADE," + "\n" +
+			"	CHECK (ClaimDate IS NULL || ClaimDate >= ANY(" + "\n" +
+			"		SELECT Transaction.IssueDate" + "\n" +
+			"		FROM Transaction" + "\n" +
+			"		WHERE Transacton.TransactionID = TransactionID" + "\n" +
+			"	))" + "\n" +
 			");" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -423,7 +441,7 @@ public class InitDB {
 				"(1003, 'Periodical', '2020-03-01', 'Science')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 		
@@ -438,7 +456,7 @@ public class InitDB {
 				"(1001, '0000012345', 'Introduction to Database', 2, '2017-03-17')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -451,7 +469,7 @@ public class InitDB {
 				"('Magazine', 'Weekly')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -469,7 +487,7 @@ public class InitDB {
 				"(1003,  'Journal', 'Animal Science', 5, '2020-03-01')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -487,12 +505,12 @@ public class InitDB {
 				"(5,  1, 'England', 'Lorem Ipsum is simply dummy text of...')," + "\n" + "\t" +
 				"(10,  1, 'Focus', 'It was popularised in the 1960s with the release of...'),"  + "\n" + "\t" +
 				"(1001,  1, 'Why Data?', 'Since the dawn of time, man has strived to store his data, whether it be on cave walls, papyrus sheets, or bits on a magnetic strip...'),"  + "\n" + "\t" +
-				"(1001,  2, 'Relational Schemas', 'Tables, tables, tables.... Did I mention tables? That's how we store data in a relational DB...'),"  + "\n" + "\t" +
+				"(1001,  2, 'Relational Schemas', 'Tables, tables, tables.... Did I mention tables? That is how we store data in a relational DB...'),"  + "\n" + "\t" +
 				"(1001,  3, 'SQL Basics', 'SQL is the language of databases. Though limited in its functionality, these limitations allow for efficiency during execution...'),"  + "\n" + "\t" +
 				"(1001,  4, 'Transactions', 'Transactions allows mutliple queries and updates to run simultaneously on a DB while ensuring that the data always stays in a consistent state...')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -513,7 +531,7 @@ public class InitDB {
 				"(1003,  1, 'Why Cats are Evil', '2020-03-01', 'AAA')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -530,14 +548,14 @@ public class InitDB {
 				"(6,  'Barbara Walter', 'Author', 'Staff', 26, 'F', '6668453248', 'barbarawalter@yahoo.com', '598 Old Apex Road, NC 27516')," + "\n" + "\t" +
 				"(7,  'Anna Wintour', 'Editor', 'Staff', 28, 'F', '3877749865', 'annawintour@yahoo.com', '234 Wake Avenue, NC 28645')," + "\n" + "\t" +
 				"(8,  'Dasha Gold', 'Editor', 'Invited', 30, 'F', '5488675309', '24kgold@hotmail.com', '1602 Broadway, NY 15036')," + "\n" + "\t" +
-				"(9,  'Emmanuelle', 'Editor', 'Staff', 54, 'M', '55555555555', 'emmanuelle@hotmail.com', '9849 Higher Living Circle, Apt. 235, NC 27348')," + "\n" + "\t" +
+				"(9,  'Emmanuelle', 'Editor', 'Staff', 54, 'M', '5555555555', 'emmanuelle@hotmail.com', '9849 Higher Living Circle, Apt. 235, NC 27348')," + "\n" + "\t" +
 				"(10,  'Carine Roitfeld', 'Editor', 'Invited', 38, 'F', '9865321148', 'carineroitfeld@ncsu.edu', '666 Big Cow Road, TX 69420'),"  + "\n" + "\t" +
 				"(3001,  'John', 'Editor', 'Staff', 36, 'M', '9391234567', '3001@gmail.com', '21 ABC St, NC 27'),"  + "\n" + "\t" +
 				"(3002,  'Ethen', 'Editor', 'Staff', 30, 'M', '9491234567', '3002@gmail.com', '21 ABC St, NC 27606'),"  + "\n" + "\t" +
 				"(3003,  'Cathy', 'Author', 'Invited', 28, 'F', '9591234567', '3003@gmail.com', '3300 AAA St, NC 27606')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -554,7 +572,7 @@ public class InitDB {
 				"(1002, 3002)"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 
 		/* ------------------------------------------------------------------ */
@@ -575,7 +593,7 @@ public class InitDB {
 				"(1003, 1, 3003)"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 
 		/* ------------------------------------------------------------------ */
@@ -591,7 +609,7 @@ public class InitDB {
 				"(1001, 3003)"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 
 		/* ------------------------------------------------------------------ */
@@ -608,7 +626,7 @@ public class InitDB {
 				"('2200, B Street, NC', 'Raleigh')" + "\n" + "\t" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -624,7 +642,7 @@ public class InitDB {
 				"(2002, 'BookDist', 0.00, '9291234568', '2200, B Street, NC', 'Alex', 'Wholesale Distributor')" + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -645,7 +663,7 @@ public class InitDB {
 				"(4003, 2002, 1003, 10, 10.00, '2020-02-10', 15.00, 'Delivered')" + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -671,7 +689,7 @@ public class InitDB {
 				"(15, 1200.00, '2020-04-01')"  + "\n" + 
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 
 		/* ------------------------------------------------------------------ */
@@ -690,7 +708,7 @@ public class InitDB {
 				"(12, 2002, True,  '2020-02-25')" + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 
@@ -704,10 +722,10 @@ public class InitDB {
 				"(9, 1, 'Article Authorship', NULL),"  + "\n" + "\t" +
 				"(13, 3001, 'Editorial Work', '2020-04-02'),"  + "\n" + "\t" +
 				"(14, 3002, 'Editorial Work', '2020-04-02'),"  + "\n" + "\t" +
-				"(15, 3003, 'Editorial Work', '2020-04-02')"  + "\n" +
+				"(15, 3003, 'Article Authorship', '2020-04-02')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-		System.out.println(SQL);
+		// System.out.println(SQL);
 		WolfPubDB.executeUpdate(SQL);
 		/* ------------------------------------------------------------------ */
 

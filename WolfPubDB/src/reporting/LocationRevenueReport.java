@@ -1,6 +1,6 @@
 public class LocationRevenueReport {
 
-	public static void execute() {
+	public static ExecResult execute() {
 		String sql = 
 			"SELECT  Address.StreetAddress AS Location, " + "\n" +
 			"		COALESCE(TotalRevenue, 0) AS TotalRevenue" + "\n" +
@@ -19,14 +19,21 @@ public class LocationRevenueReport {
 			"	ON Address.StreetAddress = AddressRevenue.StreetAddress" + "\n" +
 			"ORDER BY 1;" + "\n"
 		;
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {
 		System.out.println("\n");
 		System.out.println("Unit Test for LocationRevenueReport");
 		System.out.println("===================================");
-		execute();
+		ExecResult execResults = execute();
+		if (execResults.success) {
+			System.out.println("LocationRevenueReport: Success");
+		} else {
+			System.out.println("LocationRevenueReport: Failure");
+			System.out.println("\tError: " + execResults.errorMessage);
+		}
+		System.out.println("\n");
 	}
 
 }

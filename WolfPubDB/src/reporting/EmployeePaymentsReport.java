@@ -1,6 +1,6 @@
 public class EmployeePaymentsReport {
 
-	public static void execute(String startDate, String endDate) {
+	public static ExecResult execute(String startDate, String endDate) {
 		String sql = 
 			"SELECT  Type AS WorkType," + "\n" +
 			"		SUM(Amount) AS ContributorPayments" + "\n" +
@@ -10,15 +10,22 @@ public class EmployeePaymentsReport {
 			"GROUP BY 1" + "\n" +
 			"ORDER BY 1;" + "\n"
 		;
-		String.format(sql, startDate, endDate);
-		WolfPubDB.executeQuery(sql);
+		sql = String.format(sql, startDate, endDate);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {
 		System.out.println("\n");
 		System.out.println("Unit Test for EmployeePaymentsReport");
 		System.out.println("====================================");
-		execute("2022-01-01", "2022-12-31");
+		ExecResult execResults = execute("2022-01-01", "2022-12-31");
+		if (execResults.success) {
+			System.out.println("EmployeePaymentsReport: Success");
+		} else {
+			System.out.println("EmployeePaymentsReport: Failure");
+			System.out.println("\tError: " + execResults.errorMessage);
+		}
+		System.out.println("\n");
 	}
 
 }
