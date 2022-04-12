@@ -1,7 +1,13 @@
+import java.util.Scanner;
+
 /**
  * Class used for executing the DistributorCountReport API operation.
  */
 public class DistributorCountReport {
+
+	public static ExecResult run(Scanner reader) {
+		return execute();
+	}
 
 	public static ExecResult execute() {
 		String sql = 

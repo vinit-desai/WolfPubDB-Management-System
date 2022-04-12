@@ -1,7 +1,13 @@
+import java.util.Scanner;
+
 /**
  * Class used for executing the MonthlyExpensesReport API operation.
  */
 public class MonthlyExpensesReport {
+
+	public static ExecResult run(Scanner reader) {
+		return execute();
+	}
 
 	public static ExecResult execute() {
 		String sql = 

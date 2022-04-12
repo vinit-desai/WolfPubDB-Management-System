@@ -1,7 +1,13 @@
+import java.util.Scanner;
+
 /**
  * Class used for executing the LocationRevenueReport API operation.
  */
 public class LocationRevenueReport {
+
+	public static ExecResult run(Scanner reader) {
+		return execute();
+	}
 
 	public static ExecResult execute() {
 		String sql = 

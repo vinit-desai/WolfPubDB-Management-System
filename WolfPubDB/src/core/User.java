@@ -130,233 +130,227 @@ public class User{
         ExecResult result = null;
 
         if(this.position == 1){
-                switch(this.operation){
-                    case 1:
-                        // System.out.println("Enter the following information:" + "\n" +
-                        //     "1. Publication ID" + "\n" +
-                        //     "2. Type" + "\n" +
-                        //     "3. Publication Date" + "\n" +
-                        //     "4. Topic"
-                        // );
-                        
-                        // int publicationID = sc.nextInt();
-                        // sc.nextLine();
-                        // String type = sc.nextLine();
-                        // String publicationDate = sc.nextLine(); 
-                        // String topic = sc.nextLine();
+            switch(this.operation){
+                case 1:
+                    // System.out.println("Enter the following information:" + "\n" +
+                    //     "1. Publication ID" + "\n" +
+                    //     "2. Type" + "\n" +
+                    //     "3. Publication Date" + "\n" +
+                    //     "4. Topic"
+                    // );
+                    
+                    // int publicationID = sc.nextInt();
+                    // sc.nextLine();
+                    // String type = sc.nextLine();
+                    // String publicationDate = sc.nextLine(); 
+                    // String topic = sc.nextLine();
 
-                        // if(type.equals("Book")){
-                        //     System.out.println("Additional information:" + "\n" +
-                        //         "1. ISBN" + "\n" +
-                        //         "2. Title" + "\n" +
-                        //         "3. Edition" + "\n" +
-                        //         "4. Creation Date"
-                        //     );
-                        // }else {
-                        //     System.out.println("Additional information:" + "\n" +
-                        //         "1. Periodical Type" + "\n" +
-                        //         "2. Title" + "\n" +
-                        //         "3. Issue" + "\n" +
-                        //         "4. Issue Date"
-                        //     );
-                        // }
+                    // if(type.equals("Book")){
+                    //     System.out.println("Additional information:" + "\n" +
+                    //         "1. ISBN" + "\n" +
+                    //         "2. Title" + "\n" +
+                    //         "3. Edition" + "\n" +
+                    //         "4. Creation Date"
+                    //     );
+                    // }else {
+                    //     System.out.println("Additional information:" + "\n" +
+                    //         "1. Periodical Type" + "\n" +
+                    //         "2. Title" + "\n" +
+                    //         "3. Issue" + "\n" +
+                    //         "4. Issue Date"
+                    //     );
+                    // }
 
-                        // String ISBNType = sc.nextLine();
-                        // String title = sc.nextLine();
-                        // int editionIssue = sc.nextInt(); 
-                        // sc.nextLine();
-                        // String creationDate = sc.nextLine();
+                    // String ISBNType = sc.nextLine();
+                    // String title = sc.nextLine();
+                    // int editionIssue = sc.nextInt(); 
+                    // sc.nextLine();
+                    // String creationDate = sc.nextLine();
 
-                        // Queries.createPublication(publicationID, type, publicationDate, topic, ISBNType, title, editionIssue, creationDate);
+                    // Queries.createPublication(publicationID, type, publicationDate, topic, ISBNType, title, editionIssue, creationDate);
 
-                        break;
+                    break;
 
-                    case 2:
-                        break;
-                    case 3:
-                        // System.out.println("Enter the following information:" + "\n" +
-                        //     "1. Publication ID" + "\n" +
-                        //     "2. Contributor ID"
-                        // );
+                case 2:
+                    break;
+                case 3:
+                    // System.out.println("Enter the following information:" + "\n" +
+                    //     "1. Publication ID" + "\n" +
+                    //     "2. Contributor ID"
+                    // );
 
-                        // publicationID = sc.nextInt();
-                        // sc.nextLine();
-                        // int contributorID = sc.nextInt();
-                        // sc.nextLine();
+                    // publicationID = sc.nextInt();
+                    // sc.nextLine();
+                    // int contributorID = sc.nextInt();
+                    // sc.nextLine();
 
-                        // Queries.assignEditor(publicationID, contributorID);
-                        
-                        break;
-                    case 4:
-                        // System.out.println("Enter the following information:" + "\n" +
-                        //     "1. Publication ID"
-                        // );
+                    // Queries.assignEditor(publicationID, contributorID);
+                    
+                    break;
+                case 4:
+                    // System.out.println("Enter the following information:" + "\n" +
+                    //     "1. Publication ID"
+                    // );
 
-                        // publicationID = sc.nextInt();
-                        // sc.nextLine();
+                    // publicationID = sc.nextInt();
+                    // sc.nextLine();
 
-                        // Queries.viewPublication(publicationID);
+                    // Queries.viewPublication(publicationID);
 
-                        break;
-                    case 5:
-                        // System.out.println("Enter the following information:" + "\n" +
-                        //     "1. Publication ID" + "\n" +
-                        //     "2. Chapter Number" + "\n" +
-                        //     "3. Title" + "\n" +
-                        //     "4. Text"
-                        // );
+                    break;
+                case 5:
+                    // System.out.println("Enter the following information:" + "\n" +
+                    //     "1. Publication ID" + "\n" +
+                    //     "2. Chapter Number" + "\n" +
+                    //     "3. Title" + "\n" +
+                    //     "4. Text"
+                    // );
 
-                        // publicationID = sc.nextInt();
-                        // sc.nextLine();
-                        // int chapterNumber = sc.nextInt();
-                        // sc.nextLine();
-                        // title = sc.nextLine();
-                        // String text = sc.nextLine();
+                    // publicationID = sc.nextInt();
+                    // sc.nextLine();
+                    // int chapterNumber = sc.nextInt();
+                    // sc.nextLine();
+                    // title = sc.nextLine();
+                    // String text = sc.nextLine();
 
-                        // Queries.addBookChapter(publicationID, chapterNumber, title, text);
-                        
-                        break;
-                    case 6:
-                        // System.out.println("Enter the following information:" + "\n" +
-                        //     "1. Publication ID" + "\n" +
-                        //     "2. Chapter Number"
-                        // );
+                    // Queries.addBookChapter(publicationID, chapterNumber, title, text);
+                    
+                    break;
+                case 6:
+                    // System.out.println("Enter the following information:" + "\n" +
+                    //     "1. Publication ID" + "\n" +
+                    //     "2. Chapter Number"
+                    // );
 
-                        // publicationID = sc.nextInt();
-                        // sc.nextLine();
-                        // chapterNumber = sc.nextInt();
-                        // sc.nextLine();
+                    // publicationID = sc.nextInt();
+                    // sc.nextLine();
+                    // chapterNumber = sc.nextInt();
+                    // sc.nextLine();
 
-                        // Queries.deleteBookChapter(publicationID, chapterNumber);
+                    // Queries.deleteBookChapter(publicationID, chapterNumber);
 
-                        break;
-                    case 7:
-                        // System.out.println("Enter the following information:" + "\n" +
-                        //     "1. Publication ID" + "\n" +
-                        //     "2. Sequence Number" + "\n" +
-                        //     "3. Title" + "\n" +
-                        //     "4. Creation Date" + "\n" +
-                        //     "5. Text"
-                        // );
+                    break;
+                case 7:
+                    // System.out.println("Enter the following information:" + "\n" +
+                    //     "1. Publication ID" + "\n" +
+                    //     "2. Sequence Number" + "\n" +
+                    //     "3. Title" + "\n" +
+                    //     "4. Creation Date" + "\n" +
+                    //     "5. Text"
+                    // );
 
-                        // publicationID = sc.nextInt();
-                        // sc.nextLine();
-                        // int sequenceNumber = sc.nextInt();
-                        // sc.nextLine();
-                        // title = sc.nextLine();
-                        // creationDate = sc.nextLine();
-                        // text = sc.nextLine();
+                    // publicationID = sc.nextInt();
+                    // sc.nextLine();
+                    // int sequenceNumber = sc.nextInt();
+                    // sc.nextLine();
+                    // title = sc.nextLine();
+                    // creationDate = sc.nextLine();
+                    // text = sc.nextLine();
 
-                        // Queries.addArticle(publicationID, sequenceNumber, title, creationDate, text);
+                    // Queries.addArticle(publicationID, sequenceNumber, title, creationDate, text);
 
-                        break;
-                    case 8:
-                        // System.out.println("Enter the following information:" + "\n" +
-                        //     "1. Publication ID" + "\n" +
-                        //     "2. Sequence Number"
-                        // );
+                    break;
+                case 8:
+                    // System.out.println("Enter the following information:" + "\n" +
+                    //     "1. Publication ID" + "\n" +
+                    //     "2. Sequence Number"
+                    // );
 
-                        // publicationID = sc.nextInt();
-                        // sc.nextLine();
-                        // sequenceNumber = sc.nextInt();
-                        // sc.nextLine();
+                    // publicationID = sc.nextInt();
+                    // sc.nextLine();
+                    // sequenceNumber = sc.nextInt();
+                    // sc.nextLine();
 
-                        // Queries.deleteArticle(publicationID, sequenceNumber);
-                        
-                        break;
-                    case 9:
-                        break;
-                    case 10:
-                        break;
-                    case 11:
-                        break;
-                    case 12:
-                        break;
-                    case 13:
-                        break;
-                    case 14:
-                        break;
-                    case 15:
-                        break;
-                    case 16:
-                        break;
-                    case 17:
-                        break;
-                    case 18:
-                        break;
-                    case 19:
-                        break;
-                    case 20:
-                        break;
-                    case 21:
-                        break;
-                    case 22:
-                        break;
-                    case 23:
-                        break;
-                    case 24:
-                        break;
-                    case 25:
-                        break;
-                    case 26:
-                        break;
-                    case 27:
-                        break;
-                    case 28:
-                        break;
-                    case 29:
-                        break;
-                    case 30:
-                        break;
-                    case 31:
-                        break;
-                    case 32:
-                        // Queries.monthlyOrdersReport();
-                        break;
-                    case 33:
-                        // Queries.monthlyRevenuesReport();
-                        break;
-                    case 34:
-                        // Queries.monthlyExpensesReport();
-                        break;
-                    case 35:
-                        // Queries.distributorCountReport();
-                        break;
-                    case 36:
-                        break;
-                    case 37:
-                        // Queries.distributorRevenueReport();
-                        break;
-                    case 38:
-                        break;
-                    case 39:
-                        result = EmployeePaymentsReport.run(this.sc);
-                        break;
-                    case 40:
-                        break;
-                    default:
-                }
-        } else{
-            for(String s: ContributorOps){
-                System.out.println(s);
+                    // Queries.deleteArticle(publicationID, sequenceNumber);
+                    
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                case 13:
+                    break;
+                case 14:
+                    break;
+                case 15:
+                    break;
+                case 16:
+                    break;
+                case 17:
+                    break;
+                case 18:
+                    break;
+                case 19:
+                    break;
+                case 20:
+                    break;
+                case 21:
+                    break;
+                case 22:
+                    break;
+                case 23:
+                    break;
+                case 24:
+                    break;
+                case 25:
+                    break;
+                case 26:
+                    break;
+                case 27:
+                    break;
+                case 28:
+                    break;
+                case 29:
+                    break;
+                case 30:
+                    break;
+                case 31:
+                    break;
+                case 32:
+                    result = MonthlyOrdersReport.run(this.sc);
+                    break;
+                case 33:
+                    result = MonthlyRevenuesReport.run(this.sc);
+                    break;
+                case 34:
+                    result = MonthlyExpensesReport.run(this.sc);
+                    break;
+                case 35:
+                    result = DistributorCountReport.run(this.sc);
+                    break;
+                case 36:
+                    result = CityRevenueReport.run(this.sc);
+                    break;
+                case 37:
+                    result = DistributorRevenueReport.run(this.sc);
+                    break;
+                case 38:
+                    result = LocationRevenueReport.run(this.sc);
+                    break;
+                case 39:
+                    result = EmployeePaymentsReport.run(this.sc);
+                    break;
+                default:
+                    return;
             }
         }
 
-        if (1 <= this.operation && this.operation <= 39) {
-            if (result.success) {
-                System.out.println("API Status: Success");
-            } else {
-                System.out.println("API Status: Failure");
-                System.out.println("\tError: " + result.errorMessage);
-            }
-            System.out.println("");
+        if (result.success) {
+            System.out.println("API Status: Success");
+        } else {
+            System.out.println("API Status: Failure");
+            System.out.println("\tError: " + result.errorMessage);
+        }
+        System.out.println("");
 
-            System.out.print("Press Enter to Continue...");
-            try {	
-                this.sc.nextLine();
-            } catch (NoSuchElementException error) {
-                System.out.println("Tried to catch the line.");
-            }
+        System.out.print("Press Enter to Continue...");
+        try {	
+            this.sc.nextLine();
+        } catch (NoSuchElementException error) {
         }
     }
 }
