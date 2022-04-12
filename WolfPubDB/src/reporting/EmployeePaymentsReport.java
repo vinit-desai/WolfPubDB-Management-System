@@ -1,6 +1,7 @@
 public class EmployeePaymentsReport {
 
 	public static void execute(String startDate, String endDate) {
+		
 		String sql = 
 			"SELECT  Type AS WorkType," + "\n" +
 			"		SUM(Amount) AS ContributorPayments" + "\n" +
@@ -10,7 +11,9 @@ public class EmployeePaymentsReport {
 			"GROUP BY 1" + "\n" +
 			"ORDER BY 1;" + "\n"
 		;
-		String.format(sql, startDate, endDate);
+		
+		sql = String.format(sql, startDate, endDate);
+		
 		WolfPubDB.executeQuery(sql);
 	}
 

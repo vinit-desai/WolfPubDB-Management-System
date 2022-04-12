@@ -1,6 +1,7 @@
 public class LocationRevenueReport {
 
 	public static void execute() {
+		
 		String sql = 
 			"SELECT  Address.StreetAddress AS Location, " + "\n" +
 			"		COALESCE(TotalRevenue, 0) AS TotalRevenue" + "\n" +
@@ -19,6 +20,7 @@ public class LocationRevenueReport {
 			"	ON Address.StreetAddress = AddressRevenue.StreetAddress" + "\n" +
 			"ORDER BY 1;" + "\n"
 		;
+		
 		WolfPubDB.executeQuery(sql);
 	}
 

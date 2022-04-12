@@ -1,6 +1,7 @@
 public class CityRevenueReport {
 
 	public static void execute() {
+		
 		String sql = 
 			"SELECT  City, " + "\n" +
 			"		SUM(COALESCE(TotalRevenue, 0)) AS TotalRevenue" + "\n" +
@@ -20,6 +21,7 @@ public class CityRevenueReport {
 			"GROUP BY 1" + "\n" +
 			"ORDER BY 1;" + "\n"
 		;
+		
 		WolfPubDB.executeQuery(sql);
 	}
 

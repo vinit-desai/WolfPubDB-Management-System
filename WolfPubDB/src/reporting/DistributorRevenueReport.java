@@ -1,6 +1,7 @@
 public class DistributorRevenueReport {
 
 	public static void execute() {
+		
 		String sql = 
 			"SELECT  Distributor.DistributorID AS DistributorID, " + "\n" +
 			"		COALESCE(TotalRevenue, 0) AS TotalRevenue" + "\n" +
@@ -18,6 +19,7 @@ public class DistributorRevenueReport {
 			"	ON Distributor.DistributorID = Revenues.DistributorID" + "\n" +
 			"ORDER BY 1;" + "\n"
 		;
+		
 		WolfPubDB.executeQuery(sql);
 	}
 

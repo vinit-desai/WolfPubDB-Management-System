@@ -1,6 +1,7 @@
 public class MonthlyExpensesReport {
 
 	public static void execute() {
+		
 		String sql = 
 			"SELECT  Year, Month," + "\n" +
 			"		SUM(TotalWages) AS TotalWages, " + "\n" +
@@ -22,6 +23,7 @@ public class MonthlyExpensesReport {
 			"GROUP BY 1,2" + "\n" +
 			"ORDER BY 1,2;" + "\n"
 		;
+		
 		WolfPubDB.executeQuery(sql);
 	}
 

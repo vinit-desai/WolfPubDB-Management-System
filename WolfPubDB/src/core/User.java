@@ -34,14 +34,14 @@ public class User{
         "29. Create Order",
         "30. Bill Distributor",
         "31. Update Balance",
-        "32. Report Monthly Orders",
-        "33. Report Monthly Revenues",
-        "34. Report Monthly Expenses",
-        "35. Report Total Distributor Count",
+        "32. Monthly Orders Report",
+        "33. Monthly Revenues Report",
+        "34. Monthly Expenses Report",
+        "35. Total Distributor Count Report",
         "36. Report Revenue By City",
-        "37. Report Revenue By Distributor",
-        "38. Report Revenue By Location",
-        "39. Report Employee Payments",
+        "37. Distributor Revenue Report",
+        "38. Location Revenue Report",
+        "39. Employee Payments Report",
         "40. Logout"
     };
     private static final String[] ContributorOps = {"1. View Publication",
@@ -284,20 +284,42 @@ public class User{
                     case 31:
                         break;
                     case 32:
+                        Queries.monthlyOrdersReport();
+
                         break;
                     case 33:
+                        Queries.monthlyRevenuesReport();
+
                         break;
                     case 34:
+                        Queries.monthlyExpensesReport();
+
                         break;
                     case 35:
+                        Queries.distributorCountReport();
+
                         break;
                     case 36:
                         break;
                     case 37:
+                        Queries.distributorRevenueReport();
+
                         break;
                     case 38:
+
+
                         break;
                     case 39:
+                        System.out.println("Enter the following information:" + "\n" +
+                            "1. Start Date" + "\n" +
+                            "2. End Date"
+                        );
+                        
+                        String startDate = sc.nextLine();
+                        String endDate = sc.nextLine();
+
+                        Queries.employeePaymentsReport(startDate, endDate); 
+
                         break;
                     case 40:
                         break;

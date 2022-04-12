@@ -1,9 +1,11 @@
 public class DistributorCountReport {
 
 	public static void execute() {
+		
 		String sql = 
 			"SELECT COUNT(*) AS DistributorCount FROM Distributor;" + "\n"
 		;
+		
 		WolfPubDB.executeQuery(sql);
 	}
 
