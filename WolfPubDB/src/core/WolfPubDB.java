@@ -31,8 +31,43 @@ public class WolfPubDB {
 
 
 	/**
-	 * Function used for executing a single SQL query on the database. Note
-	 * that there is no explicit "connection.close()" call, since the connection
+	 * Function used for executing a series of SQL queries and updates on the 
+	 * database as a single transaction. 
+	 *
+	 * Note that there is no explicit "connection.close()" call, since the connection
+	 * is automatically closed once the "try/except" block completes. This
+	 * function also prints the entire result set that is returned by the query
+	 * directly to the console. 
+	 */
+	public static ExecResult executeTransaction() {
+
+		try (Connection connection = connect()) {
+
+			try (Statement statement = connection.createStatement()) {
+				ResultSet resultSet = statement.executeQuery(sql);
+				if (resultSet != null) {
+					// just print results to console
+					printResultSet(resultSet);
+				}
+			} catch (SQLException error) {
+				return new ExecResult(false, "Problem Executing SQL Query");
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			String errorMsg = "Unable to Connect Using jdbcURL: " + jdbcURL;
+			return new ExecResult(false, errorMsg);
+
+		}
+
+		return new ExecResult(true, "");
+	}
+
+
+	/**
+	 * Function used for executing a single SQL query on the database. 
+	 * 
+	 * Note that there is no explicit "connection.close()" call, since the connection
 	 * is automatically closed once the "try/except" block completes. This
 	 * function also prints the entire result set that is returned by the query
 	 * directly to the console. 
@@ -64,6 +99,7 @@ public class WolfPubDB {
 
 	/**
 	 * Function used for executing a single SQL update statement on the database.
+	 * 
 	 * Note that there is no explicit "connection.close()" call, since the
 	 * connection is automatically closed once the "try/except" block completes.
 	 */
