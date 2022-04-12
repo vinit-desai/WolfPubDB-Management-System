@@ -1,7 +1,9 @@
+/**
+ * Class used for executing the EmployeePaymentsReport API operation.
+ */
 public class EmployeePaymentsReport {
 
 	public static ExecResult execute(String startDate, String endDate) {
-		
 		String sql = 
 			"SELECT  Type AS WorkType," + "\n" +
 			"		SUM(Amount) AS ContributorPayments" + "\n" +
@@ -11,9 +13,7 @@ public class EmployeePaymentsReport {
 			"GROUP BY 1" + "\n" +
 			"ORDER BY 1;" + "\n"
 		;
-		
 		sql = String.format(sql, startDate, endDate);
-		
 		return WolfPubDB.executeQuery(sql);
 	}
 
@@ -21,7 +21,14 @@ public class EmployeePaymentsReport {
 		System.out.println("\n");
 		System.out.println("Unit Test for EmployeePaymentsReport");
 		System.out.println("====================================");
-		execute("2022-01-01", "2022-12-31");
+		ExecResult execResults = execute("2022-01-01", "2022-12-31");
+		if (execResults.success) {
+			System.out.println("EmployeePaymentsReport: Success");
+		} else {
+			System.out.println("EmployeePaymentsReport: Failure");
+			System.out.println("\tError: " + execResults.errorMessage);
+		}
+		System.out.println("\n");
 	}
 
 }

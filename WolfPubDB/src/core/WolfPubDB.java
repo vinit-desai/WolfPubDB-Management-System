@@ -3,8 +3,8 @@
  * rest of the project to connect to the database and execute SQL statements
  * and transactions.
  *
- * - IMPORTANT NOTE - Relpace all $USER$ with your unity id and $PASSWORD$ 
- *	with your 9 digit student id or updated password (if changed).
+ * - IMPORTANT NOTE - Relpace all "user" field with your unity id and "password"
+ *	field with your 9 digit student id or updated password (if changed).
  */
 
 import java.sql.*;
@@ -14,22 +14,29 @@ import java.lang.StringBuilder;
 public class WolfPubDB {
 	
 	/* Static Data - change to your user credentials */
-	private static final String user = "vdesai5";
-	private static final String password = "200368285";
-	private static final String jdbcURL = "jdbc:mariadb://classdb2.csc.ncsu.edu:3306/"+user;
+	private static final String user = "vdesai5";												// username
+	private static final String password = "200368285";											// password
+	private static final String jdbcURL = "jdbc:mariadb://classdb2.csc.ncsu.edu:3306/"+user;	// url
 
-	// /* Instance Fields */
-	// private Connection connection;
+	/* Instance Fields (none at the moment, everything is static) */
 
-	// public WolfPubDB() {
-	// 	this.connection = null;
-	// }
 
+	/**
+	 * Function used for establishing a connection with MariaDB.
+	 */
 	private static Connection connect() throws ClassNotFoundException, SQLException {
 		Class.forName("org.mariadb.jdbc.Driver");
 		return DriverManager.getConnection(jdbcURL, user, password);
 	}
 
+
+	/**
+	 * Function used for executing a single SQL query on the database. Note
+	 * that there is no explicit "connection.close()" call, since the connection
+	 * is automatically closed once the "try/except" block completes. This
+	 * function also prints the entire result set that is returned by the query
+	 * directly to the console. 
+	 */
 	public static ExecResult executeQuery(String sql) {
 
 		try (Connection connection = connect()) {
@@ -54,6 +61,12 @@ public class WolfPubDB {
 		return new ExecResult(true, "");
 	}
 
+
+	/**
+	 * Function used for executing a single SQL update statement on the database.
+	 * Note that there is no explicit "connection.close()" call, since the
+	 * connection is automatically closed once the "try/except" block completes.
+	 */
 	public static ExecResult executeUpdate(String sql) {
 
 		try (Connection connection = connect()) {
@@ -74,47 +87,16 @@ public class WolfPubDB {
 		return new ExecResult(true, "");
 	}
 
-	// public static void printResultSet(ResultSet rs) throws SQLException {
-	// 	ResultSetMetaData rsmd = rs.getMetaData();
-	// 	int columnsNumber = rsmd.getColumnCount();
 
-	// 	while (rs.next()) {
-	// 		for (int i = 1; i <= columnsNumber; i++) {
-	// 			if (i > 1) System.out.print(",  ");
-	// 			String columnValue = rs.getString(i);
-	// 			System.out.print(columnValue + " " + rsmd.getColumnName(i));
-	// 		}
-	// 		System.out.println("");
-	// 	}
-	// }
-
-	private static void getDividerString(int[] columnSizes, StringBuilder builder) {
-		for (int i=0; i<columnSizes.length; i++) {
-			builder.append("|-");
-			for (int j=0; j<columnSizes[i]; j++) {
-				builder.append('-');
-			}
-			builder.append('-');
-		}
-		builder.append("|\n");
-	}
-
-	private static void getHeaderString(int[] columnSizes, ResultSetMetaData rsmd, StringBuilder builder) throws SQLException {
-		for (int i=0; i<columnSizes.length; i++) {
-			String formatter = String.format("| %%%ds ", columnSizes[i]);
-			builder.append(String.format(formatter, rsmd.getColumnName(i+1)));
-		}
-		builder.append("|\n");
-	}
-
-	private static void getRowString(int[] columnSizes, ResultSet rs, StringBuilder builder) throws SQLException {
-		for (int i=0; i<columnSizes.length; i++) {
-			String formatter = String.format("| %%%ds ", columnSizes[i]);
-			builder.append(String.format(formatter, rs.getString(i+1)));
-		}
-		builder.append("|\n");
-	}
-
+	/**
+	 * Function used to neatly print the data in a ResultSet returned from the
+	 * database. This is used in the "executeQuery" method above.
+	 *
+	 * To accomplish this, the function scans through the columns and records
+	 * of the ResultSet to determine the maximum length required for each field.
+	 * It then uses these values to neatly print the field names and each record
+	 * neatly in a table like fashion that is output directly to the console.
+	 */
 	public static void printResultSet(ResultSet rs) throws SQLException {
 		StringBuilder builder = new StringBuilder();
 
@@ -151,5 +133,44 @@ public class WolfPubDB {
 
 		/* print the string */
 		System.out.print(builder.toString());
+	}
+
+
+	/**
+	 * Function used in "printResultSet" above to print a divider line.
+	 */
+	private static void getDividerString(int[] columnSizes, StringBuilder builder) {
+		for (int i=0; i<columnSizes.length; i++) {
+			builder.append("|-");
+			for (int j=0; j<columnSizes[i]; j++) {
+				builder.append('-');
+			}
+			builder.append('-');
+		}
+		builder.append("|\n");
+	}
+
+
+	/**
+	 * Function used in "printResultSet" the field names/headers.
+	 */
+	private static void getHeaderString(int[] columnSizes, ResultSetMetaData rsmd, StringBuilder builder) throws SQLException {
+		for (int i=0; i<columnSizes.length; i++) {
+			String formatter = String.format("| %%%ds ", columnSizes[i]);
+			builder.append(String.format(formatter, rsmd.getColumnName(i+1)));
+		}
+		builder.append("|\n");
+	}
+
+
+	/**
+	 * Function used in "printResultSet" above to print each record on a newline.
+	 */
+	private static void getRowString(int[] columnSizes, ResultSet rs, StringBuilder builder) throws SQLException {
+		for (int i=0; i<columnSizes.length; i++) {
+			String formatter = String.format("| %%%ds ", columnSizes[i]);
+			builder.append(String.format(formatter, rs.getString(i+1)));
+		}
+		builder.append("|\n");
 	}
 }

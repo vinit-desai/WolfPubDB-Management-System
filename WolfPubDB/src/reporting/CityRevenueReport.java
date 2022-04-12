@@ -1,7 +1,9 @@
+/**
+ * Class used for executing the CityRevenueReport API operation.
+ */
 public class CityRevenueReport {
 
 	public static ExecResult execute() {
-		
 		String sql = 
 			"SELECT  City, " + "\n" +
 			"		SUM(COALESCE(TotalRevenue, 0)) AS TotalRevenue" + "\n" +
@@ -21,7 +23,6 @@ public class CityRevenueReport {
 			"GROUP BY 1" + "\n" +
 			"ORDER BY 1;" + "\n"
 		;
-		
 		return WolfPubDB.executeQuery(sql);
 	}
 
@@ -29,7 +30,14 @@ public class CityRevenueReport {
 		System.out.println("\n");
 		System.out.println("Unit Test for CityRevenueReport");
 		System.out.println("===============================");
-		execute();
+		ExecResult execResults = execute();
+		if (execResults.success) {
+			System.out.println("CityRevenueReport: Success");
+		} else {
+			System.out.println("CityRevenueReport: Failure");
+			System.out.println("\tError: " + execResults.errorMessage);
+		}
+		System.out.println("\n");
 	}
 
 }

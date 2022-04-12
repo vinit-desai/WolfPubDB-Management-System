@@ -1,7 +1,9 @@
+/**
+ * Class used for executing the MonthlyOrdersReport API operation.
+ */
 public class MonthlyOrdersReport {
 
 	public static ExecResult execute() {
-		
 		String sql = 
 			"SELECT  YEAR(OrderDate) AS Year, MONTH(OrderDate) AS Month," + "\n" +
 			"DistributorID, PublicationID," + "\n" +
@@ -10,7 +12,6 @@ public class MonthlyOrdersReport {
 			"GROUP BY 1,2,3,4" + "\n" +
 			"ORDER BY 1,2,3,4;" + "\n"
 		;
-		
 		return WolfPubDB.executeQuery(sql);
 	}
 
@@ -18,7 +19,14 @@ public class MonthlyOrdersReport {
 		System.out.println("\n");
 		System.out.println("Unit Test for MonthlyOrdersReport");
 		System.out.println("=================================");
-		execute();
+		ExecResult execResults = execute();
+		if (execResults.success) {
+			System.out.println("MonthlyOrdersReport: Success");
+		} else {
+			System.out.println("MonthlyOrdersReport: Failure");
+			System.out.println("\tError: " + execResults.errorMessage);
+		}
+		System.out.println("\n");
 	}
 
 }
