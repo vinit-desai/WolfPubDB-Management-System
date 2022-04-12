@@ -1,6 +1,6 @@
 public class DistributorRevenueReport {
 
-	public static void execute() {
+	public static ExecResult execute() {
 		
 		String sql = 
 			"SELECT  Distributor.DistributorID AS DistributorID, " + "\n" +
@@ -20,7 +20,7 @@ public class DistributorRevenueReport {
 			"ORDER BY 1;" + "\n"
 		;
 		
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {

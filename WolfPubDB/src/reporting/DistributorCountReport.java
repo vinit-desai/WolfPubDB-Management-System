@@ -1,12 +1,12 @@
 public class DistributorCountReport {
 
-	public static void execute() {
+	public static ExecResult execute() {
 		
 		String sql = 
 			"SELECT COUNT(*) AS DistributorCount FROM Distributor;" + "\n"
 		;
 		
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {

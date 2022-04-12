@@ -1,6 +1,6 @@
 public class LocationRevenueReport {
 
-	public static void execute() {
+	public static ExecResult execute() {
 		
 		String sql = 
 			"SELECT  Address.StreetAddress AS Location, " + "\n" +
@@ -21,7 +21,7 @@ public class LocationRevenueReport {
 			"ORDER BY 1;" + "\n"
 		;
 		
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {

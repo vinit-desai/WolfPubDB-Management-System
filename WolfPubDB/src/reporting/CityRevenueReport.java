@@ -1,6 +1,6 @@
 public class CityRevenueReport {
 
-	public static void execute() {
+	public static ExecResult execute() {
 		
 		String sql = 
 			"SELECT  City, " + "\n" +
@@ -22,7 +22,7 @@ public class CityRevenueReport {
 			"ORDER BY 1;" + "\n"
 		;
 		
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {

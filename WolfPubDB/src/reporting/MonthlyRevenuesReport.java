@@ -1,6 +1,6 @@
 public class MonthlyRevenuesReport {
 
-	public static void execute() {
+	public static ExecResult execute() {
 		
 		String sql = 
 			"SELECT  YEAR(PaymentDate) AS Year, MONTH(PaymentDate) AS Month," + "\n" +
@@ -12,7 +12,7 @@ public class MonthlyRevenuesReport {
 			"ORDER BY 1,2;" + "\n"
 		;
 		
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {

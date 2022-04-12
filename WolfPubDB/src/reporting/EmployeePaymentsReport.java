@@ -1,6 +1,6 @@
 public class EmployeePaymentsReport {
 
-	public static void execute(String startDate, String endDate) {
+	public static ExecResult execute(String startDate, String endDate) {
 		
 		String sql = 
 			"SELECT  Type AS WorkType," + "\n" +
@@ -14,7 +14,7 @@ public class EmployeePaymentsReport {
 		
 		sql = String.format(sql, startDate, endDate);
 		
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {
