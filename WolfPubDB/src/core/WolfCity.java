@@ -42,16 +42,14 @@ public class WolfCity{
         "36. Report Revenue By City",
         "37. Distributor Revenue Report",
         "38. Location Revenue Report",
-        "39. Employee Payments Report",
-        "40. Logout"
+        "39. Employee Payments Report"
     };
     private static final String[] ContributorOps = {
         "1. View Publication",
         "2. Add Book Chapter",
         "3. Delete Book Chapter",
         "4. Add Article",
-        "5. Delete Article",
-        "6. Logout"
+        "5. Delete Article"
     };
     private static final String[][] WolfCityOpsMapping = {
         AdminOps,
@@ -161,43 +159,7 @@ public class WolfCity{
         if(this.position == 1){
             switch(this.operation){
                 case 1:
-                    // System.out.println("Enter the following information:" + "\n" +
-                    //     "1. Publication ID" + "\n" +
-                    //     "2. Type" + "\n" +
-                    //     "3. Publication Date" + "\n" +
-                    //     "4. Topic"
-                    // );
-                    
-                    // int publicationID = sc.nextInt();
-                    // sc.nextLine();
-                    // String type = sc.nextLine();
-                    // String publicationDate = sc.nextLine(); 
-                    // String topic = sc.nextLine();
-
-                    // if(type.equals("Book")){
-                    //     System.out.println("Additional information:" + "\n" +
-                    //         "1. ISBN" + "\n" +
-                    //         "2. Title" + "\n" +
-                    //         "3. Edition" + "\n" +
-                    //         "4. Creation Date"
-                    //     );
-                    // }else {
-                    //     System.out.println("Additional information:" + "\n" +
-                    //         "1. Periodical Type" + "\n" +
-                    //         "2. Title" + "\n" +
-                    //         "3. Issue" + "\n" +
-                    //         "4. Issue Date"
-                    //     );
-                    // }
-
-                    // String ISBNType = sc.nextLine();
-                    // String title = sc.nextLine();
-                    // int editionIssue = sc.nextInt(); 
-                    // sc.nextLine();
-                    // String creationDate = sc.nextLine();
-
-                    // Queries.createPublication(publicationID, type, publicationDate, topic, ISBNType, title, editionIssue, creationDate);
-
+                    result = CreatePublication.run(sc);
                     break;
 
                 case 2:
@@ -362,6 +324,21 @@ public class WolfCity{
                     break;
                 case 39:
                     result = EmployeePaymentsReport.run(this.sc);
+                    break;
+                default:
+                    return;
+            }
+        } else{
+            switch(this.operation){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
                     break;
                 default:
                     return;

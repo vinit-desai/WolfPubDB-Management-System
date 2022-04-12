@@ -1,6 +1,62 @@
-public class CreatePublication {
+import java.util.Scanner;
 
-	public static void execute(int publicationID, String type, String publicationDate, String topic, String ISBNType, String title, int editionIssue, String creationDate) {
+public class CreatePublication {
+	
+	public static ExecResult run(Scanner reader){
+		System.out.println("+------------------------------------+");
+		System.out.println("| Please Submit the Following Inputs |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		System.out.println("Publication ID: ");
+		int publicationID = reader.nextInt();
+		reader.nextLine();
+
+		System.out.println("Type: ");
+		String type = reader.nextLine();
+
+		System.out.println("Publication Date (YYYY-MM-DD): ");
+		String publicationDate = reader.nextLine(); 
+
+		System.out.println("Topic: ");
+		String topic = reader.nextLine();
+
+		String ISBNType;
+		String title;
+		int editionIssue;
+		String creationDate;
+		if(type.equals("Book")){
+			System.out.println("ISBN: ");
+			ISBNType = reader.nextLine();
+
+			System.out.println("Title: ");
+			title = reader.nextLine();
+
+			System.out.println("Edition: ");
+			editionIssue = reader.nextInt();
+			reader.nextLine();
+
+			System.out.println("Creation Date (YYYY-MM-DD): ");
+			creationDate = reader.nextLine();
+		}else {
+			System.out.println("Periodical Type: ");
+			ISBNType = reader.nextLine();
+
+			System.out.println("Title: ");
+			title = reader.nextLine();
+
+			System.out.println("Issue: ");
+			editionIssue = reader.nextInt();
+			reader.nextLine();
+
+			System.out.println("Issue Date (YYYY-MM-DD): ");
+			creationDate = reader.nextLine();
+		}
+
+		return execute(publicationID, type, publicationDate, topic, ISBNType, title, editionIssue, creationDate);
+	}
+
+	public static ExecResult execute(int publicationID, String type, String publicationDate, String topic, String ISBNType, String title, int editionIssue, String creationDate) {
 		
 		String sql = 
 			"INSERT INTO Publication VALUES "  + "\n" + "\t" +
@@ -25,7 +81,7 @@ public class CreatePublication {
 		;
         }
         sql = String.format(sql, publicationID, ISBNType, title, editionIssue, creationDate);
-		WolfPubDB.executeUpdate(sql);
+		return WolfPubDB.executeUpdate(sql);
 	}
 
 	public static void main(String[] args) {
