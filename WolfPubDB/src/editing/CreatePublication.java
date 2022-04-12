@@ -1,14 +1,18 @@
 public class CreatePublication {
 
-	public static void execute(int PublicationID, String Type, String PublishDate, String Topic, String ISBNType, String Title, int EditionIssue, String Date) {
+	public static void execute(int publicationID, String type, String publicationDate, String topic, String ISBNType, String title, int editionIssue, String creationDate) {
+		
 		String sql = 
 			"INSERT INTO Publication VALUES "  + "\n" + "\t" +
 				"(%s, '%s', '%s', '%s')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-        sql = String.format(sql, PublicationID, Type, PublishDate, Topic);
-        WolfPubDB.executeUpdate(sql);
-        if(Type.equals("Book")){
+        
+		sql = String.format(sql, publicationID, type, publicationDate, topic);
+        
+		WolfPubDB.executeUpdate(sql);
+        
+		if(type.equals("Book")){
             sql = "INSERT INTO Book VALUES " + "\n" + "\t" +
 				"(%s, '%s', '%s', %s, '%s')"  + "\n" +
 			";" + "\n" + "\n"
@@ -20,7 +24,7 @@ public class CreatePublication {
 			";" + "\n" + "\n"
 		;
         }
-        sql = String.format(sql, PublicationID, ISBNType, Title, EditionIssue, Date);
+        sql = String.format(sql, publicationID, ISBNType, title, editionIssue, creationDate);
 		WolfPubDB.executeUpdate(sql);
 	}
 

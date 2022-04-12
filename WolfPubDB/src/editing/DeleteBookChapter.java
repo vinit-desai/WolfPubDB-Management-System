@@ -1,13 +1,16 @@
 public class DeleteBookChapter {
 
-	public static void execute(int PublicationID, int ChapterNumber) {
+	public static void execute(int publicationID, int chapterNumber) {
+
 		String sql = 
-			"DELETE FROM Chapter "  + "\n" +
+			"DELETE FROM Chapter"  + "\n" +
             "WHERE PublicationID = %s AND ChapterNumber = %s"  + "\n" +
 			";" + "\n" + "\n"
 		;
-        sql = String.format(sql, PublicationID, ChapterNumber);
-        WolfPubDB.executeUpdate(sql);
+        
+		sql = String.format(sql, publicationID, chapterNumber);
+        
+		WolfPubDB.executeUpdate(sql);
 	}
 
 	public static void main(String[] args) {

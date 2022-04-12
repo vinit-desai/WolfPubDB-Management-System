@@ -1,12 +1,15 @@
 public class ListEditorPublication {
 
-	public static void execute(int ContributorID) {
+	public static void execute(int contributorID) {
+		
 		String sql = 
 			"SELECT  * FROM Publication" + "\n" +
 			"WHERE PublicationID IN " + "\n" +
             "(SELECT PublicationID FROM Edits WHERE ContributorID = %s);"
 		;
-        sql = String.format(sql, ContributorID);
+        
+		sql = String.format(sql, contributorID);
+		
 		WolfPubDB.executeQuery(sql);
 	}
 
