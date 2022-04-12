@@ -7,7 +7,6 @@ import java.util.NoSuchElementException;
 public class EmployeePaymentsReport {
 
 	public static ExecResult run(Scanner reader) {
-		System.out.println("");
 		System.out.println("+------------------------------------+");
 		System.out.println("| Please Submit the Following Inputs |");
 		System.out.println("+------------------------------------+");
