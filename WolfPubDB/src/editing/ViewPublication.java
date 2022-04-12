@@ -1,11 +1,14 @@
 public class ViewPublication {
 
-	public static void execute(int PublicationID) {
+	public static void execute(int publicationID) {
+		
 		String sql = 
-			"SELECT  * FROM Publication" + "\n" +
+			"SELECT * FROM Publication" + "\n" +
 			"WHERE PublicationID = %s;"
 		;
-        sql = String.format(sql, PublicationID);
+        
+		sql = String.format(sql, publicationID);
+		
 		WolfPubDB.executeQuery(sql);
 	}
 
