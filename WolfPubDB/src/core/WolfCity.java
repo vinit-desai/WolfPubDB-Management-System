@@ -2,8 +2,7 @@ import java.util.*;
 
 public class WolfCity{
 
-    public static void main(String[] args){
-        
+    public static void main(String[] args){        
         System.out.println(
             "------------------------------------" + "\n" +
             "Welcome to WolfCity Publishing House" + "\n" +

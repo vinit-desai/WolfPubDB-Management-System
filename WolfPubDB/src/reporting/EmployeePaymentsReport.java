@@ -1,7 +1,28 @@
+import java.util.Scanner;
+import java.util.NoSuchElementException;
+
 /**
  * Class used for executing the EmployeePaymentsReport API operation.
  */
 public class EmployeePaymentsReport {
+
+	public static ExecResult run(Scanner reader) {
+		System.out.println("");
+		System.out.println("+------------------------------------+");
+		System.out.println("| Please Submit the Following Inputs |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		System.out.print("Start Date (YYYY-MM-DD): ");
+		String startDate = reader.nextLine();
+		
+		System.out.print("End Date (YYYY-MM-DD): ");
+		String endDate = reader.nextLine();
+
+		System.out.println("");
+
+		return execute(startDate, endDate);
+	}
 
 	public static ExecResult execute(String startDate, String endDate) {
 		String sql = 
@@ -14,6 +35,7 @@ public class EmployeePaymentsReport {
 			"ORDER BY 1;" + "\n"
 		;
 		sql = String.format(sql, startDate, endDate);
+		// System.out.println(sql);
 		return WolfPubDB.executeQuery(sql);
 	}
 
