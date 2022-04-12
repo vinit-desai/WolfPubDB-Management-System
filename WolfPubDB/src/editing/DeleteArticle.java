@@ -1,12 +1,15 @@
 public class DeleteArticle {
 
-	public static void execute(int PublicationID, int SequenceNumber) {
+	public static void execute(int publicationID, int sequenceNumber) {
+
 		String sql = 
 			"DELETE FROM Article "  + "\n" +
             "WHERE PublicationID = %s AND SequenceNumber = %s"  + "\n" +
 			";" + "\n" + "\n"
 		;
-        sql = String.format(sql, PublicationID, SequenceNumber);
+
+        sql = String.format(sql, publicationID, sequenceNumber);
+
         WolfPubDB.executeUpdate(sql);
 	}
 

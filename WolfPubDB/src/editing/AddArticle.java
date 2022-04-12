@@ -1,13 +1,16 @@
 public class AddArticle {
 
-	public static void execute(int PublicationID, int SequenceNumber, String Title, String CreationDate, String Text) {
+	public static void execute(int publicationID, int sequenceNumber, String title, String creationDate, String text) {
+
 		String sql = 
 			"INSERT INTO Article VALUES "  + "\n" + "\t" +
 				"(%s, %s, '%s', '%s', '%s')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-        sql = String.format(sql, PublicationID, SequenceNumber, Title, CreationDate, Text);
-        WolfPubDB.executeUpdate(sql);
+        
+		sql = String.format(sql, publicationID, sequenceNumber, title, creationDate, text);
+        
+		WolfPubDB.executeUpdate(sql);
 	}
 
 	public static void main(String[] args) {
