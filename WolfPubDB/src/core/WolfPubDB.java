@@ -32,25 +32,58 @@ public class WolfPubDB {
 
 	/**
 	 * Function used for executing a series of SQL queries and updates on the 
-	 * database as a single transaction. 
+	 * database as a single transaction.
+	 * 
+	 * Before executing all the statements in the transaction, the connection's
+	 * auto commit is set to "false". This prevents all executed queries and
+	 * updates from committing until after we commit the transaction. This is
+	 * done after all statements are executed. Furthermore, should any of these
+	 * statements or the commit fail, we rollback the transaction after catching
+	 * the corresponding SQLException. Lastly, we set the auto commit back to
+	 * "true" before the connection is automatically closed at the end of the
+	 * function.
 	 *
 	 * Note that there is no explicit "connection.close()" call, since the connection
 	 * is automatically closed once the "try/except" block completes. This
 	 * function also prints the entire result set that is returned by the query
 	 * directly to the console. 
 	 */
-	public static ExecResult executeTransaction() {
+	public static ExecResult executeTransaction(Transaction transaction) {
 
 		try (Connection connection = connect()) {
 
+			/* set auto commit to false - i.e. run statements as single transaction */
+			connection.setAutoCommit(false);
+
 			try (Statement statement = connection.createStatement()) {
-				ResultSet resultSet = statement.executeQuery(sql);
-				if (resultSet != null) {
-					// just print results to console
-					printResultSet(resultSet);
+
+				/* exectute each query and update statement in the transaction */
+				for (Transaction.TransactionOp operation : transaction.statements) {
+					if (operation.type == Transaction.StatementType.QUERY) {
+						ResultSet resultSet = statement.executeQuery(operation.sql);
+						if (resultSet != null) {
+							printResultSet(resultSet);
+						}
+					} else if (operation.type == Transaction.StatementType.UPDATE) {
+						statement.executeUpdate(operation.sql);
+					}
 				}
+
+				/* commit the executed statements */
+				connection.commit();
+
 			} catch (SQLException error) {
-				return new ExecResult(false, "Problem Executing SQL Query");
+
+				/* rollback the transaction if anything should fail to commit */
+				connection.rollback();
+
+				return new ExecResult(false, "Problem Executing Transaction");
+
+			} finally {
+
+				/* set auto commit back to true (just in case, even though connection closes automatically) */
+				connection.setAutoCommit(true);
+
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
