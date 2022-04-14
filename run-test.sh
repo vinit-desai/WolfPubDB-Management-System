@@ -5,12 +5,12 @@ cd WolfPubDB/bin
 
 java InitDB
 
-java CityRevenueReport
-java DistributorCountReport
-java DistributorRevenueReport
-java EmployeePaymentsReport
-java LocationRevenueReport
-java MonthlyExpensesReport
-java MonthlyOrdersReport
-java MonthlyRevenuesReport
+# java CityRevenueReport
+# java DistributorCountReport
+# java DistributorRevenueReport
+# java EmployeePaymentsReport
+# java LocationRevenueReport
+# java MonthlyExpensesReport
+# java MonthlyOrdersReport
+# java MonthlyRevenuesReport
 

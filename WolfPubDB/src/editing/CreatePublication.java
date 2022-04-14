@@ -62,35 +62,47 @@ public class CreatePublication {
 	public static ExecResult execute(int publicationID, String type, String publicationDate, String topic, String ISBNType, String title, int editionIssue, String creationDate) {
 		
 		ExecResult result = null;
+		Transaction transaction = new Transaction();
 
+		/* Statement 1 in Transaction (adds record to Publication Table) */
+		/* ------------------------------------------------------------------ */
 		String sql = 
 			"INSERT INTO Publication VALUES "  + "\n" + "\t" +
 				"(%s, '%s', '%s', '%s')"  + "\n" +
 			";" + "\n" + "\n"
 		;
-        
 		sql = String.format(sql, publicationID, type, publicationDate, topic);
+		transaction.addStatement(sql, Transaction.StatementType.UPDATE);
+		/* ------------------------------------------------------------------ */
         
-		result = WolfPubDB.executeUpdate(sql);
 
-		if(!result.success) {
-			return result;
-		}
+		// result = WolfPubDB.executeUpdate(sql);
+
+		// if(!result.success) {
+		// 	return result;
+		// }
         
+		
+		/* Statement 2 in Transaction (adds record to Book or Periodical Table) */
+		/* ------------------------------------------------------------------ */
 		if(type.equals("Book")){
             sql = "INSERT INTO Book VALUES " + "\n" + "\t" +
 				"(%s, '%s', '%s', %s, '%s')"  + "\n" +
-			";" + "\n" + "\n"
-        ;
+				";" + "\n" + "\n"
+        	;
         }
         else{
             sql = "INSERT INTO Periodical VALUES " + "\n" + "\t" +
 				"(%s, '%s', '%s', %s, '%s')"  + "\n" +
-			";" + "\n" + "\n"
-		;
+				";" + "\n" + "\n"
+			;
         }
         sql = String.format(sql, publicationID, ISBNType, title, editionIssue, creationDate);
-		return WolfPubDB.executeUpdate(sql);
+		transaction.addStatement(sql, Transaction.StatementType.UPDATE);
+		/* ------------------------------------------------------------------ */
+
+		/* Execute Transaction via WolfPubDB and return result */
+		return WolfPubDB.executeTransaction(transaction);
 	}
 
 	public static void main(String[] args) {
