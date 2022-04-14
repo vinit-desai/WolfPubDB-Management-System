@@ -43,6 +43,7 @@ public class BillDistributor {
 
         System.out.println("Enter transaction id");
         int transactionId = in.nextInt();
+        in.nextLine();
         System.out.println("You entered id " + transactionId);
 
         addTransaction(transactionId, totalBalance, orderDate);

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.sql.*;
 
-public class CreateNewBookEdition {
+public class CreateNewIssue {
 
     public static void showDetails(String tableName){
         String sql = String.format("SELECT * FROM " + tableName + ";");
@@ -9,8 +9,8 @@ public class CreateNewBookEdition {
 		WolfPubDB.executeQuery(sql);
     }
 
-    public static void executeNew(int publicationId, int isbnNumber, String title, int editionNumber, String creationDate) {
-        String sql = String.format("INSERT INTO Book VALUES (%d , %d , '%s' , %d , '%s');",publicationId,isbnNumber,title,editionNumber,creationDate);
+    public static void executeNew(int publicationId, String issueType, String title, int issueNumber, String issueDate) {
+        String sql = String.format("INSERT INTO Periodical VALUES (%d , '%s' , '%s' , %d , '%s');",publicationId,issueType,title,issueNumber,issueDate);
         System.out.println("sql::" + sql);
 		WolfPubDB.executeUpdate(sql);
 	}
@@ -24,7 +24,7 @@ public class CreateNewBookEdition {
 
     public static void main(String[] args){
         System.out.println("\n");
-		System.out.println("Create a new book edition");
+		System.out.println("Create a new issue");
 
         Scanner in = new Scanner(System.in);
 
@@ -33,7 +33,7 @@ public class CreateNewBookEdition {
         in.nextLine();
         System.out.println("You entered id " + publicationId);
 
-        String type = "Book";
+        String type = "Periodical";
 
         System.out.println("Enter publish date (YYYY-MM-DD)");
         String publishDate = in.nextLine();
@@ -47,24 +47,29 @@ public class CreateNewBookEdition {
         
         showDetails("Publication");
 
-        System.out.println("Enter ISBN number");
-        int isbnNumber = in.nextInt();
+        System.out.println("Enter issue type: 1. Magazine   2. Journal");
+        int option = in.nextInt();
         in.nextLine();
-        System.out.println("You entered ISBN Number " + isbnNumber);
+        String issueType = "";
+        if(option == 1){
+            issueType = "Magazine";
+        } else if(option == 2){
+            issueType = "Journal";
+        }
 
         System.out.println("Enter title");
         String title = in.nextLine();
         System.out.println("You entered title " + title);
 
-        System.out.println("Enter edition number");
-        int editionNumber = in.nextInt();
+        System.out.println("Enter issue number");
+        int issueNumber = in.nextInt();
         in.nextLine();
-        System.out.println("You entered edition number " + editionNumber);
+        System.out.println("You entered issue number " + issueNumber);
 
 
-        executeNew(publicationId,isbnNumber,title,editionNumber,publishDate);
+        executeNew(publicationId,issueType,title,issueNumber,publishDate);
 
-        showDetails("Book");
+        showDetails("Periodical");
 
     }
 
