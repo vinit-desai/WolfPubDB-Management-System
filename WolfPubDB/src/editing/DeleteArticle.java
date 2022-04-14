@@ -1,6 +1,25 @@
+import java.util.Scanner;
+
 public class DeleteArticle {
 
-	public static void execute(int publicationID, int sequenceNumber) {
+	public static ExecResult run(Scanner reader) {
+		System.out.println("+------------------------------------+");
+		System.out.println("| Please Submit the Following Inputs |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		System.out.println("Publication ID: ");
+		int publicationID = reader.nextInt();
+		reader.nextLine();
+
+		System.out.println("Sequence Number: ");
+		int sequenceNumber = reader.nextInt();
+		reader.nextLine();
+
+		return execute(publicationID, sequenceNumber);	
+	}
+
+	public static ExecResult execute(int publicationID, int sequenceNumber) {
 
 		String sql = 
 			"DELETE FROM Article "  + "\n" +
@@ -10,7 +29,7 @@ public class DeleteArticle {
 
         sql = String.format(sql, publicationID, sequenceNumber);
 
-        WolfPubDB.executeUpdate(sql);
+        return WolfPubDB.executeUpdate(sql);
 	}
 
 	public static void main(String[] args) {

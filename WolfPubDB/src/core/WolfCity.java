@@ -221,95 +221,22 @@ public class WolfCity{
                 case 2:
                     break;
                 case 3:
-                    // System.out.println("Enter the following information:" + "\n" +
-                    //     "1. Publication ID" + "\n" +
-                    //     "2. Contributor ID"
-                    // );
-
-                    // publicationID = sc.nextInt();
-                    // sc.nextLine();
-                    // int contributorID = sc.nextInt();
-                    // sc.nextLine();
-
-                    // Queries.assignEditor(publicationID, contributorID);
-                    
+                    result = AssignEditor.run(sc);
                     break;
                 case 4:
-                    // System.out.println("Enter the following information:" + "\n" +
-                    //     "1. Publication ID"
-                    // );
-
-                    // publicationID = sc.nextInt();
-                    // sc.nextLine();
-
-                    // Queries.viewPublication(publicationID);
-
+                    result = ViewPublication.run(sc);
                     break;
                 case 5:
-                    // System.out.println("Enter the following information:" + "\n" +
-                    //     "1. Publication ID" + "\n" +
-                    //     "2. Chapter Number" + "\n" +
-                    //     "3. Title" + "\n" +
-                    //     "4. Text"
-                    // );
-
-                    // publicationID = sc.nextInt();
-                    // sc.nextLine();
-                    // int chapterNumber = sc.nextInt();
-                    // sc.nextLine();
-                    // title = sc.nextLine();
-                    // String text = sc.nextLine();
-
-                    // Queries.addBookChapter(publicationID, chapterNumber, title, text);
-                    
+                    result = AddBookChapter.run(sc);
                     break;
                 case 6:
-                    // System.out.println("Enter the following information:" + "\n" +
-                    //     "1. Publication ID" + "\n" +
-                    //     "2. Chapter Number"
-                    // );
-
-                    // publicationID = sc.nextInt();
-                    // sc.nextLine();
-                    // chapterNumber = sc.nextInt();
-                    // sc.nextLine();
-
-                    // Queries.deleteBookChapter(publicationID, chapterNumber);
-
+                    result = DeleteBookChapter.run(sc);
                     break;
                 case 7:
-                    // System.out.println("Enter the following information:" + "\n" +
-                    //     "1. Publication ID" + "\n" +
-                    //     "2. Sequence Number" + "\n" +
-                    //     "3. Title" + "\n" +
-                    //     "4. Creation Date" + "\n" +
-                    //     "5. Text"
-                    // );
-
-                    // publicationID = sc.nextInt();
-                    // sc.nextLine();
-                    // int sequenceNumber = sc.nextInt();
-                    // sc.nextLine();
-                    // title = sc.nextLine();
-                    // creationDate = sc.nextLine();
-                    // text = sc.nextLine();
-
-                    // Queries.addArticle(publicationID, sequenceNumber, title, creationDate, text);
-
+                    result = AddArticle.run(sc);
                     break;
                 case 8:
-                    // System.out.println("Enter the following information:" + "\n" +
-                    //     "1. Publication ID" + "\n" +
-                    //     "2. Sequence Number"
-                    // );
-
-                    // publicationID = sc.nextInt();
-                    // sc.nextLine();
-                    // sequenceNumber = sc.nextInt();
-                    // sc.nextLine();
-
-                    // Queries.deleteArticle(publicationID, sequenceNumber);
-                    
+                    result = DeleteArticle.run(sc);
                     break;
                 case 9:
                     break;

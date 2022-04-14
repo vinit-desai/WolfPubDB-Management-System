@@ -1,6 +1,21 @@
+import java.util.Scanner;
+
 public class ListEditorPublication {
 
-	public static void execute(int contributorID) {
+	public static ExecResult run(Scanner reader) {
+		System.out.println("+------------------------------------+");
+		System.out.println("| Please Submit the Following Inputs |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		System.out.println("Contributor ID: ");
+		int contributorID = reader.nextInt();
+		reader.nextLine();
+
+		return execute(contributorID);	
+	}
+
+	public static ExecResult execute(int contributorID) {
 		
 		String sql = 
 			"SELECT  * FROM Publication" + "\n" +
@@ -10,7 +25,7 @@ public class ListEditorPublication {
         
 		sql = String.format(sql, contributorID);
 		
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {

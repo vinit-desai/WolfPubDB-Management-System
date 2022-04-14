@@ -1,6 +1,21 @@
+import java.util.Scanner;
+
 public class ViewPublication {
 
-	public static void execute(int publicationID) {
+	public static ExecResult run(Scanner reader) {
+		System.out.println("+------------------------------------+");
+		System.out.println("| Please Submit the Following Inputs |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		System.out.println("Publication ID: ");
+		int publicationID = reader.nextInt();
+		reader.nextLine();
+
+		return execute(publicationID);	
+	}
+
+	public static ExecResult execute(int publicationID) {
 		
 		String sql = 
 			"SELECT * FROM Publication" + "\n" +
@@ -9,7 +24,7 @@ public class ViewPublication {
         
 		sql = String.format(sql, publicationID);
 		
-		WolfPubDB.executeQuery(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 	public static void main(String[] args) {

@@ -1,6 +1,31 @@
+import java.util.Scanner;
+
 public class AddBookChapter {
 
-	public static void execute(int publicationID, int chapterNumber, String title, String text) {
+	public static ExecResult run(Scanner reader) {
+		System.out.println("+------------------------------------+");
+		System.out.println("| Please Submit the Following Inputs |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		System.out.println("Publication ID: ");
+		int publicationID = reader.nextInt();
+		reader.nextLine();
+
+		System.out.println("Chapter Number: ");
+		int chapterNumber = reader.nextInt();
+		reader.nextLine();
+
+		System.out.println("Title: ");
+		String title = reader.nextLine();
+
+		System.out.println("Text: ");
+		String text = reader.nextLine();
+
+		return execute(publicationID, chapterNumber, title, text);	
+	}
+
+	public static ExecResult execute(int publicationID, int chapterNumber, String title, String text) {
 		
 		String sql = 
 			"INSERT INTO Chapter VALUES "  + "\n" + "\t" +
@@ -10,7 +35,7 @@ public class AddBookChapter {
         
 		sql = String.format(sql, publicationID, chapterNumber, title, text);
         
-		WolfPubDB.executeUpdate(sql);
+		return WolfPubDB.executeUpdate(sql);
 	}
 
 	public static void main(String[] args) {

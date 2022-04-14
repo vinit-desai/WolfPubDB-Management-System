@@ -1,6 +1,25 @@
+import java.util.Scanner;
+
 public class AssignEditor {
 
-	public static void execute(int publicationID, int contributorID) {
+	public static ExecResult run(Scanner reader) {
+		System.out.println("+------------------------------------+");
+		System.out.println("| Please Submit the Following Inputs |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		System.out.println("Publication ID: ");
+		int publicationID = reader.nextInt();
+		reader.nextLine();
+
+		System.out.println("Contributor ID: ");
+		int contributorID = reader.nextInt();
+		reader.nextLine();
+		
+		return execute(publicationID, contributorID);	
+	}
+
+	public static ExecResult execute(int publicationID, int contributorID) {
 		
 		String sql = 
 			"INSERT INTO Edits VALUES "  + "\n" + "\t" +
@@ -10,7 +29,7 @@ public class AssignEditor {
         
 		sql = String.format(sql, publicationID, contributorID);
         
-		WolfPubDB.executeUpdate(sql);
+		return WolfPubDB.executeUpdate(sql);
 	}
 
 	public static void main(String[] args) {
