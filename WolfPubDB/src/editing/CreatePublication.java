@@ -58,6 +58,8 @@ public class CreatePublication {
 
 	public static ExecResult execute(int publicationID, String type, String publicationDate, String topic, String ISBNType, String title, int editionIssue, String creationDate) {
 		
+		ExecResult result = null;
+
 		String sql = 
 			"INSERT INTO Publication VALUES "  + "\n" + "\t" +
 				"(%s, '%s', '%s', '%s')"  + "\n" +
@@ -66,7 +68,11 @@ public class CreatePublication {
         
 		sql = String.format(sql, publicationID, type, publicationDate, topic);
         
-		WolfPubDB.executeUpdate(sql);
+		result = WolfPubDB.executeUpdate(sql);
+
+		if(!result.success) {
+			return result;
+		}
         
 		if(type.equals("Book")){
             sql = "INSERT INTO Book VALUES " + "\n" + "\t" +
