@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Class used for executing the CreatePublication API operation.
+ */
 public class CreatePublication {
 	
 	public static ExecResult run(Scanner reader){

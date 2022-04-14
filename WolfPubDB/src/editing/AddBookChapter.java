@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Class used for executing the AddBookChapter API operation.
+ */
 public class AddBookChapter {
 
 	public static ExecResult run(Scanner reader) {

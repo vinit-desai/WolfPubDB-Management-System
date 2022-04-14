@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Class used for executing the ViewPublication API operation.
+ */
 public class ViewPublication {
 
 	public static ExecResult run(Scanner reader) {

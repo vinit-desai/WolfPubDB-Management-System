@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Class used for executing the DeleteBookChapter API operation.
+ */
 public class DeleteBookChapter {
 
 	public static ExecResult run(Scanner reader) {

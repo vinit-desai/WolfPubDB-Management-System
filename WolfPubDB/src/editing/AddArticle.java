@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Class used for executing the AddArticle API operation.
+ */
 public class AddArticle {
 
 	public static ExecResult run(Scanner reader) {

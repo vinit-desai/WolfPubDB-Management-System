@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Class used for executing the DeleteArticle API operation.
+ */
 public class DeleteArticle {
 
 	public static ExecResult run(Scanner reader) {

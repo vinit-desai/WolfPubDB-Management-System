@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Class used for executing the AssignEditor API operation.
+ */
 public class AssignEditor {
 
 	public static ExecResult run(Scanner reader) {

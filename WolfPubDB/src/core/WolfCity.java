@@ -217,8 +217,8 @@ public class WolfCity{
                 case 1:
                     result = CreatePublication.run(sc);
                     break;
-
                 case 2:
+                    result = UpdatePublication.run(sc);
                     break;
                 case 3:
                     result = AssignEditor.run(sc);

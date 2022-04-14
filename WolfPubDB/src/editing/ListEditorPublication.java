@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Class used for executing the ListEditorPublication API operation.
+ */
 public class ListEditorPublication {
 
 	public static ExecResult run(Scanner reader) {
