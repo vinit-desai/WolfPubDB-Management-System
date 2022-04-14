@@ -7,7 +7,7 @@
 cd WolfPubDB/bin
 
 # re-initialize the database
-java InitDB
+java InitDB_demo
 
 # start demo by running interface
 java WolfCity

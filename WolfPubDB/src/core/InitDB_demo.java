@@ -11,7 +11,7 @@
 
 import java.sql.*;
 
-public class InitDB {
+public class InitDB_demo {
 
 	/* All the table/schema names included in our WolfPubDB implementation */
 	private static String[] tables = {
@@ -444,16 +444,16 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL =
 			"INSERT INTO Publication VALUES "  + "\n" + "\t" +
-				"(1, 'Book', '2020-05-23', 'Sports'),"  + "\n" + "\t" +
-				"(2, 'Periodical', '2021-01-01', 'Science'),"  + "\n" + "\t" +
-				"(3, 'Periodical', '2018-11-01', 'Entertainment'),"  + "\n" + "\t" +
-				"(4, 'Book', '2020-08-28', 'Science Fiction'),"  + "\n" + "\t" +
-				"(5, 'Book', '2016-09-09', 'Biography'),"  + "\n" + "\t" +
-				"(6, 'Periodical', '2022-01-08', 'Sports'),"  + "\n" + "\t" +
-				"(7, 'Periodical', '2021-10-01', 'Music'),"  + "\n" + "\t" +
-				"(8, 'Periodical', '2021-11-01', 'Sports'),"  + "\n" + "\t" +
-				"(9, 'Periodical', '2021-12-15', 'History'),"  + "\n" + "\t" +
-				"(10, 'Book', '2021-04-02', 'Self Help'),"  + "\n" + "\t" +
+				// "(1, 'Book', '2020-05-23', 'Sports'),"  + "\n" + "\t" +
+				// "(2, 'Periodical', '2021-01-01', 'Science'),"  + "\n" + "\t" +
+				// "(3, 'Periodical', '2018-11-01', 'Entertainment'),"  + "\n" + "\t" +
+				// "(4, 'Book', '2020-08-28', 'Science Fiction'),"  + "\n" + "\t" +
+				// "(5, 'Book', '2016-09-09', 'Biography'),"  + "\n" + "\t" +
+				// "(6, 'Periodical', '2022-01-08', 'Sports'),"  + "\n" + "\t" +
+				// "(7, 'Periodical', '2021-10-01', 'Music'),"  + "\n" + "\t" +
+				// "(8, 'Periodical', '2021-11-01', 'Sports'),"  + "\n" + "\t" +
+				// "(9, 'Periodical', '2021-12-15', 'History'),"  + "\n" + "\t" +
+				// "(10, 'Book', '2021-04-02', 'Self Help'),"  + "\n" + "\t" +
 				"(1001, 'Book', '2018-10-10', 'Technology'),"  + "\n" + "\t" +
 				"(1002, 'Periodical', '2020-02-24', 'Health'),"  + "\n" + "\t" +
 				"(1003, 'Periodical', '2020-03-01', 'Science')"  + "\n" +
@@ -467,10 +467,10 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Book VALUES " + "\n" + "\t" +
-				"(4, '0000000001', 'Harry Potter', 1, '1998-03-02')," + "\n" + "\t" +
-				"(1, '0000000002', 'What Made Maddy Run', 1, '2000-12-10'),"  + "\n" + "\t" +
-				"(5, '0000000003', 'Churchill: A life', 2, '2012-08-05'),"  + "\n" + "\t" +
-				"(10, '0000000004', 'Atomic Habits', 1, '2006-06-09'),"  + "\n" + "\t" +
+				// "(4, '0000000001', 'Harry Potter', 1, '1998-03-02')," + "\n" + "\t" +
+				// "(1, '0000000002', 'What Made Maddy Run', 1, '2000-12-10'),"  + "\n" + "\t" +
+				// "(5, '0000000003', 'Churchill: A life', 2, '2012-08-05'),"  + "\n" + "\t" +
+				// "(10, '0000000004', 'Atomic Habits', 1, '2006-06-09'),"  + "\n" + "\t" +
 				"(1001, '0000012345', 'Introduction to Database', 2, '2017-03-17')"  + "\n" +
 			";" + "\n" + "\n"
 		;
@@ -495,12 +495,12 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Periodical VALUES "  + "\n" + "\t" +
-				"(2,  'Magazine', 'Discover', 1, '2020-12-01')," + "\n" + "\t" +
-				"(3,  'Journal', 'Variety', 1, '2018-11-07')," + "\n" + "\t" +
-				"(6,  'Journal', 'ESPN', 1, '2022-01-14')," + "\n" + "\t" +
-				"(7,  'Magazine', 'Revolver', 2, '2021-09-01')," + "\n" + "\t" +
-				"(8,  'Magazine', 'Hoop', 1, '2021-10-01')," + "\n" + "\t" +
-				"(9,  'Journal', 'Ancient', 3, '2021-12-21'),"  + "\n" + "\t" +
+				// "(2,  'Magazine', 'Discover', 1, '2020-12-01')," + "\n" + "\t" +
+				// "(3,  'Journal', 'Variety', 1, '2018-11-07')," + "\n" + "\t" +
+				// "(6,  'Journal', 'ESPN', 1, '2022-01-14')," + "\n" + "\t" +
+				// "(7,  'Magazine', 'Revolver', 2, '2021-09-01')," + "\n" + "\t" +
+				// "(8,  'Magazine', 'Hoop', 1, '2021-10-01')," + "\n" + "\t" +
+				// "(9,  'Journal', 'Ancient', 3, '2021-12-21'),"  + "\n" + "\t" +
 				"(1002,  'Magazine', 'Healthy Diet', 1, '2020-02-24'),"  + "\n" + "\t" +
 				"(1003,  'Journal', 'Animal Science', 5, '2020-03-01')"  + "\n" +
 			";" + "\n" + "\n"
@@ -514,14 +514,14 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Chapter VALUES "  + "\n" + "\t" +
-				"(4,  1, 'The Boy Who Lived','Lorem Ipsum is simply dummy text...')," + "\n" + "\t" +
-				"(4,  2, 'The Vanishing Glass','It was popularised in the 1960s...')," + "\n" + "\t" +
-				"(4,  3, 'The Letters From No One','Lorem Ipsum is simply dummy text of the printing...')," + "\n" + "\t" +
-				"(4,  4, 'The Keeper Of Keys', 'It was popularised in the 1960s with the release of Letraset...')," + "\n" + "\t" +
-				"(1,  1, 'Vacuum', 'Lorem Ipsum is simply dummy text of the...')," + "\n" + "\t" +
-				"(1,  2, 'Run Maddy Run', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum...')," + "\n" + "\t" +
-				"(5,  1, 'England', 'Lorem Ipsum is simply dummy text of...')," + "\n" + "\t" +
-				"(10,  1, 'Focus', 'It was popularised in the 1960s with the release of...'),"  + "\n" + "\t" +
+				// "(4,  1, 'The Boy Who Lived','Lorem Ipsum is simply dummy text...')," + "\n" + "\t" +
+				// "(4,  2, 'The Vanishing Glass','It was popularised in the 1960s...')," + "\n" + "\t" +
+				// "(4,  3, 'The Letters From No One','Lorem Ipsum is simply dummy text of the printing...')," + "\n" + "\t" +
+				// "(4,  4, 'The Keeper Of Keys', 'It was popularised in the 1960s with the release of Letraset...')," + "\n" + "\t" +
+				// "(1,  1, 'Vacuum', 'Lorem Ipsum is simply dummy text of the...')," + "\n" + "\t" +
+				// "(1,  2, 'Run Maddy Run', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum...')," + "\n" + "\t" +
+				// "(5,  1, 'England', 'Lorem Ipsum is simply dummy text of...')," + "\n" + "\t" +
+				// "(10,  1, 'Focus', 'It was popularised in the 1960s with the release of...'),"  + "\n" + "\t" +
 				"(1001,  1, 'Why Data?', 'Since the dawn of time, man has strived to store his data, whether it be on cave walls, papyrus sheets, or bits on a magnetic strip...'),"  + "\n" + "\t" +
 				"(1001,  2, 'Relational Schemas', 'Tables, tables, tables.... Did I mention tables? That is how we store data in a relational DB...'),"  + "\n" + "\t" +
 				"(1001,  3, 'SQL Basics', 'SQL is the language of databases. Though limited in its functionality, these limitations allow for efficiency during execution...'),"  + "\n" + "\t" +
@@ -537,14 +537,14 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Article VALUES "  + "\n" + "\t" +
-				"(2,  1, 'Nuclear Bomb', '2020-11-11', 'Lorem Ipsum is simply dummy text...')," + "\n" + "\t" +
-				"(2,  2, 'Magnetism', '2020-11-15', 'It was popularised in the 1960s with the release of Letraset...')," + "\n" + "\t" +
-				"(3,  1, 'Gossip Column', '2018-10-17', 'Lorem Ipsum is simply dummy text of the printing...')," + "\n" + "\t" +
-				"(6,  1, 'Manchester Derby', '2021-12-28', 'It was popularised in the 1960s with the release of Letraset sheets...')," + "\n" + "\t" +
-				"(7,  1, 'Top 10 Country Songs', '2021-08-24', 'Lorem Ipsum is simply dummy tex...')," + "\n" + "\t" +
-				"(8,  1, 'The Last Dance', '2021-09-25', 'It was popularised in the 1960s...')," + "\n" + "\t" +
-				"(9,  1, 'Pyramids Of Giza', '2021-12-12', 'Lorem Ipsum is simply dummy text of the printing...')," + "\n" + "\t" +
-				"(9,  2, 'The 8th Wonder', '2021-12-19', 'It was popularised in the 1960s with the release of...'),"  + "\n" + "\t" +
+				// "(2,  1, 'Nuclear Bomb', '2020-11-11', 'Lorem Ipsum is simply dummy text...')," + "\n" + "\t" +
+				// "(2,  2, 'Magnetism', '2020-11-15', 'It was popularised in the 1960s with the release of Letraset...')," + "\n" + "\t" +
+				// "(3,  1, 'Gossip Column', '2018-10-17', 'Lorem Ipsum is simply dummy text of the printing...')," + "\n" + "\t" +
+				// "(6,  1, 'Manchester Derby', '2021-12-28', 'It was popularised in the 1960s with the release of Letraset sheets...')," + "\n" + "\t" +
+				// "(7,  1, 'Top 10 Country Songs', '2021-08-24', 'Lorem Ipsum is simply dummy tex...')," + "\n" + "\t" +
+				// "(8,  1, 'The Last Dance', '2021-09-25', 'It was popularised in the 1960s...')," + "\n" + "\t" +
+				// "(9,  1, 'Pyramids Of Giza', '2021-12-12', 'Lorem Ipsum is simply dummy text of the printing...')," + "\n" + "\t" +
+				// "(9,  2, 'The 8th Wonder', '2021-12-19', 'It was popularised in the 1960s with the release of...'),"  + "\n" + "\t" +
 				"(1002,  1, 'Eat More Chicken', '2020-02-24', 'ABC'),"  + "\n" + "\t" +
 				"(1003,  1, 'Why Cats are Evil', '2020-03-01', 'AAA')"  + "\n" +
 			";" + "\n" + "\n"
@@ -558,16 +558,16 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Contributor VALUES "  + "\n" + "\t" +
-				"(1,  'J.K. Rowling', 'Author', 'Staff', 56, 'F', '9477488475', 'imawizard@potter.com', '1200 Hogwarts Street, ENG')," + "\n" + "\t" +
-				"(2,  'Kate Fagan', 'Author', 'Staff', 32, 'F', '8563156942', 'katefagan@gmail.com', '101 Main Street, NC 27513')," + "\n" + "\t" +
-				"(3,  'Martin Gilbert', 'Author', 'Invited', 45, 'M', '3685149657', 'martingilbert@gmail.com', '345 Silver Church Road, NC 27845')," + "\n" + "\t" +
-				"(4,  'James Clear', 'Author', 'Invited', 74, 'M', '4865123975', 'jameclear@gmail.com', '2306 Raleigh Road, NC 27530')," + "\n" + "\t" +
-				"(5,  'Bob Woodward', 'Author', 'Staff', 21, 'M', '9863254178', 'bossboby@gmail.com', '310 Carytown Road, NC 27513')," + "\n" + "\t" +
-				"(6,  'Barbara Walter', 'Author', 'Staff', 26, 'F', '6668453248', 'barbarawalter@yahoo.com', '598 Old Apex Road, NC 27516')," + "\n" + "\t" +
-				"(7,  'Anna Wintour', 'Editor', 'Staff', 28, 'F', '3877749865', 'annawintour@yahoo.com', '234 Wake Avenue, NC 28645')," + "\n" + "\t" +
-				"(8,  'Dasha Gold', 'Editor', 'Invited', 30, 'F', '5488675309', '24kgold@hotmail.com', '1602 Broadway, NY 15036')," + "\n" + "\t" +
-				"(9,  'Emmanuelle', 'Editor', 'Staff', 54, 'M', '5555555555', 'emmanuelle@hotmail.com', '9849 Higher Living Circle, Apt. 235, NC 27348')," + "\n" + "\t" +
-				"(10,  'Carine Roitfeld', 'Editor', 'Invited', 38, 'F', '9865321148', 'carineroitfeld@ncsu.edu', '666 Big Cow Road, TX 69420'),"  + "\n" + "\t" +
+				// "(1,  'J.K. Rowling', 'Author', 'Staff', 56, 'F', '9477488475', 'imawizard@potter.com', '1200 Hogwarts Street, ENG')," + "\n" + "\t" +
+				// "(2,  'Kate Fagan', 'Author', 'Staff', 32, 'F', '8563156942', 'katefagan@gmail.com', '101 Main Street, NC 27513')," + "\n" + "\t" +
+				// "(3,  'Martin Gilbert', 'Author', 'Invited', 45, 'M', '3685149657', 'martingilbert@gmail.com', '345 Silver Church Road, NC 27845')," + "\n" + "\t" +
+				// "(4,  'James Clear', 'Author', 'Invited', 74, 'M', '4865123975', 'jameclear@gmail.com', '2306 Raleigh Road, NC 27530')," + "\n" + "\t" +
+				// "(5,  'Bob Woodward', 'Author', 'Staff', 21, 'M', '9863254178', 'bossboby@gmail.com', '310 Carytown Road, NC 27513')," + "\n" + "\t" +
+				// "(6,  'Barbara Walter', 'Author', 'Staff', 26, 'F', '6668453248', 'barbarawalter@yahoo.com', '598 Old Apex Road, NC 27516')," + "\n" + "\t" +
+				// "(7,  'Anna Wintour', 'Editor', 'Staff', 28, 'F', '3877749865', 'annawintour@yahoo.com', '234 Wake Avenue, NC 28645')," + "\n" + "\t" +
+				// "(8,  'Dasha Gold', 'Editor', 'Invited', 30, 'F', '5488675309', '24kgold@hotmail.com', '1602 Broadway, NY 15036')," + "\n" + "\t" +
+				// "(9,  'Emmanuelle', 'Editor', 'Staff', 54, 'M', '5555555555', 'emmanuelle@hotmail.com', '9849 Higher Living Circle, Apt. 235, NC 27348')," + "\n" + "\t" +
+				// "(10,  'Carine Roitfeld', 'Editor', 'Invited', 38, 'F', '9865321148', 'carineroitfeld@ncsu.edu', '666 Big Cow Road, TX 69420'),"  + "\n" + "\t" +
 				"(3001,  'John', 'Editor', 'Staff', 36, 'M', '9391234567', '3001@gmail.com', '21 ABC St, NC 27'),"  + "\n" + "\t" +
 				"(3002,  'Ethen', 'Editor', 'Staff', 30, 'M', '9491234567', '3002@gmail.com', '21 ABC St, NC 27606'),"  + "\n" + "\t" +
 				"(3003,  'Cathy', 'Author', 'Invited', 28, 'F', '9591234567', '3003@gmail.com', '3300 AAA St, NC 27606')"  + "\n" +
@@ -582,10 +582,10 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Edits VALUES "  + "\n" + "\t" +
-				"(1, 7)," + "\n" + "\t" +
-				"(2, 8)," + "\n" + "\t" +
-				"(3, 9)," + "\n" + "\t" +
-				"(4, 10),"  + "\n" + "\t" +
+				// "(1, 7)," + "\n" + "\t" +
+				// "(2, 8)," + "\n" + "\t" +
+				// "(3, 9)," + "\n" + "\t" +
+				// "(4, 10),"  + "\n" + "\t" +
 				"(1001, 3001),"  + "\n" + "\t" +
 				"(1002, 3002)"  + "\n" +
 			";" + "\n" + "\n"
@@ -599,14 +599,14 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO AuthorsArticle VALUES "  + "\n" + "\t" +
-				"(2, 1, 4)," + "\n" + "\t" +
-				"(2, 2, 4)," + "\n" + "\t" +
-				"(3, 1, 2)," + "\n" + "\t" +
-				"(6, 1, 3)," + "\n" + "\t" +
-				"(7, 1, 1)," + "\n" + "\t" +
-				"(8, 1, 5)," + "\n" + "\t" +
-				"(9, 1, 6)," + "\n" + "\t" +
-				"(9, 2, 6),"  + "\n" + "\t" +
+				// "(2, 1, 4)," + "\n" + "\t" +
+				// "(2, 2, 4)," + "\n" + "\t" +
+				// "(3, 1, 2)," + "\n" + "\t" +
+				// "(6, 1, 3)," + "\n" + "\t" +
+				// "(7, 1, 1)," + "\n" + "\t" +
+				// "(8, 1, 5)," + "\n" + "\t" +
+				// "(9, 1, 6)," + "\n" + "\t" +
+				// "(9, 2, 6),"  + "\n" + "\t" +
 				"(1002, 1, 3003),"  + "\n" + "\t" +
 				"(1003, 1, 3003)"  + "\n" +
 			";" + "\n" + "\n"
@@ -620,10 +620,10 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO AuthorsBook VALUES "  + "\n" + "\t" +
-				"(1, 2)," + "\n" + "\t" +
-				"(4, 1)," + "\n" + "\t" +
-				"(5, 3)," + "\n" + "\t" +
-				"(10, 4),"  + "\n" + "\t" +
+				// "(1, 2)," + "\n" + "\t" +
+				// "(4, 1)," + "\n" + "\t" +
+				// "(5, 3)," + "\n" + "\t" +
+				// "(10, 4),"  + "\n" + "\t" +
 				"(1001, 3003)"  + "\n" +
 			";" + "\n" + "\n"
 		;
@@ -636,10 +636,10 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Address VALUES "  + "\n" + "\t" +
-				"('1615 S Wilmington St', 'Raleigh')," + "\n" + "\t" +
-				"('230 East Cameron Ave', 'Chapel Hill'),"  + "\n" + "\t" +
-				"( '3000 Cowboy Street', 'Greensboro')," + "\n" + "\t" +
-				"('250 West Main Street', 'Apex')," + "\n" + "\t" +
+				// "('1615 S Wilmington St', 'Raleigh')," + "\n" + "\t" +
+				// "('230 East Cameron Ave', 'Chapel Hill'),"  + "\n" + "\t" +
+				// "( '3000 Cowboy Street', 'Greensboro')," + "\n" + "\t" +
+				// "('250 West Main Street', 'Apex')," + "\n" + "\t" +
 				"('2200, A Street, NC', 'Charlotte')," + "\n" + "\t" +
 				"('2200, B Street, NC', 'Raleigh')" + "\n" + "\t" +
 			";" + "\n" + "\n"
@@ -652,10 +652,10 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Distributor VALUES "  + "\n" + "\t" +
-				"(1, 'Whole Order', 243.56, '5647891452', '1615 S Wilmington St', 'Mark Austin', 'Wholesale Distributor')," + "\n" + "\t" +
-				"(2, 'Davis Library', 2542.43, '7645801443', '230 East Cameron Ave', 'Christina Higgins', 'Library'),"  + "\n" + "\t" +
-				"(3, 'Bobs Used Books', 126.98, '2537891452', '3000 Cowboy Street', 'Bob Bobertson', 'Book Store')," + "\n" + "\t" +
-				"(4, 'Barnes & Noble of Apex', 48987.05, '7645864443', '250 West Main Street', 'Jerry Seinfeld', 'Book Store')," + "\n" + "\t" +
+				// "(1, 'Whole Order', 243.56, '5647891452', '1615 S Wilmington St', 'Mark Austin', 'Wholesale Distributor')," + "\n" + "\t" +
+				// "(2, 'Davis Library', 2542.43, '7645801443', '230 East Cameron Ave', 'Christina Higgins', 'Library'),"  + "\n" + "\t" +
+				// "(3, 'Bobs Used Books', 126.98, '2537891452', '3000 Cowboy Street', 'Bob Bobertson', 'Book Store')," + "\n" + "\t" +
+				// "(4, 'Barnes & Noble of Apex', 48987.05, '7645864443', '250 West Main Street', 'Jerry Seinfeld', 'Book Store')," + "\n" + "\t" +
 				"(2001, 'BookSell', 215.00, '9191234567', '2200, A Street, NC', 'Jason', 'Book Store')," + "\n" + "\t" +
 				"(2002, 'BookDist', 0.00, '9291234568', '2200, B Street, NC', 'Alex', 'Wholesale Distributor')" + "\n" +
 			";" + "\n" + "\n"
@@ -668,14 +668,14 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Orders VALUES "  + "\n" + "\t" +
-				"(1, 1, 1, 30, 15.95, '2022-03-21', 20.35, 'Order Received')," + "\n" + "\t" +
-				"(2, 2, 3, 20, 10.99, '2022-03-09', 15.99, 'Delivered')," + "\n" + "\t" +
-				"(3, 2, 5, 15, 20.98, '2022-03-15', 12.47, 'Shipped')," + "\n" + "\t" +
-				"(4, 1, 7, 25, 30.49, '2022-03-29', 18.89, 'Order Received'),"  + "\n" + "\t" +
-				"(5, 3, 1, 15, 15.95, '2022-03-15', 12.47, 'Delivered')," + "\n" + "\t" +
-				"(6, 4, 5, 10, 20.98, '2022-03-29', 11.99, 'Delivered')," + "\n" + "\t" +
-				"(7, 3, 3, 15, 21.99, '2022-03-15', 8.47, 'Order Received')," + "\n" + "\t" +
-				"(8, 4, 5, 5, 22.98, '2022-03-29', 5.95,'Shipped')," + "\n" + "\t" +
+				// "(1, 1, 1, 30, 15.95, '2022-03-21', 20.35, 'Order Received')," + "\n" + "\t" +
+				// "(2, 2, 3, 20, 10.99, '2022-03-09', 15.99, 'Delivered')," + "\n" + "\t" +
+				// "(3, 2, 5, 15, 20.98, '2022-03-15', 12.47, 'Shipped')," + "\n" + "\t" +
+				// "(4, 1, 7, 25, 30.49, '2022-03-29', 18.89, 'Order Received'),"  + "\n" + "\t" +
+				// "(5, 3, 1, 15, 15.95, '2022-03-15', 12.47, 'Delivered')," + "\n" + "\t" +
+				// "(6, 4, 5, 10, 20.98, '2022-03-29', 11.99, 'Delivered')," + "\n" + "\t" +
+				// "(7, 3, 3, 15, 21.99, '2022-03-15', 8.47, 'Order Received')," + "\n" + "\t" +
+				// "(8, 4, 5, 5, 22.98, '2022-03-29', 5.95,'Shipped')," + "\n" + "\t" +
 				"(4001, 2001, 1001, 30, 20.00, '2020-01-02', 30.00, 'Delivered')," + "\n" + "\t" +
 				"(4002, 2001, 1001, 10, 20.00, '2020-02-05', 15.00, 'Delivered')," + "\n" + "\t" +
 				"(4003, 2002, 1003, 10, 10.00, '2020-02-10', 15.00, 'Delivered')" + "\n" +
@@ -690,15 +690,15 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Transaction VALUES "  + "\n" + "\t" +
-				"(1, 450.00, '2020-03-21')," + "\n" + "\t" +
-				"(2, 200.00, '2020-03-09')," + "\n" + "\t" +
-				"(3, 2500.00, '2022-01-01')," + "\n" + "\t" +
-				"(4, 3000.00, '2022-01-01'),"  + "\n" +"\t" +
-				"(5, 600.00, '2022-03-09'),"  + "\n" + "\t" +
-				"(6, 3200.00, '2022-03-03'),"  + "\n" +"\t" +
-				"(7, 300.00, '2022-03-05'),"  + "\n" +"\t" +
-				"(8, 1300.00, '2022-03-06'),"  + "\n" +"\t" +
-				"(9, 300.00, '2022-03-10'),"  + "\n" + "\t" +
+				// "(1, 450.00, '2020-03-21')," + "\n" + "\t" +
+				// "(2, 200.00, '2020-03-09')," + "\n" + "\t" +
+				// "(3, 2500.00, '2022-01-01')," + "\n" + "\t" +
+				// "(4, 3000.00, '2022-01-01'),"  + "\n" +"\t" +
+				// "(5, 600.00, '2022-03-09'),"  + "\n" + "\t" +
+				// "(6, 3200.00, '2022-03-03'),"  + "\n" +"\t" +
+				// "(7, 300.00, '2022-03-05'),"  + "\n" +"\t" +
+				// "(8, 1300.00, '2022-03-06'),"  + "\n" +"\t" +
+				// "(9, 300.00, '2022-03-10'),"  + "\n" + "\t" +
 				"(5001, 630.00, '2020-01-02'),"  + "\n" + "\t" +
 				"(5002, 215.00, '2020-02-05'),"  + "\n" + "\t" +
 				"(5003, 115.00, '2020-02-10'),"  + "\n" + "\t" +
@@ -716,11 +716,11 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Bills VALUES "  + "\n" + "\t" +
-				"(1, 1, True, '2020-03-28')," + "\n" + "\t" +
-				"(2, 1, True,  '2020-03-16'),"  + "\n" +"\t" +
-				"(6, 4, True,  '2022-03-05')," + "\n" + "\t" +
-				"(7, 3, False, NULL)," + "\n" + "\t" +
-				"(8, 4, True,  '2022-03-10')," + "\n" + "\t" +
+				// "(1, 1, True, '2020-03-28')," + "\n" + "\t" +
+				// "(2, 1, True,  '2020-03-16'),"  + "\n" +"\t" +
+				// "(6, 4, True,  '2022-03-05')," + "\n" + "\t" +
+				// "(7, 3, False, NULL)," + "\n" + "\t" +
+				// "(8, 4, True,  '2022-03-10')," + "\n" + "\t" +
 				"(5001, 2001, True,  '2020-01-15')," + "\n" + "\t" +
 				"(5002, 2001, False,  NULL)," + "\n" + "\t" +
 				"(5003, 2002, True,  '2020-02-25')" + "\n" +
@@ -734,10 +734,10 @@ public class InitDB {
 		/* ------------------------------------------------------------------ */
 		SQL = 
 			"INSERT INTO Wages VALUES "  + "\n" + "\t" +
-				"(3, 1,  'Book Authorship', '2022-01-03')," + "\n" + "\t" +
-				"(4, 7, 'Editorial Work', '2022-01-05'),"  + "\n" + "\t" +
-				"(5, 1, 'Article Authorship', '2022-01-05'),"  + "\n" + "\t" +
-				"(9, 1, 'Article Authorship', NULL),"  + "\n" + "\t" +
+				// "(3, 1,  'Book Authorship', '2022-01-03')," + "\n" + "\t" +
+				// "(4, 7, 'Editorial Work', '2022-01-05'),"  + "\n" + "\t" +
+				// "(5, 1, 'Article Authorship', '2022-01-05'),"  + "\n" + "\t" +
+				// "(9, 1, 'Article Authorship', NULL),"  + "\n" + "\t" +
 				"(5004, 3001, 'Editorial Work', '2020-04-02'),"  + "\n" + "\t" +
 				"(5005, 3002, 'Editorial Work', '2020-04-02'),"  + "\n" + "\t" +
 				"(5006, 3003, 'Article Authorship', '2020-04-02')"  + "\n" +

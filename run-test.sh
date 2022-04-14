@@ -3,7 +3,7 @@
 ./build-WolfPubDB.sh
 cd WolfPubDB/bin
 
-java InitDB
+java InitDB_demo
 
 # java CityRevenueReport
 # java DistributorCountReport
