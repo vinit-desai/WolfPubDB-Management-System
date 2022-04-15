@@ -1,76 +1,141 @@
 import java.util.Scanner;
 import java.sql.*;
+import java.lang.StringBuilder;
 
 public class CreateOrder {
 
+    private static final String user = "nkotche";												// username
+	private static final String password = "Adder0108&";											// password
+	private static final String jdbcURL = "jdbc:mariadb://classdb2.csc.ncsu.edu:3306/"+user;
 
-    public static void showOrderDetails(){
-        String sql = String.format("SELECT * FROM Orders;");
-        System.out.println("sql::" + sql);
-		WolfPubDB.executeQuery(sql);
-    }
-
-    public static void execute(int orderId, int distributorId, int publicationId, int numberOfUnits, float pricePerUnit, String orderDate, float shippingCost, String orderStatus) {
-        String sql = String.format("INSERT INTO Orders VALUES (%d , %d , %d , %d , %.2f , '%s' , %.2f , '%s');",orderId,distributorId,publicationId,numberOfUnits,pricePerUnit,orderDate,shippingCost,orderStatus);
-        System.out.println("sql::" + sql);
-		WolfPubDB.executeUpdate(sql);
+    private static Connection connect() throws ClassNotFoundException, SQLException {
+		Class.forName("org.mariadb.jdbc.Driver");
+		return DriverManager.getConnection(jdbcURL, user, password);
 	}
 
-    public static void main(String[] args){
-        System.out.println("\n");
-		System.out.println("Create a new order");
+    public static float getResults(int distributorID){
 
-        System.out.println("Existing orders");
-        showOrderDetails();
+        ResultSet resultSet = null;
+        float balance = 0.0f;
 
-        Scanner in = new Scanner(System.in);
+        String sql = "SELECT * FROM Distributor WHERE DistributorID = %d"  + "\n" + "\t" + "\n" +
+			";" + "\n" + "\n";
 
-        System.out.println("Enter order id");
-        int orderId = in.nextInt();
-        System.out.println("You entered id " + orderId);
+        sql = String.format(sql,distributorID);
 
-        Scanner in1 = new Scanner(System.in);
+        try (Connection connection = connect()) {
 
-        System.out.println("Enter distributor's id");
-        int distributorId = in1.nextInt();
-        System.out.println("You entered id " + distributorId);
+			try (Statement statement = connection.createStatement()) {
+				WolfPubDB.executeUpdate(sql);
 
-        Scanner in2 = new Scanner(System.in);
-        System.out.println("Enter publication's id");
-        int publicationId = in2.nextInt();
-        System.out.println("You entered id " + publicationId);
+                resultSet = statement.executeQuery(sql);
 
-        Scanner in3 = new Scanner(System.in);
-        System.out.println("Enter number of units");
-        int numberOfUnits = in3.nextInt();
-        System.out.println("You entered number of units " + numberOfUnits);
+                while(resultSet.next()){
+                    balance = resultSet.getFloat("Balance");
+                }
 
-        Scanner in4 = new Scanner(System.in);
-        System.out.println("Enter price per unit");
-        float pricePerUnit = in4.nextFloat();
-        System.out.println("You entered price per unit " + pricePerUnit);
+			} catch (SQLException error) {
+				return 0.0f;
+			}
 
-        Scanner in5 = new Scanner(System.in);
-        System.out.println("Enter order date (YYYY-MM-DD):");
-		String orderDate = in5.nextLine(); 
-        System.out.println("You entered date " + orderDate);
+		} catch (ClassNotFoundException | SQLException e) {
 
-        System.out.println("Enter shipping cost");
-		float shippingCost = in5.nextFloat(); 
-        System.out.println("You entered shipping cost " + shippingCost);
+			String errorMsg = "Unable to Connect Using jdbcURL: " + jdbcURL;
+			return 0.0f;
 
-        Scanner in6 = new Scanner(System.in);
-        System.out.println("Enter order status");
-		String orderStatus = in6.nextLine(); 
-        System.out.println("You entered order status " + orderStatus);
+		}
 
-        float totalBalance = (numberOfUnits*pricePerUnit) + shippingCost;
-
-        execute(orderId,distributorId,publicationId,numberOfUnits,pricePerUnit,orderDate,shippingCost,orderStatus);
-
-        showOrderDetails();
-
-        BillDistributor.run(totalBalance,distributorId,orderDate);
+        return balance;
+        
     }
+
+     public static ExecResult execute(int orderID, int distributorID, int publicationID, int numberOfUnits, float pricePerUnit, String orderDate, float shippingCost, String orderStatus, int transactionID, float transactionAmount, float totalBalance) {
+
+        ExecResult result = null;
+
+        String sql = "INSERT INTO Transaction VALUES "  + "\n" + "\t" +
+				"(%d , %.2f , '%s')"  + "\n" +
+			";" + "\n" + "\n";
+        
+		sql = String.format(sql, transactionID, transactionAmount, orderDate);
+
+        result = WolfPubDB.executeUpdate(sql);
+
+        if(!result.success) {
+			return result;
+		}
+
+		sql = "INSERT INTO Orders VALUES "  + "\n" + "\t" +
+				"(%d , %d , %d , %d , %.2f , '%s' , %.2f , '%s')"  + "\n" +
+			";" + "\n" + "\n";
+        
+		sql = String.format(sql, orderID, distributorID, publicationID, numberOfUnits, pricePerUnit, orderDate, shippingCost, orderStatus);
+
+        result = WolfPubDB.executeUpdate(sql);
+
+        if(!result.success){
+            return result;
+        }
+
+        sql = 
+			"UPDATE Distributor SET %s=%.2f WHERE DistributorID = "  + "\n" + "\t" +
+				"(%d)"  + "\n" +
+			";" + "\n" + "\n"
+		    ;
+
+        sql = String.format(sql,"Balance",totalBalance,distributorID);
+
+		return WolfPubDB.executeUpdate(sql);
+	}
+
+
+    public static ExecResult run(Scanner reader) {
+		System.out.println("+------------------------------------+");
+		System.out.println("| Please Submit the Following Inputs |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		System.out.println("Order ID: ");
+		int orderID = reader.nextInt();
+		reader.nextLine();
+
+        System.out.println("Distributor ID: ");
+		int distributorID = reader.nextInt();
+		reader.nextLine();
+
+        System.out.println("Publication ID: ");
+		int publicationID = reader.nextInt();
+		reader.nextLine();
+
+        System.out.println("Transaction ID: ");
+		int transactionID = reader.nextInt();
+		reader.nextLine();
+
+        System.out.println("Number of units: ");
+		int numberOfUnits = reader.nextInt();
+		reader.nextLine();
+
+        System.out.println("Price per unit: ");
+		float pricePerUnit = reader.nextFloat();
+		reader.nextLine();
+
+        System.out.println("Order Date (YYYY-MM-DD): ");
+        String orderDate = reader.nextLine();
+
+        System.out.println("Order Status: ");
+		String orderStatus = reader.nextLine(); 
+
+        System.out.println("Shipping Cost: ");
+		float shippingCost = reader.nextFloat(); 
+        reader.nextLine();
+
+        float currentBalance = getResults(distributorID);
+
+        float transactionAmount = (numberOfUnits*pricePerUnit) + shippingCost;
+
+        float totalBalance = transactionAmount + currentBalance;
+
+		return execute(orderID,distributorID,publicationID,numberOfUnits,pricePerUnit,orderDate,shippingCost,orderStatus,transactionID,transactionAmount,totalBalance);	
+	}
 
 }

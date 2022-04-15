@@ -14,8 +14,8 @@ import java.lang.StringBuilder;
 public class WolfPubDB {
 	
 	/* Static Data - change to your user credentials */
-	private static final String user = "vdesai5";												// username
-	private static final String password = "200368285";											// password
+	private static final String user = "nkotche";												// username
+	private static final String password = "Adder0108&";											// password
 	private static final String jdbcURL = "jdbc:mariadb://classdb2.csc.ncsu.edu:3306/"+user;	// url
 
 	/* Instance Fields (none at the moment, everything is static) */
@@ -130,6 +130,34 @@ public class WolfPubDB {
 	}
 
 
+
+	public static Result executeQueryForResult(String sql) {
+
+		ResultSet resultSet = null;
+		int id = 0;
+
+		try (Connection connection = connect()) {
+
+			try (Statement statement = connection.createStatement()) {
+				resultSet = statement.executeQuery(sql);
+				while(resultSet.next()){
+					id = resultSet.getInt("PublicationID");
+				}
+			} catch (SQLException error) {
+				return new Result(resultSet, "Problem Executing SQL Query");
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			String errorMsg = "Unable to Connect Using jdbcURL: " + jdbcURL;
+			return new Result(resultSet, errorMsg);
+
+		}
+		System.out.println("result ::::::" + id + resultSet);
+		return new Result(resultSet, "");
+	}
+
+
 	/**
 	 * Function used for executing a single SQL update statement on the database.
 	 * 
@@ -179,7 +207,7 @@ public class WolfPubDB {
 		}
 		while (rs.next()) {
 			for (int i = 1; i <= columnsNumber; i++) {
-				int valueLength = rs.getString(i).length();
+				int valueLength = (rs.getString(i) == null) ? 0 : rs.getString(i).length();
 				if (valueLength > columnSizes[i-1]) {
 					columnSizes[i-1] = valueLength;
 				}

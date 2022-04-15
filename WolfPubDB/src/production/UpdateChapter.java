@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.sql.*;
 
-public class UpdateIssue {
+public class UpdateChapter {
 
     public static ExecResult execute(String sql) {
         
@@ -18,11 +18,11 @@ public class UpdateIssue {
     public static ExecResult run(Scanner reader) {
 
         System.out.println("+------------------------------------+");
-		System.out.println("|         Periodical Details         |");
+		System.out.println("|         Chapter Details         |");
 		System.out.println("+------------------------------------+");
 		System.out.println("");
 
-        showDetails("Periodical");
+        showDetails("Chapter");
 
 		System.out.println("+------------------------------------+");
 		System.out.println("| Please Submit the Following Inputs |");
@@ -40,25 +40,25 @@ public class UpdateIssue {
 
         String sql = "";
 
-        if(attributeName.equals("Type") || attributeName.equals("Title") || attributeName.equals("IssueDate")){
+        if(attributeName.equals("Text") || attributeName.equals("Title")){
             
 		    String updatedAttributeValue = reader.nextLine();
 
             sql = 
-			"UPDATE Periodical SET %s='%s' WHERE PublicationID = "  + "\n" + "\t" +
+			"UPDATE Chapter SET %s='%s' WHERE PublicationID = "  + "\n" + "\t" +
 				"(%d)"  + "\n" +
 			";" + "\n" + "\n"
 		    ;
         
 		    sql = String.format(sql, attributeName,updatedAttributeValue,publicationID);
 
-        } else if(attributeName.equals("Issue")){
+        } else if(attributeName.equals("ChapterNumber")){
 
             int updatedAttributeValue = reader.nextInt();
             reader.nextLine();
 
             sql = 
-			"UPDATE Periodical SET %s=%d WHERE PublicationID = "  + "\n" + "\t" +
+			"UPDATE Chapter SET %s=%d WHERE PublicationID = "  + "\n" + "\t" +
 				"(%d)"  + "\n" +
 			";" + "\n" + "\n"
 		    ;

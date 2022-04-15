@@ -34,16 +34,14 @@ public class WolfCity{
         "27. Delete Distributor",
         "28. Update Distributor Details",
         "29. Create Order",
-        "30. Bill Distributor",
-        "31. Update Balance",
-        "32. Monthly Orders Report",
-        "33. Monthly Revenues Report",
-        "34. Monthly Expenses Report",
-        "35. Total Distributor Count Report",
-        "36. Report Revenue By City",
-        "37. Distributor Revenue Report",
-        "38. Location Revenue Report",
-        "39. Employee Payments Report",
+        "30. Monthly Orders Report",
+        "31. Monthly Revenues Report",
+        "32. Monthly Expenses Report",
+        "33. Total Distributor Count Report",
+        "34. Report Revenue By City",
+        "35. Distributor Revenue Report",
+        "36. Location Revenue Report",
+        "37. Employee Payments Report",
     };
     private static final String[] PubManagerOps = {
         "0. Logout",
@@ -87,8 +85,6 @@ public class WolfCity{
         "2. Delete Distributor",
         "3. Update Distributor Details",
         "4. Create Order",
-        "5. Bill Distributor",
-        "6. Update Balance",
     };
     private static final String[] AnalystOps = {
         "0. Logout",
@@ -212,106 +208,126 @@ public class WolfCity{
 
         ExecResult result = null;
 
-        if(this.position == 1){
-            switch(this.operation){
-                case 1:
-                    result = CreatePublication.run(sc);
-                    break;
-                case 2:
-                    result = UpdatePublication.run(sc);
-                    break;
-                case 3:
-                    result = AssignEditor.run(sc);
-                    break;
-                case 4:
-                    result = ViewPublication.run(sc);
-                    break;
-                case 5:
-                    result = AddBookChapter.run(sc);
-                    break;
-                case 6:
-                    result = DeleteBookChapter.run(sc);
-                    break;
-                case 7:
-                    result = AddArticle.run(sc);
-                    break;
-                case 8:
-                    result = DeleteArticle.run(sc);
-                    break;
-                case 9:
-                    break;
-                case 10:
-                    break;
-                case 11:
-                    break;
-                case 12:
-                    break;
-                case 13:
-                    break;
-                case 14:
-                    break;
-                case 15:
-                    break;
-                case 16:
-                    break;
-                case 17:
-                    break;
-                case 18:
-                    break;
-                case 19:
-                    break;
-                case 20:
-                    break;
-                case 21:
-                    break;
-                case 22:
-                    break;
-                case 23:
-                    break;
-                case 24:
-                    break;
-                case 25:
-                    break;
-                case 26:
-                    break;
-                case 27:
-                    break;
-                case 28:
-                    break;
-                case 29:
-                    break;
-                case 30:
-                    break;
-                case 31:
-                    break;
-                case 32:
-                    result = MonthlyOrdersReport.run(this.sc);
-                    break;
-                case 33:
-                    result = MonthlyRevenuesReport.run(this.sc);
-                    break;
-                case 34:
-                    result = MonthlyExpensesReport.run(this.sc);
-                    break;
-                case 35:
-                    result = DistributorCountReport.run(this.sc);
-                    break;
-                case 36:
-                    result = CityRevenueReport.run(this.sc);
-                    break;
-                case 37:
-                    result = DistributorRevenueReport.run(this.sc);
-                    break;
-                case 38:
-                    result = LocationRevenueReport.run(this.sc);
-                    break;
-                case 39:
-                    result = EmployeePaymentsReport.run(this.sc);
-                    break;
-                default:
-                    return;
-            }
-        } 
+        if(this.position == 1){	
+            switch(this.operation){	
+                case 1:	
+                    result = CreatePublication.run(this.sc);	
+                    break;	
+                case 2:	
+                    break;	
+                case 3:	
+                    result = AssignEditor.run(this.sc);	
+                    break;	
+                case 4:	
+                    result = ViewPublication.run(this.sc);	
+                    break;	
+                case 5:	
+                    result = AddBookChapter.run(this.sc);	
+                    break;	
+                case 6:	
+                    result = DeleteBookChapter.run(this.sc);	
+                    break;	
+                case 7:	
+                    result = AddArticle.run(this.sc);	
+                    break;	
+                case 8:	
+                    result = DeleteArticle.run(this.sc);	
+                    break;	
+                case 9:	
+                    result = CreateIssue.run(this.sc);	
+                    break;	
+                case 10:	
+                    result = DeleteIssue.run(this.sc);	
+                    break;	
+                case 11:	
+                    result = UpdateIssue.run(this.sc);	
+                    break;	
+                case 12:	
+                    result = CreateBookEdition.run(this.sc);	
+                    break;	
+                case 13:	
+                    result = DeleteBookEdition.run(this.sc);	
+                    break;	
+                case 14:	
+                    result = UpdateBookEdition.run(this.sc);	
+                    break;	
+                case 15:	
+                    result = AddEditionAuthor.run(this.sc);	
+                    break;	
+                case 16:	
+                    result = DeleteEditionAuthor.run(this.sc);	
+                    break;	
+                case 17:	
+                    result = UpdateArticle.run(this.sc);	
+                    break;	
+                case 18:	
+                    result = UpdateArticleText.run(this.sc);	
+                    break;	
+                case 19:	
+                    result = AddArticleAuthor.run(this.sc);	
+                    break;	
+                case 20:	
+                    result = DeleteArticleAuthor.run(this.sc);	
+                    break;	
+                case 21:	
+                    result = UpdateChapter.run(this.sc);	
+                    break;	
+                case 22:	
+                    result = FindBook.run(this.sc);	
+                    break;	
+                case 23:	
+                    result = FindArticle.run(this.sc);	
+                    break;	
+                case 24:	
+                    result = PayAuthorsEditors.run(this.sc);	
+                    break;	
+                case 25:	
+                    result = ViewContributorPayment.run(this.sc);	
+                    break;	
+                case 26:	
+                    result = CreateDistributor.run(this.sc);	
+                    break;	
+                case 27:	
+                    result = DeleteDistributor.run(this.sc);	
+                    break;	
+                case 28:	
+                    result = UpdateDistributor.run(this.sc);	
+                    break;	
+                case 29:	
+                    result = CreateOrder.run(this.sc);	
+                    break;	
+                case 30:	
+                    break;	
+                case 31:	
+                    break;	
+                case 32:	
+                    result = MonthlyOrdersReport.run(this.sc);	
+                    break;	
+                case 33:	
+                    result = MonthlyRevenuesReport.run(this.sc);	
+                    break;	
+                case 34:	
+                    result = MonthlyExpensesReport.run(this.sc);	
+                    break;	
+                case 35:	
+                    result = DistributorCountReport.run(this.sc);	
+                    break;	
+                case 36:	
+                    result = CityRevenueReport.run(this.sc);	
+                    break;	
+                case 37:	
+                    result = DistributorRevenueReport.run(this.sc);	
+                    break;	
+                case 38:	
+                    result = LocationRevenueReport.run(this.sc);	
+                    break;	
+                case 39:	
+                    result = EmployeePaymentsReport.run(this.sc);	
+                    break;	
+                default:	
+                    return;	
+            }	
+        }
         else if (this.position == 2) {
             switch (this.operation) {
                 case 1:
@@ -384,23 +400,23 @@ public class WolfCity{
                     return;
             }
         }
-        else if (this.position == 4) {
-            switch (this.operation) {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                default:
-                    return;
-            }
+        else if (this.position == 4) {	
+            switch (this.operation) {	
+                case 1:	
+                    result = CreateDistributor.run(this.sc);	
+                    break;	
+                case 2:	
+                    result = DeleteDistributor.run(this.sc);	
+                    break;	
+                case 3:	
+                    result = UpdateDistributor.run(this.sc);	
+                    break;	
+                case 4:	
+                    result = CreateOrder.run(this.sc);	
+                    break;	
+                default:	
+                    return;	
+            }	
         }
         else if (this.position == 5) {
             switch (this.operation) {

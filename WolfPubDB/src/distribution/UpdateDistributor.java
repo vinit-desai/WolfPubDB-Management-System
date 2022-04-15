@@ -3,43 +3,84 @@ import java.sql.*;
 
 public class UpdateDistributor {
 
-	public static void execute(String columnName, int updateID, String updatedValues) {
-        String sql = String.format("UPDATE Distributor SET %s='%s' WHERE DistributorID = %d;",columnName,updatedValues,updateID);
-        System.out.println("sql::" + sql);
-		WolfPubDB.executeUpdate(sql);
+    public static ExecResult execute(String sql) {
+        
+		return WolfPubDB.executeUpdate(sql);
 	}
 
-   public static void showDistributorDetails(){
-        String sql = String.format("SELECT * FROM Distributor;");
+   public static void showDetails(String tableName){
+        String sql = String.format("SELECT * FROM " + tableName + ";");
         System.out.println("sql::" + sql);
 		WolfPubDB.executeQuery(sql);
     }
 
-	public static void main(String[] args) {
-		System.out.println("\n");
-		System.out.println("Update distributor data");
-        Scanner in = new Scanner(System.in);
 
-        showDistributorDetails();
+    public static ExecResult run(Scanner reader) {
 
-        System.out.println("Enter the number of columns you want to update");
-        int numberOfColums = in.nextInt();
+        System.out.println("+------------------------------------+");
+		System.out.println("|         Distributor Details         |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
 
-        for(int i = 0;i <numberOfColums;i++){
-            Scanner in1 = new Scanner(System.in);
+        showDetails("Distributor");
 
-            System.out.println("Enter the name of the column you want to update");
-            String columnName = in1.nextLine();
+		System.out.println("+------------------------------------+");
+		System.out.println("| Please Submit the Following Inputs |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
 
-            System.out.println("Enter the values you want to update the existing data as");
-            String updatedValues = in1.nextLine();
+		System.out.println("Distributor ID: ");
+		int distributorID = reader.nextInt();
+		reader.nextLine();
 
-            System.out.println("Enter the distributorID of the row you want to update");
-            int updateID = in1.nextInt();
+        System.out.println("Attribute you want to update: ");
+		String attributeName = reader.nextLine();
 
-            execute(columnName,updateID,updatedValues);
-        }
+        System.out.println("New attribute value: ");
+
+        String sql = "";
+
+        if(attributeName.equals("Name") || attributeName.equals("StreetAddress") || attributeName.equals("ContactPerson") || attributeName.equals("Type")){
+            
+		    String updatedAttributeValue = reader.nextLine();
+
+            sql = 
+			"UPDATE Distributor SET %s='%s' WHERE DistributorID = "  + "\n" + "\t" +
+				"(%d)"  + "\n" +
+			";" + "\n" + "\n"
+		    ;
         
+		    sql = String.format(sql, attributeName,updatedAttributeValue,distributorID);
+
+        } else if(attributeName.equals("PhoneNumber")){
+
+            int updatedAttributeValue = reader.nextInt();
+            reader.nextLine();
+
+            sql = 
+			"UPDATE Distributor SET %s=%d WHERE DistributorID = "  + "\n" + "\t" +
+				"(%d)"  + "\n" +
+			";" + "\n" + "\n"
+		    ;
+        
+		    sql = String.format(sql, attributeName,updatedAttributeValue,distributorID);
+
+        } else if(attributeName.equals("Balance")){
+
+            float updatedAttributeValue = reader.nextFloat();
+            reader.nextLine();
+
+            sql = 
+			"UPDATE Distributor SET %s=%.2f WHERE DistributorID = "  + "\n" + "\t" +
+				"(%d)"  + "\n" +
+			";" + "\n" + "\n"
+		    ;
+        
+		    sql = String.format(sql, attributeName,updatedAttributeValue,distributorID);
+
+        }	
+
+        return execute(sql);
 	}
 
 }
