@@ -297,28 +297,28 @@ public class WolfCity{
                 case 29:	
                     result = CreateOrder.run(this.sc);	
                     break;	
-                case 31:	
+                case 30:	
                     result = MonthlyOrdersReport.run(this.sc);	
                     break;	
-                case 32:	
+                case 31:	
                     result = MonthlyRevenuesReport.run(this.sc);	
                     break;	
-                case 33:	
+                case 32:	
                     result = MonthlyExpensesReport.run(this.sc);	
                     break;	
-                case 34:	
+                case 33:	
                     result = DistributorCountReport.run(this.sc);	
                     break;	
-                case 35:	
+                case 34:	
                     result = CityRevenueReport.run(this.sc);	
                     break;	
-                case 36:	
+                case 35:	
                     result = DistributorRevenueReport.run(this.sc);	
                     break;	
-                case 37:	
+                case 36:	
                     result = LocationRevenueReport.run(this.sc);	
                     break;	
-                case 38:	
+                case 37:	
                     result = EmployeePaymentsReport.run(this.sc);	
                     break;	
                 default:	
@@ -409,7 +409,7 @@ public class WolfCity{
         else if (this.position == 3) {
             switch (this.operation) {
                 case 1:	
-                    result = ViewPublication.run(this.sc);	
+                    result = ListEditorPublication.run(this.sc);	
                     break;	
                 case 2:	
                     result = AddBookChapter.run(this.sc);	
@@ -447,21 +447,31 @@ public class WolfCity{
         }
         else if (this.position == 5) {
             switch (this.operation) { 
-                case 1:
+                case 1:	
+                    result = MonthlyOrdersReport.run(this.sc);	
+                    break;	
+                case 2:	
+                    result = MonthlyRevenuesReport.run(this.sc);	
+                    break;	
+                case 3:	
+                    result = MonthlyExpensesReport.run(this.sc);	
+                    break;	
+                case 4:	
+                    result = DistributorCountReport.run(this.sc);	
+                    break;	
+                case 5:	
+                    result = CityRevenueReport.run(this.sc);	
+                    break;	
+                case 6:	
+                    result = DistributorRevenueReport.run(this.sc);	
+                    break;	
+                case 7:	
+                    result = LocationRevenueReport.run(this.sc);	
+                    break;	
+                case 8:	
+                    result = EmployeePaymentsReport.run(this.sc);	
                     break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-                case 8:
+                default:
                     break;
             }
         }
