@@ -296,32 +296,28 @@ public class WolfCity{
                 case 29:	
                     result = CreateOrder.run(this.sc);	
                     break;	
-                case 30:	
-                    break;	
                 case 31:	
-                    break;	
-                case 32:	
                     result = MonthlyOrdersReport.run(this.sc);	
                     break;	
-                case 33:	
+                case 32:	
                     result = MonthlyRevenuesReport.run(this.sc);	
                     break;	
-                case 34:	
+                case 33:	
                     result = MonthlyExpensesReport.run(this.sc);	
                     break;	
-                case 35:	
+                case 34:	
                     result = DistributorCountReport.run(this.sc);	
                     break;	
-                case 36:	
+                case 35:	
                     result = CityRevenueReport.run(this.sc);	
                     break;	
-                case 37:	
+                case 36:	
                     result = DistributorRevenueReport.run(this.sc);	
                     break;	
-                case 38:	
+                case 37:	
                     result = LocationRevenueReport.run(this.sc);	
                     break;	
-                case 39:	
+                case 38:	
                     result = EmployeePaymentsReport.run(this.sc);	
                     break;	
                 default:	
@@ -330,55 +326,79 @@ public class WolfCity{
         }
         else if (this.position == 2) {
             switch (this.operation) {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-                case 8:
+                case 1:	
+                    result = CreatePublication.run(this.sc);	
+                    break;	
+                case 2:	
+                    break;	
+                case 3:	
+                    result = AssignEditor.run(this.sc);	
+                    break;	
+                case 4:	
+                    result = ViewPublication.run(this.sc);	
+                    break;	
+                case 5:	
+                    result = AddBookChapter.run(this.sc);	
+                    break;	
+                case 6:	
+                    result = DeleteBookChapter.run(this.sc);	
+                    break;	
+                case 7:	
+                    result = AddArticle.run(this.sc);	
+                    break;	
+                case 8:	
+                    result = DeleteArticle.run(this.sc);	
                     break;
                 case 9:
+                    result = CreateIssue.run(this.sc);
                     break;
                 case 10:
+                    result = DeleteIssue.run(this.sc);
                     break;
                 case 11:
+                    result = UpdateIssue.run(this.sc);
                     break;
                 case 12:
+                    result = CreateBookEdition.run(this.sc);
                     break;
                 case 13:
+                    result = DeleteBookEdition.run(this.sc);
                     break;
                 case 14:
+                    result = UpdateBookEdition.run(this.sc);
                     break;
                 case 15:
+                    result = AddEditionAuthor.run(this.sc);
                     break;
                 case 16:
+                    result = DeleteEditionAuthor.run(this.sc);
                     break;
                 case 17:
+                    result = UpdateArticle.run(this.sc);
                     break;
                 case 18:
+                    result = UpdateArticleText.run(this.sc);
                     break;
                 case 19:
+                    result = AddArticleAuthor.run(this.sc);
                     break;
                 case 20:
+                    result = DeleteArticleAuthor.run(this.sc);
                     break;
                 case 21:
+                    result = UpdateChapter.run(this.sc);
                     break;
                 case 22:
+                    result = FindBook.run(this.sc);
                     break;
                 case 23:
+                    result = FindArticle.run(this.sc);
                     break;
                 case 24:
+                    result = PayAuthorsEditors.run(this.sc);
                     break;
                 case 25:
+                    result = ViewContributorPayment.run(this.sc);
                     break;
                 default:
                     return;
@@ -386,15 +406,20 @@ public class WolfCity{
         }
         else if (this.position == 3) {
             switch (this.operation) {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
+                case 1:	
+                    result = ViewPublication.run(this.sc);	
+                    break;	
+                case 2:	
+                    result = AddBookChapter.run(this.sc);	
+                    break;	
+                case 3:	
+                    result = DeleteBookChapter.run(this.sc);	
+                    break;	
+                case 4:	
+                    result = AddArticle.run(this.sc);	
+                    break;	
+                case 5:	
+                    result = DeleteArticle.run(this.sc);	
                     break;
                 default:
                     return;
@@ -419,7 +444,7 @@ public class WolfCity{
             }	
         }
         else if (this.position == 5) {
-            switch (this.operation) {
+            switch (this.operation) { 
                 case 1:
                     break;
                 case 2:
