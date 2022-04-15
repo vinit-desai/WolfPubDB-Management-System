@@ -29,8 +29,35 @@ public class PayAuthorsEditors {
 		return WolfPubDB.executeUpdate(sql);
 	}
 
+	public static void showDetails(String tableName){
+        String sql = String.format("SELECT * FROM " + tableName + ";");
+		WolfPubDB.executeQuery(sql);
+    }
+
 
     public static ExecResult run(Scanner reader) {
+
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Transaction Details        |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+        showDetails("Transaction");
+
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Contributor Details        |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+        showDetails("Contributor");
+
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Wage Details        |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+        showDetails("Wages");
+
 		System.out.println("+------------------------------------+");
 		System.out.println("| Please Submit the Following Inputs |");
 		System.out.println("+------------------------------------+");
@@ -52,7 +79,7 @@ public class PayAuthorsEditors {
 		String wageType = reader.nextLine(); 
 
         System.out.println("Transaction Amount: ");
-		int transactionAmount = reader.nextInt();
+		float transactionAmount = reader.nextFloat();
 		reader.nextLine();
 
 		return execute(transactionID, transactionAmount, issueDate, contributorID, wageType);	

@@ -10,7 +10,6 @@ public class UpdateIssue {
 
    public static void showDetails(String tableName){
         String sql = String.format("SELECT * FROM " + tableName + ";");
-        System.out.println("sql::" + sql);
 		WolfPubDB.executeQuery(sql);
     }
 

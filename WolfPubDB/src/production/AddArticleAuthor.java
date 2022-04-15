@@ -3,6 +3,11 @@ import java.sql.*;
 
 public class AddArticleAuthor {
 
+	public static void showDetails(String tableName){
+        String sql = String.format("SELECT * FROM " + tableName + ";");
+		WolfPubDB.executeQuery(sql);
+    }
+
     public static ExecResult execute(int publicationID, int sequenceNumber, int contributorID) {
 
         ExecResult result = null;
@@ -21,6 +26,21 @@ public class AddArticleAuthor {
 
 
     public static ExecResult run(Scanner reader) {
+
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Article Details        	 |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		showDetails("Article");
+
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Contributor Details        |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		showDetails("Contributor");
+
 		System.out.println("+------------------------------------+");
 		System.out.println("| Please Submit the Following Inputs |");
 		System.out.println("+------------------------------------+");

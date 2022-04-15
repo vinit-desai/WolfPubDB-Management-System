@@ -5,7 +5,7 @@ public class FindArticle {
 
     public static ExecResult execute(String sql) {
         
-		return WolfPubDB.executeUpdate(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 
@@ -30,7 +30,7 @@ public class FindArticle {
 		    String topic = reader.nextLine();
 
             sql = 
-			"SELECT * FROM Article WHERE PublicationID IN (SELECT * FROM Publication WHERE Topic='%s')"  + "\n" + "\t"  + "\n" +
+			"SELECT * FROM Article WHERE EXISTS (SELECT * FROM Publication WHERE Topic='%s')"  + "\n" + "\t"  + "\n" +
 			";" + "\n" + "\n"
 		    ;
         

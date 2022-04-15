@@ -5,7 +5,7 @@ public class FindBook {
 
     public static ExecResult execute(String sql) {
         
-		return WolfPubDB.executeUpdate(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 
@@ -20,8 +20,6 @@ public class FindBook {
 		int option = reader.nextInt();
         reader.nextLine();
 
-
-
         String sql = "";
 
         if(option == 1){
@@ -30,11 +28,13 @@ public class FindBook {
 		    String topic = reader.nextLine();
 
             sql = 
-			"SELECT * FROM Book WHERE PublicationID IN (SELECT * FROM Publication WHERE Topic='%s')"  + "\n" + "\t"  + "\n" +
+			"SELECT * FROM Book WHERE EXISTS (SELECT * FROM Publication WHERE Topic='%s')"  + "\n" + "\t"  + "\n" +
 			";" + "\n" + "\n"
 		    ;
         
 		    sql = String.format(sql, topic);
+
+			System.out.println("sql:::" + sql);
 
         } else if(option == 2){
 
@@ -47,6 +47,8 @@ public class FindBook {
 		    ;
         
 		    sql = String.format(sql, creationDate);
+
+			System.out.println("sql:::" + sql);
 
         }	
 

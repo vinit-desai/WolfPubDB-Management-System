@@ -2,6 +2,12 @@ import java.util.Scanner;
 
 public class DeleteDistributor {
 
+	public static void showDetails(String tableName){
+        String sql = String.format("SELECT * FROM " + tableName + ";");
+        System.out.println("sql::" + sql);
+		WolfPubDB.executeQuery(sql);
+    }
+
     public static ExecResult execute(int distributorID) {
 
 		String sql = 
@@ -25,6 +31,13 @@ public class DeleteDistributor {
 
 
     public static ExecResult run(Scanner reader) {
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Distributor Details        |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		showDetails("Distributor");
+
 		System.out.println("+------------------------------------+");
 		System.out.println("| Please Submit the Following Inputs |");
 		System.out.println("+------------------------------------+");

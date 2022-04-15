@@ -66,8 +66,8 @@ public class InitDB {
 	private static void connectToDatabase() throws ClassNotFoundException, SQLException {
 		Class.forName("org.mariadb.jdbc.Driver");
 
-		String user = "vdesai5";
-		String password = "200368285";
+		String user = "nkotche";
+		String password = "Adder0108&";
 
 		connection = DriverManager.getConnection(jdbcURL, user, password);
 		statement = connection.createStatement();

@@ -130,34 +130,6 @@ public class WolfPubDB {
 	}
 
 
-
-	public static Result executeQueryForResult(String sql) {
-
-		ResultSet resultSet = null;
-		int id = 0;
-
-		try (Connection connection = connect()) {
-
-			try (Statement statement = connection.createStatement()) {
-				resultSet = statement.executeQuery(sql);
-				while(resultSet.next()){
-					id = resultSet.getInt("PublicationID");
-				}
-			} catch (SQLException error) {
-				return new Result(resultSet, "Problem Executing SQL Query");
-			}
-
-		} catch (ClassNotFoundException | SQLException e) {
-
-			String errorMsg = "Unable to Connect Using jdbcURL: " + jdbcURL;
-			return new Result(resultSet, errorMsg);
-
-		}
-		System.out.println("result ::::::" + id + resultSet);
-		return new Result(resultSet, "");
-	}
-
-
 	/**
 	 * Function used for executing a single SQL update statement on the database.
 	 * 

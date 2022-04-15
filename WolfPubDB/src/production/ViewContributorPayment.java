@@ -10,7 +10,7 @@ public class ViewContributorPayment {
 			";" + "\n" + "\n"
 		    ;
         
-		return WolfPubDB.executeUpdate(sql);
+		return WolfPubDB.executeQuery(sql);
 	}
 
 

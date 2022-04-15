@@ -19,6 +19,7 @@ public class CreateIssue {
         
 		sql = String.format(sql, publicationID, publicationType, publishDate, publicationTopic);
 
+		result = WolfPubDB.executeUpdate(sql);
 
         if(!result.success){
             return result;

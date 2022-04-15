@@ -29,9 +29,8 @@ public class UpdateChapter {
 		System.out.println("+------------------------------------+");
 		System.out.println("");
 
-		System.out.println("Publication ID: ");
-		int publicationID = reader.nextInt();
-		reader.nextLine();
+		System.out.println("Title of chapter you want to update: ");
+		String chapterTitle = reader.nextLine();
 
         System.out.println("Attribute you want to update: ");
 		String attributeName = reader.nextLine();
@@ -45,25 +44,25 @@ public class UpdateChapter {
 		    String updatedAttributeValue = reader.nextLine();
 
             sql = 
-			"UPDATE Chapter SET %s='%s' WHERE PublicationID = "  + "\n" + "\t" +
-				"(%d)"  + "\n" +
+			"UPDATE Chapter SET %s='%s' WHERE Title = "  + "\n" + "\t" +
+				"'%s'"  + "\n" +
 			";" + "\n" + "\n"
 		    ;
         
-		    sql = String.format(sql, attributeName,updatedAttributeValue,publicationID);
+		    sql = String.format(sql, attributeName,updatedAttributeValue,chapterTitle);
 
-        } else if(attributeName.equals("ChapterNumber")){
+        } else if(attributeName.equals("ChapterNumber") || attributeName.equals("PublicationID")){
 
             int updatedAttributeValue = reader.nextInt();
             reader.nextLine();
 
             sql = 
-			"UPDATE Chapter SET %s=%d WHERE PublicationID = "  + "\n" + "\t" +
-				"(%d)"  + "\n" +
+			"UPDATE Chapter SET %s=%d WHERE Title = "  + "\n" + "\t" +
+				"'%s'"  + "\n" +
 			";" + "\n" + "\n"
 		    ;
         
-		    sql = String.format(sql, attributeName,updatedAttributeValue,publicationID);
+		    sql = String.format(sql, attributeName,updatedAttributeValue,chapterTitle);
 
         }	
 

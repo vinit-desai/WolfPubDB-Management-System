@@ -34,6 +34,11 @@ public class DeleteBookEdition {
 
     public static ExecResult run(Scanner reader) {
 
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Book Details               |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
         showDetails("Book");
 
 		System.out.println("+------------------------------------+");

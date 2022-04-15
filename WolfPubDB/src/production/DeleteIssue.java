@@ -4,7 +4,6 @@ public class DeleteIssue {
 
     public static void showDetails(String tableName){
         String sql = String.format("SELECT * FROM " + tableName + ";");
-        System.out.println("sql::" + sql);
 		WolfPubDB.executeQuery(sql);
     }
 
@@ -33,6 +32,11 @@ public class DeleteIssue {
 
 
     public static ExecResult run(Scanner reader) {
+
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Periodical Details         |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
 
         showDetails("Periodical");
 

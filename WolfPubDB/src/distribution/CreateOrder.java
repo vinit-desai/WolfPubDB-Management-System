@@ -4,6 +4,12 @@ import java.lang.StringBuilder;
 
 public class CreateOrder {
 
+	public static void showDetails(String tableName){
+        String sql = String.format("SELECT * FROM " + tableName + ";");
+        System.out.println("sql::" + sql);
+		WolfPubDB.executeQuery(sql);
+    }
+
     private static final String user = "nkotche";												// username
 	private static final String password = "Adder0108&";											// password
 	private static final String jdbcURL = "jdbc:mariadb://classdb2.csc.ncsu.edu:3306/"+user;
@@ -90,6 +96,20 @@ public class CreateOrder {
 
 
     public static ExecResult run(Scanner reader) {
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Distributor Details        |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		showDetails("Distributor");
+
+		System.out.println("+------------------------------------+");
+		System.out.println("|         Publication Details        |");
+		System.out.println("+------------------------------------+");
+		System.out.println("");
+
+		showDetails("Publication");
+
 		System.out.println("+------------------------------------+");
 		System.out.println("| Please Submit the Following Inputs |");
 		System.out.println("+------------------------------------+");
