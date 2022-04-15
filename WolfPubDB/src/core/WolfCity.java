@@ -214,6 +214,7 @@ public class WolfCity{
                     result = CreatePublication.run(this.sc);	
                     break;	
                 case 2:	
+                    result = UpdatePublication.run(this.sc);
                     break;	
                 case 3:	
                     result = AssignEditor.run(this.sc);	
@@ -330,6 +331,7 @@ public class WolfCity{
                     result = CreatePublication.run(this.sc);	
                     break;	
                 case 2:	
+                    result = UpdatePublication.run(this.sc);
                     break;	
                 case 3:	
                     result = AssignEditor.run(this.sc);	
